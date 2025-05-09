@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form1
+Partial Class Accueil
     Inherits System.Windows.Forms.Form
 
     'Form remplace la méthode Dispose pour nettoyer la liste des composants.
@@ -73,7 +73,7 @@ Partial Class Form1
         Me.ButtonJeu.Text = "Jouer"
         Me.ButtonJeu.UseVisualStyleBackColor = True
         '
-        'Form1
+        'Accueil
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -83,7 +83,7 @@ Partial Class Form1
         Me.Controls.Add(Me.ButtonScores)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ComboBoxPrenom)
-        Me.Name = "Form1"
+        Me.Name = "Accueil"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
         Me.PerformLayout()
