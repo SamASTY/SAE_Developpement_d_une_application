@@ -15,6 +15,7 @@
 
     Private Sub ButtonJeu_Click(sender As Object, e As EventArgs) Handles ButtonJeu.Click
         Dim formJeu As New Jeu()
+        formJeu.RecupererJoueur("nom")
         formJeu.Show()
         Me.Hide()
     End Sub

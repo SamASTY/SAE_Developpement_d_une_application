@@ -48,8 +48,9 @@ Partial Class Jeu
         Me.L_Carte11 = New System.Windows.Forms.Label()
         Me.L_Carte06 = New System.Windows.Forms.Label()
         Me.L_Carte01 = New System.Windows.Forms.Label()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer = New System.Windows.Forms.Timer(Me.components)
         Me.LabelTimer = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBoxPlateau.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -303,9 +304,6 @@ Partial Class Jeu
         Me.L_Carte01.Size = New System.Drawing.Size(129, 133)
         Me.L_Carte01.TabIndex = 9
         '
-        'Timer1
-        '
-        '
         'LabelTimer
         '
         Me.LabelTimer.AutoSize = True
@@ -316,11 +314,21 @@ Partial Class Jeu
         Me.LabelTimer.TabIndex = 3
         Me.LabelTimer.Text = "0"
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(571, 9)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(48, 16)
+        Me.Label3.TabIndex = 11
+        Me.Label3.Text = "Label3"
+        '
         'Jeu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(882, 770)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.ButtonAbandon)
         Me.Controls.Add(Me.LabelTimer)
         Me.Controls.Add(Me.Label2)
@@ -361,6 +369,7 @@ Partial Class Jeu
     Friend WithEvents L_Carte16 As Label
     Friend WithEvents L_Carte11 As Label
     Friend WithEvents L_Carte06 As Label
-    Friend WithEvents Timer1 As Timer
+    Friend WithEvents Timer As Timer
     Friend WithEvents LabelTimer As Label
+    Friend WithEvents Label3 As Label
 End Class
