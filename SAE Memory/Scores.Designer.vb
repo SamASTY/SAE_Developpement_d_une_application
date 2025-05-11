@@ -44,20 +44,18 @@ Partial Class formScore
         '
         'buttonQuitter
         '
-        Me.buttonQuitter.Location = New System.Drawing.Point(444, 571)
-        Me.buttonQuitter.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.buttonQuitter.Location = New System.Drawing.Point(296, 371)
         Me.buttonQuitter.Name = "buttonQuitter"
-        Me.buttonQuitter.Size = New System.Drawing.Size(165, 35)
+        Me.buttonQuitter.Size = New System.Drawing.Size(110, 23)
         Me.buttonQuitter.TabIndex = 7
         Me.buttonQuitter.Text = "Quitter"
         Me.buttonQuitter.UseVisualStyleBackColor = True
         '
         'buttonRejouer
         '
-        Me.buttonRejouer.Location = New System.Drawing.Point(36, 571)
-        Me.buttonRejouer.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.buttonRejouer.Location = New System.Drawing.Point(24, 371)
         Me.buttonRejouer.Name = "buttonRejouer"
-        Me.buttonRejouer.Size = New System.Drawing.Size(165, 35)
+        Me.buttonRejouer.Size = New System.Drawing.Size(110, 23)
         Me.buttonRejouer.TabIndex = 8
         Me.buttonRejouer.Text = "Rejouer"
         Me.buttonRejouer.UseVisualStyleBackColor = True
@@ -65,17 +63,19 @@ Partial Class formScore
         'LabelRechercher
         '
         Me.LabelRechercher.AutoSize = True
-        Me.LabelRechercher.Location = New System.Drawing.Point(44, 450)
+        Me.LabelRechercher.Location = New System.Drawing.Point(29, 292)
+        Me.LabelRechercher.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LabelRechercher.Name = "LabelRechercher"
-        Me.LabelRechercher.Size = New System.Drawing.Size(92, 20)
+        Me.LabelRechercher.Size = New System.Drawing.Size(63, 13)
         Me.LabelRechercher.TabIndex = 36
         Me.LabelRechercher.Text = "Rechercher"
         '
         'ButtonFermer
         '
-        Me.ButtonFermer.Location = New System.Drawing.Point(440, 114)
+        Me.ButtonFermer.Location = New System.Drawing.Point(293, 74)
+        Me.ButtonFermer.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ButtonFermer.Name = "ButtonFermer"
-        Me.ButtonFermer.Size = New System.Drawing.Size(86, 23)
+        Me.ButtonFermer.Size = New System.Drawing.Size(70, 24)
         Me.ButtonFermer.TabIndex = 35
         Me.ButtonFermer.Text = "Fermer"
         Me.ButtonFermer.UseVisualStyleBackColor = True
@@ -83,16 +83,18 @@ Partial Class formScore
         'ComboBoxJoueurValeur
         '
         Me.ComboBoxJoueurValeur.FormattingEnabled = True
-        Me.ComboBoxJoueurValeur.Location = New System.Drawing.Point(154, 450)
+        Me.ComboBoxJoueurValeur.Location = New System.Drawing.Point(103, 292)
+        Me.ComboBoxJoueurValeur.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ComboBoxJoueurValeur.Name = "ComboBoxJoueurValeur"
-        Me.ComboBoxJoueurValeur.Size = New System.Drawing.Size(74, 28)
+        Me.ComboBoxJoueurValeur.Size = New System.Drawing.Size(51, 21)
         Me.ComboBoxJoueurValeur.TabIndex = 34
         '
         'ButtonTri
         '
-        Me.ButtonTri.Location = New System.Drawing.Point(289, 114)
+        Me.ButtonTri.Location = New System.Drawing.Point(193, 74)
+        Me.ButtonTri.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ButtonTri.Name = "ButtonTri"
-        Me.ButtonTri.Size = New System.Drawing.Size(94, 23)
+        Me.ButtonTri.Size = New System.Drawing.Size(71, 24)
         Me.ButtonTri.TabIndex = 33
         Me.ButtonTri.Text = "Tri"
         Me.ButtonTri.UseVisualStyleBackColor = True
@@ -101,81 +103,85 @@ Partial Class formScore
         '
         Me.ListBoxTempsTotal.BackColor = System.Drawing.SystemColors.Window
         Me.ListBoxTempsTotal.FormattingEnabled = True
-        Me.ListBoxTempsTotal.ItemHeight = 20
-        Me.ListBoxTempsTotal.Location = New System.Drawing.Point(423, 420)
+        Me.ListBoxTempsTotal.Location = New System.Drawing.Point(282, 273)
+        Me.ListBoxTempsTotal.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ListBoxTempsTotal.Name = "ListBoxTempsTotal"
-        Me.ListBoxTempsTotal.Size = New System.Drawing.Size(174, 84)
+        Me.ListBoxTempsTotal.Size = New System.Drawing.Size(117, 56)
         Me.ListBoxTempsTotal.TabIndex = 32
         '
         'ListBoxNbParties
         '
         Me.ListBoxNbParties.FormattingEnabled = True
-        Me.ListBoxNbParties.ItemHeight = 20
-        Me.ListBoxNbParties.Location = New System.Drawing.Point(423, 239)
+        Me.ListBoxNbParties.Location = New System.Drawing.Point(282, 155)
+        Me.ListBoxNbParties.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ListBoxNbParties.Name = "ListBoxNbParties"
-        Me.ListBoxNbParties.Size = New System.Drawing.Size(133, 84)
+        Me.ListBoxNbParties.Size = New System.Drawing.Size(90, 56)
         Me.ListBoxNbParties.TabIndex = 31
         '
         'ListBoxTemps
         '
         Me.ListBoxTemps.FormattingEnabled = True
-        Me.ListBoxTemps.ItemHeight = 20
-        Me.ListBoxTemps.Location = New System.Drawing.Point(289, 239)
+        Me.ListBoxTemps.Location = New System.Drawing.Point(193, 155)
+        Me.ListBoxTemps.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ListBoxTemps.Name = "ListBoxTemps"
-        Me.ListBoxTemps.Size = New System.Drawing.Size(120, 84)
+        Me.ListBoxTemps.Size = New System.Drawing.Size(81, 56)
         Me.ListBoxTemps.TabIndex = 30
         '
         'ListBoxScores
         '
         Me.ListBoxScores.FormattingEnabled = True
-        Me.ListBoxScores.ItemHeight = 20
-        Me.ListBoxScores.Location = New System.Drawing.Point(138, 239)
+        Me.ListBoxScores.Location = New System.Drawing.Point(92, 155)
+        Me.ListBoxScores.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ListBoxScores.Name = "ListBoxScores"
-        Me.ListBoxScores.Size = New System.Drawing.Size(120, 84)
+        Me.ListBoxScores.Size = New System.Drawing.Size(81, 56)
         Me.ListBoxScores.TabIndex = 29
         '
         'ListBoxNoms
         '
         Me.ListBoxNoms.FormattingEnabled = True
-        Me.ListBoxNoms.ItemHeight = 20
-        Me.ListBoxNoms.Location = New System.Drawing.Point(12, 239)
+        Me.ListBoxNoms.Location = New System.Drawing.Point(8, 155)
+        Me.ListBoxNoms.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ListBoxNoms.Name = "ListBoxNoms"
-        Me.ListBoxNoms.Size = New System.Drawing.Size(120, 84)
+        Me.ListBoxNoms.Size = New System.Drawing.Size(81, 56)
         Me.ListBoxNoms.TabIndex = 28
         '
         'LabelNbParties
         '
         Me.LabelNbParties.AutoSize = True
-        Me.LabelNbParties.Location = New System.Drawing.Point(436, 202)
+        Me.LabelNbParties.Location = New System.Drawing.Point(291, 131)
+        Me.LabelNbParties.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LabelNbParties.Name = "LabelNbParties"
-        Me.LabelNbParties.Size = New System.Drawing.Size(58, 20)
+        Me.LabelNbParties.Size = New System.Drawing.Size(39, 13)
         Me.LabelNbParties.TabIndex = 27
         Me.LabelNbParties.Text = "Parties"
         '
         'LabelTempsTotal
         '
         Me.LabelTempsTotal.AutoSize = True
-        Me.LabelTempsTotal.Location = New System.Drawing.Point(285, 203)
+        Me.LabelTempsTotal.Location = New System.Drawing.Point(190, 132)
+        Me.LabelTempsTotal.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LabelTempsTotal.Name = "LabelTempsTotal"
-        Me.LabelTempsTotal.Size = New System.Drawing.Size(57, 20)
+        Me.LabelTempsTotal.Size = New System.Drawing.Size(39, 13)
         Me.LabelTempsTotal.TabIndex = 26
         Me.LabelTempsTotal.Text = "Temps"
         '
         'LabelScore
         '
         Me.LabelScore.AutoSize = True
-        Me.LabelScore.Location = New System.Drawing.Point(177, 203)
+        Me.LabelScore.Location = New System.Drawing.Point(118, 132)
+        Me.LabelScore.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LabelScore.Name = "LabelScore"
-        Me.LabelScore.Size = New System.Drawing.Size(51, 20)
+        Me.LabelScore.Size = New System.Drawing.Size(35, 13)
         Me.LabelScore.TabIndex = 25
         Me.LabelScore.Text = "Score"
         '
         'LabelNom
         '
         Me.LabelNom.AutoSize = True
-        Me.LabelNom.Location = New System.Drawing.Point(44, 203)
+        Me.LabelNom.Location = New System.Drawing.Point(29, 132)
+        Me.LabelNom.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LabelNom.Name = "LabelNom"
-        Me.LabelNom.Size = New System.Drawing.Size(42, 20)
+        Me.LabelNom.Size = New System.Drawing.Size(29, 13)
         Me.LabelNom.TabIndex = 24
         Me.LabelNom.Text = "Nom"
         '
@@ -183,35 +189,38 @@ Partial Class formScore
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(132, 34)
+        Me.Label2.Location = New System.Drawing.Point(88, 22)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(261, 32)
+        Me.Label2.Size = New System.Drawing.Size(176, 24)
         Me.Label2.TabIndex = 23
         Me.Label2.Text = "Tableau des scores"
         '
         'labelMaxValeur
         '
         Me.labelMaxValeur.AutoSize = True
-        Me.labelMaxValeur.Location = New System.Drawing.Point(29, 366)
+        Me.labelMaxValeur.Location = New System.Drawing.Point(19, 238)
+        Me.labelMaxValeur.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.labelMaxValeur.Name = "labelMaxValeur"
-        Me.labelMaxValeur.Size = New System.Drawing.Size(38, 20)
+        Me.labelMaxValeur.Size = New System.Drawing.Size(27, 13)
         Me.labelMaxValeur.TabIndex = 37
         Me.labelMaxValeur.Text = "Max"
         '
         'labelMinValeur
         '
         Me.labelMinValeur.AutoSize = True
-        Me.labelMinValeur.Location = New System.Drawing.Point(125, 366)
+        Me.labelMinValeur.Location = New System.Drawing.Point(83, 238)
+        Me.labelMinValeur.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.labelMinValeur.Name = "labelMinValeur"
-        Me.labelMinValeur.Size = New System.Drawing.Size(34, 20)
+        Me.labelMinValeur.Size = New System.Drawing.Size(24, 13)
         Me.labelMinValeur.TabIndex = 38
         Me.labelMinValeur.Text = "Min"
         '
         'formScore
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(654, 649)
+        Me.ClientSize = New System.Drawing.Size(436, 422)
         Me.Controls.Add(Me.labelMinValeur)
         Me.Controls.Add(Me.labelMaxValeur)
         Me.Controls.Add(Me.LabelRechercher)
@@ -230,6 +239,7 @@ Partial Class formScore
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.buttonRejouer)
         Me.Controls.Add(Me.buttonQuitter)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "formScore"
         Me.Text = "Scores"
         Me.ResumeLayout(False)
