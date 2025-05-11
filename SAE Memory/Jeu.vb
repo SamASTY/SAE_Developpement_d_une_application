@@ -1,7 +1,8 @@
 ﻿Imports System.Drawing.Drawing2D
+Imports System.Diagnostics
 
 Public Class Jeu
-    Dim Joueur As String
+    Dim joueurNom As String
     Dim cpt As Integer = 0
     Dim TempsMax As Integer = 60
     Dim CarteRetourne As List(Of Label)
@@ -10,7 +11,7 @@ Public Class Jeu
     Dim CarteGagner As List(Of Label)
 
     Public Sub RecupererJoueur(J As String)
-        Joueur = J
+        joueurNom = J
     End Sub
     Private Sub ButtonAbandon_Click(sender As Object, e As EventArgs) Handles ButtonAbandon.Click
         Dim reponse = MsgBox("Voulez-vous vraiment quitter l'application ?", vbYesNo)
@@ -25,10 +26,12 @@ Public Class Jeu
         Application.Exit()
     End Sub
     Private Sub Jeu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Debug.WriteLine("Chargement du formulaire score — joueur actuel : " & SauvegardeJoueur.P)
         Timer.Interval = 1000
         LabelTimer.Text = TempsMax
         Timer.Start()
         InitJeu()
+        LabelPseudo.Text = joueurNom
     End Sub
     Private Sub InitJeu()
         Dim cartes As List(Of Integer) = GenererListe4X5()
@@ -60,8 +63,8 @@ Public Class Jeu
     Private Function GenererListe4X5() As List(Of Integer)
         Dim Paquet As New List(Of Integer)
 
-        For valeur As Integer = 1 To 4
-            For i As Integer = 1 To 5
+        For valeur As Integer = 1 To 5
+            For i As Integer = 1 To 4
                 Paquet.Add(valeur)
             Next
         Next
@@ -87,6 +90,7 @@ Public Class Jeu
     Private Sub Carte_Click(sender As Object, e As EventArgs)
         'faire en sorte que la compte pas si la carte est deja retournée
         Dim label As Label = CType(sender, Label)
+
         If Not (CarteGagner.Contains(label) Or CarteRetourne.Contains(label)) Then
             If label.Tag = 1 Then
                 label.Image = My.Resources._1
@@ -96,21 +100,35 @@ Public Class Jeu
                 label.Image = My.Resources._3
             ElseIf label.Tag = 4 Then
                 label.Image = My.Resources._4
+            ElseIf label.Tag = 5 Then
+                label.Image = My.Resources._5
             End If
 
             compteurCarte += 1
 
-            Label3.Text = compteurCarte
 
             CarteRetourne.Add(label)
-            If nbMaxCarteRetourner = compteurCarte Then
-                If CartePareil() Then
-                    GriserCarteGagner()
-                Else
-                    ResetPlateauErreur()
-                End If
-                compteurCarte = 0
+
+            ' Verification lors de la selection de deux cartes.
+            If CarteRetourne.Count >= 2 Then
+                Dim valeurRef = CarteRetourne(0).Tag
+                For Each carte In CarteRetourne
+                    If carte.Tag <> valeurRef Then
+                        Task.Delay(500).Wait()
+                        ResetPlateauErreur()
+                        CarteRetourne.Clear()
+                        compteurCarte = 0
+                        Return
+                    End If
+                Next
+            End If
+
+            ' Verification du carre
+            If CarteRetourne.Count = 4 Then
+                CarteGagner.AddRange(CarteRetourne)
                 CarteRetourne.Clear()
+                compteurCarte = 0
+                LabelCompteurScore.Text = (CarteGagner.Count \ 4).ToString()
             End If
 
             If TousCarteRetournee() Then
@@ -123,10 +141,12 @@ Public Class Jeu
     End Sub
 
     Private Sub FinDeJeu()
-        SauvegardeJoueur.RecupererTemps(cpt)
-        SauvegardeJoueur.RecupererScore(CarteGagner.Count)
-        SauvegardeJoueur.RecupererPseudo(Joueur)
-        MsgBox("Bravo" & Joueur & " ! Vous avez réussi à trouver " & CarteGagner.Count & " cartes en " & cpt & " secondes.")
+        SauvegardeJoueur.P = joueurNom
+        EnregistrerJoueur(joueurNom, CarteGagner.Count, cpt)
+        For Each j In SauvegardeJoueur.Joueurs
+            Debug.WriteLine("Joueur : " & j.Pseudo)
+        Next
+        MsgBox("Bravo " & joueurNom & " ! Vous avez réussi à trouver " & CarteGagner.Count & " cartes en " & cpt & " secondes.")
         Me.Hide()
         Accueil.Show()
     End Sub
@@ -160,4 +180,5 @@ Public Class Jeu
             FinDeJeu()
         End If
     End Sub
+
 End Class

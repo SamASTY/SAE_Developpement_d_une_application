@@ -11,3 +11,17 @@ D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\bin\
 D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE Memory.exe
 D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE Memory.xml
 D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE Memory.pdb
+C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\bin\Debug\SAE Memory.exe.config
+C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\bin\Debug\SAE Memory.exe
+C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\bin\Debug\SAE Memory.pdb
+C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\bin\Debug\SAE Memory.xml
+C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE Memory.vbproj.AssemblyReference.cache
+C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE_Memory.Accueil.resources
+C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE_Memory.Jeu.resources
+C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE_Memory.Resources.resources
+C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE Memory.vbproj.GenerateResource.cache
+C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE Memory.vbproj.CoreCompileInputs.cache
+C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE Memory.exe
+C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE Memory.xml
+C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE Memory.pdb
+C:\Users\Soso\source\repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE_Memory.formScore.resources

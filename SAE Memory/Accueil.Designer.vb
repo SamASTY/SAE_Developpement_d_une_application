@@ -66,6 +66,7 @@ Partial Class Accueil
         '
         'ButtonJeu
         '
+        Me.ButtonJeu.Enabled = False
         Me.ButtonJeu.Location = New System.Drawing.Point(130, 100)
         Me.ButtonJeu.Name = "ButtonJeu"
         Me.ButtonJeu.Size = New System.Drawing.Size(75, 23)
