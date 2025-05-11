@@ -25,3 +25,17 @@ C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\De
 C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE Memory.xml
 C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE Memory.pdb
 C:\Users\Soso\source\repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE_Memory.formScore.resources
+C:\Users\Angel\OneDrive - Université de Paris\SEMESTRE 2\SAE\SAE VB\SAE Memory\bin\Debug\SAE Memory.exe.config
+C:\Users\Angel\OneDrive - Université de Paris\SEMESTRE 2\SAE\SAE VB\SAE Memory\bin\Debug\SAE Memory.exe
+C:\Users\Angel\OneDrive - Université de Paris\SEMESTRE 2\SAE\SAE VB\SAE Memory\bin\Debug\SAE Memory.pdb
+C:\Users\Angel\OneDrive - Université de Paris\SEMESTRE 2\SAE\SAE VB\SAE Memory\bin\Debug\SAE Memory.xml
+C:\Users\Angel\OneDrive - Université de Paris\SEMESTRE 2\SAE\SAE VB\SAE Memory\obj\Debug\SAE Memory.vbproj.AssemblyReference.cache
+C:\Users\Angel\OneDrive - Université de Paris\SEMESTRE 2\SAE\SAE VB\SAE Memory\obj\Debug\SAE_Memory.Accueil.resources
+C:\Users\Angel\OneDrive - Université de Paris\SEMESTRE 2\SAE\SAE VB\SAE Memory\obj\Debug\SAE_Memory.Jeu.resources
+C:\Users\Angel\OneDrive - Université de Paris\SEMESTRE 2\SAE\SAE VB\SAE Memory\obj\Debug\SAE_Memory.Resources.resources
+C:\Users\Angel\OneDrive - Université de Paris\SEMESTRE 2\SAE\SAE VB\SAE Memory\obj\Debug\SAE_Memory.formScore.resources
+C:\Users\Angel\OneDrive - Université de Paris\SEMESTRE 2\SAE\SAE VB\SAE Memory\obj\Debug\SAE Memory.vbproj.GenerateResource.cache
+C:\Users\Angel\OneDrive - Université de Paris\SEMESTRE 2\SAE\SAE VB\SAE Memory\obj\Debug\SAE Memory.vbproj.CoreCompileInputs.cache
+C:\Users\Angel\OneDrive - Université de Paris\SEMESTRE 2\SAE\SAE VB\SAE Memory\obj\Debug\SAE Memory.exe
+C:\Users\Angel\OneDrive - Université de Paris\SEMESTRE 2\SAE\SAE VB\SAE Memory\obj\Debug\SAE Memory.xml
+C:\Users\Angel\OneDrive - Université de Paris\SEMESTRE 2\SAE\SAE VB\SAE Memory\obj\Debug\SAE Memory.pdb

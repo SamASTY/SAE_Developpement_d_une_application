@@ -4,7 +4,7 @@ Imports System.Diagnostics
 Public Class Jeu
     Dim joueurNom As String
     Dim cpt As Integer = 0
-    Dim TempsMax As Integer = 60
+    Dim TempsMax As Integer = 5
     Dim CarteRetourne As List(Of Label)
     Dim nbMaxCarteRetourner As Integer = 5
     Dim compteurCarte As Integer = 0
@@ -141,14 +141,23 @@ Public Class Jeu
     End Sub
 
     Private Sub FinDeJeu()
-        SauvegardeJoueur.P = joueurNom
-        EnregistrerJoueur(joueurNom, CarteGagner.Count, cpt)
-        For Each j In SauvegardeJoueur.Joueurs
-            Debug.WriteLine("Joueur : " & j.Pseudo)
-        Next
-        MsgBox("Bravo " & joueurNom & " ! Vous avez réussi à trouver " & CarteGagner.Count & " cartes en " & cpt & " secondes.")
+        ' Calculer le nombre de carrés trouvés (4 cartes = 1 carré)
+        Dim nbCarres As Integer = CarteGagner.Count \ 4
+        Dim tempsEcoule As Integer = cpt
+
+        ' Enregistrer le joueur
+        SauvegardeJoueur.EnregistrerJoueur(joueurNom, nbCarres, tempsEcoule)
+
+        ' Sauvegarder immédiatement dans le fichier
+        SauvegardeJoueur.SauvegarderDansFichier()
+
+        ' Afficher le résultat
+        MsgBox($"Bravo {joueurNom} ! Vous avez trouvé {nbCarres} carré(s) en {tempsEcoule} secondes.")
+
+        ' Fermer ce formulaire et retourner à l'accueil
         Me.Hide()
-        Accueil.Show()
+        Dim accueil As New Accueil()
+        accueil.Show()
     End Sub
 
     Private Function TousCarteRetournee() As Boolean

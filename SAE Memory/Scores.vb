@@ -1,52 +1,91 @@
 ﻿Public Class formScore
+    Dim ordreCroissant As Boolean = False
+
     Private Sub formScore_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Réinitialiser les éléments de la ComboBox
-        comboBoxJoueurValeur.Items.Clear()
-        Debug.WriteLine("Nb joueurs : " & SauvegardeJoueur.Joueurs.Count)
-        ' Remplir la ComboBox avec les pseudos des joueurs
+        ' Charger les données depuis le fichier
+        SauvegardeJoueur.ChargerDepuisFichier()
+
+        ' Remplir la ComboBox
+        ComboBoxJoueurValeur.Items.Clear()
         For Each j As SauvegardeJoueur.Joueur In SauvegardeJoueur.Joueurs
-            Debug.WriteLine("Ajout joueur à ComboBox : " & j.Pseudo)
-            comboBoxJoueurValeur.Items.Add(j.Pseudo)
+            ComboBoxJoueurValeur.Items.Add(j.Pseudo)
         Next
-        ' Sélectionner par défaut le joueur actuel (si son pseudo est déjà défini dans SauvegardeJoueur.P)
-        Dim joueur = SauvegardeJoueur.ObtenirJoueur(SauvegardeJoueur.P)
 
-        If joueur.HasValue Then
-            comboBoxJoueurValeur.Text = joueur.Value.Pseudo
-            labelMaxValeur.Text = joueur.Value.ScoreMax.ToString()
-            labelMinValeur.Text = joueur.Value.TempsMin.ToString() & " sec"
-            labelNbrePartieValeur.Text = joueur.Value.NbPartie.ToString()
-            labelTempsValeur.Text = joueur.Value.TempsTotalJouer.ToString() & " sec"
+        ' Afficher tous les joueurs
+        AfficherJoueurs()
+
+        ' Sélectionner le joueur actuel s'il existe
+        If Not String.IsNullOrEmpty(SauvegardeJoueur.P) Then
+            ComboBoxJoueurValeur.SelectedItem = SauvegardeJoueur.P
         End If
     End Sub
 
-    Private Sub comboBoxJoueurValeur_SelectedIndexChanged(sender As Object, e As EventArgs) Handles comboBoxJoueurValeur.SelectedIndexChanged
-        ' Récupérer le joueur sélectionné dans la ComboBox
-        Dim pseudo As String = comboBoxJoueurValeur.SelectedItem.ToString()
+    Private Sub AfficherJoueurs()
+        ListBoxNoms.Items.Clear()
+        ListBoxScores.Items.Clear()
+        ListBoxTemps.Items.Clear()
+        ListBoxNbParties.Items.Clear()
+
+        Dim joueursTries = If(ordreCroissant,
+            SauvegardeJoueur.Joueurs.OrderBy(Function(j) j.ScoreMax).ThenBy(Function(j) j.TempsMin),
+            SauvegardeJoueur.Joueurs.OrderByDescending(Function(j) j.ScoreMax).ThenBy(Function(j) j.TempsMin)
+        )
+
+        For Each j In joueursTries
+            ListBoxNoms.Items.Add(j.Pseudo)
+            ListBoxScores.Items.Add(j.ScoreMax)
+            ListBoxTemps.Items.Add(j.TempsMin & " sec")
+            ListBoxNbParties.Items.Add(j.NbPartie)
+        Next
+    End Sub
+
+    Private Sub ListBoxNoms_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBoxNoms.SelectedIndexChanged
+        If ListBoxNoms.SelectedIndex >= 0 Then
+            Dim pseudo As String = ListBoxNoms.Items(ListBoxNoms.SelectedIndex).ToString()
+            ComboBoxJoueurValeur.SelectedItem = pseudo
+            AfficherDetailsJoueur(pseudo)
+        End If
+    End Sub
+
+    Private Sub ComboBoxJoueurValeur_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxJoueurValeur.SelectedIndexChanged
+        If ComboBoxJoueurValeur.SelectedIndex >= 0 Then
+            Dim pseudo As String = ComboBoxJoueurValeur.SelectedItem.ToString()
+            AfficherDetailsJoueur(pseudo)
+
+            ' Sélectionner le joueur dans la ListBox
+            Dim index = ListBoxNoms.Items.IndexOf(pseudo)
+            If index >= 0 Then
+                ListBoxNoms.SelectedIndex = index
+            End If
+        End If
+    End Sub
+
+    Private Sub AfficherDetailsJoueur(pseudo As String)
         Dim joueur = SauvegardeJoueur.ObtenirJoueur(pseudo)
-
         If joueur.HasValue Then
-            ' Mettre à jour les informations du joueur dans les labels
             labelMaxValeur.Text = joueur.Value.ScoreMax.ToString()
             labelMinValeur.Text = joueur.Value.TempsMin.ToString() & " sec"
-            labelNbrePartieValeur.Text = joueur.Value.NbPartie.ToString()
-            labelTempsValeur.Text = joueur.Value.TempsTotalJouer.ToString() & " sec"
+            LabelNbParties.Text = joueur.Value.NbPartie.ToString()
+            LabelTempsTotal.Text = joueur.Value.TempsTotalJouer.ToString() & " sec"
         End If
     End Sub
+
+    Private Sub ButtonTri_Click(sender As Object, e As EventArgs) Handles ButtonTri.Click
+        ordreCroissant = Not ordreCroissant
+        AfficherJoueurs()
+    End Sub
+
 
     Private Sub buttonRejouer_Click(sender As Object, e As EventArgs) Handles buttonRejouer.Click
-        ' Rejouer la partie
-        ' Code pour relancer le jeu ou afficher une nouvelle instance du formulaire
-        Me.Close() ' Ferme le formulaire actuel
+        Me.Close()
         Dim jeuForm As New Jeu()
-        jeuForm.Show() ' Ouvre le jeu
+        jeuForm.Show()
     End Sub
 
     Private Sub buttonQuitter_Click(sender As Object, e As EventArgs) Handles buttonQuitter.Click
-        ' Quitter l'application
-        Dim reponse = MsgBox("Voulez vous vraiment quitter l'application?", vbYesNo)
+        Dim reponse = MsgBox("Voulez-vous vraiment quitter l'application?", vbYesNo)
         If reponse = vbYes Then
-            Me.Close()
+            Application.Exit()
         End If
     End Sub
 End Class

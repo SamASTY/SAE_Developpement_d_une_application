@@ -18,6 +18,7 @@
     End Sub
 
     Private Sub ButtonJeu_Click(sender As Object, e As EventArgs) Handles ButtonJeu.Click
+        SauvegardeJoueur.ChargerDepuisFichier()
         SauvegardeJoueur.P = ComboBoxPrenom.Text
         Dim formJeu As New Jeu()
         formJeu.RecupererJoueur(ComboBoxPrenom.Text)
@@ -43,4 +44,9 @@
     Private Sub ButtonScores_Click(sender As Object, e As EventArgs) Handles ButtonScores.Click
         formScore.Show()
     End Sub
+
+    Private Sub Accueil_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        SauvegardeJoueur.SauvegarderDansFichier()
+    End Sub
+
 End Class
