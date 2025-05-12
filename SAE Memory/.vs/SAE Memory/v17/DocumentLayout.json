@@ -7,14 +7,11 @@
       "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:jeu.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|d:\\onedrive - universit\u00E9 de paris\\bureau\\but\\sae\\s2\\d\\vb\\memory\\sae memory\\jeu.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|D:\\OneDrive - Universit\u00E9 de Paris\\Bureau\\BUT\\SAE\\S2\\D\\VB\\Memory\\SAE Memory\\jeu.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:jeu.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|SAE Memory||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|d:\\onedrive - universit\u00E9 de paris\\bureau\\but\\sae\\s2\\d\\vb\\memory\\sae memory\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|8998e48e-b89a-4034-b66e-353d8c1fdc2e"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,7 +20,7 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
+          "DockedWidth": 138,
           "SelectedChildIndex": 1,
           "Children": [
             {
@@ -35,8 +32,7 @@
               "ToolTip": "D:\\OneDrive - Universit\u00E9 de Paris\\Bureau\\BUT\\SAE\\S2\\D\\VB\\Memory\\SAE Memory\\SAE Memory.vbproj",
               "RelativeToolTip": "SAE Memory.vbproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-05-12T20:32:04.363Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-12T20:32:04.363Z"
             },
             {
               "$type": "Document",
@@ -46,7 +42,7 @@
               "RelativeDocumentMoniker": "Jeu.vb",
               "ToolTip": "D:\\OneDrive - Universit\u00E9 de Paris\\Bureau\\BUT\\SAE\\S2\\D\\VB\\Memory\\SAE Memory\\Jeu.vb",
               "RelativeToolTip": "Jeu.vb",
-              "ViewState": "AgIAAFUAAAAAAAAAAAAuwFwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-05-12T19:08:46.264Z",
               "EditorCaption": ""
