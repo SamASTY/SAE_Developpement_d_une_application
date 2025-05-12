@@ -1,12 +1,12 @@
-﻿Imports System.Drawing.Drawing2D
+Imports System.Drawing.Drawing2D
 Imports System.Diagnostics
 
 Public Class Jeu
     Dim joueurNom As String
     Dim cpt As Integer = 0
-    Dim TempsMax As Integer = 5
+    Dim TempsMax As Integer = 60
     Dim CarteRetourne As List(Of Label)
-    Dim nbMaxCarteRetourner As Integer = 5
+    Dim nbMaxCarteRetourner As Integer = 4
     Dim compteurCarte As Integer = 0
     Dim CarteGagner As List(Of Label)
 
@@ -34,10 +34,12 @@ Public Class Jeu
         LabelPseudo.Text = joueurNom
     End Sub
     Private Sub InitJeu()
+        'Initialisation des Listes de cartes
         Dim cartes As List(Of Integer) = GenererListe4X5()
         CarteRetourne = New List(Of Label)
         CarteGagner = New List(Of Label)
 
+        'Affectations des valeurs au cartes
         For i As Integer = 1 To 20
             Dim labelName As String = "L_Carte" & i.ToString("00")
             Dim label As Label = CType(GroupBoxPlateau.Controls(labelName), Label)
@@ -51,6 +53,7 @@ Public Class Jeu
         Next
     End Sub
     Private Sub ResetPlateauErreur()
+        'Reinitialisation du plateau de jeu durant le jeu
         For i As Integer = 1 To 20
             Dim labelName As String = "L_Carte" & i.ToString("00")
             Dim label As Label = CType(GroupBoxPlateau.Controls(labelName), Label)
@@ -61,6 +64,7 @@ Public Class Jeu
     End Sub
 
     Private Function GenererListe4X5() As List(Of Integer)
+        'Génération des cartes
         Dim Paquet As New List(Of Integer)
 
         For valeur As Integer = 1 To 5
@@ -69,6 +73,7 @@ Public Class Jeu
             Next
         Next
 
+        'Mélange des cartes
         MelangePaquet(Paquet)
 
         Return Paquet
@@ -88,7 +93,6 @@ Public Class Jeu
     End Sub
 
     Private Sub Carte_Click(sender As Object, e As EventArgs)
-        'faire en sorte que la compte pas si la carte est deja retournée
         Dim label As Label = CType(sender, Label)
 
         If Not (CarteGagner.Contains(label) Or CarteRetourne.Contains(label)) Then
@@ -109,34 +113,21 @@ Public Class Jeu
 
             CarteRetourne.Add(label)
 
-            ' Verification lors de la selection de deux cartes.
-            If CarteRetourne.Count >= 2 Then
-                Dim valeurRef = CarteRetourne(0).Tag
-                For Each carte In CarteRetourne
-                    If carte.Tag <> valeurRef Then
-                        Task.Delay(500).Wait()
-                        ResetPlateauErreur()
-                        CarteRetourne.Clear()
-                        compteurCarte = 0
-                        Return
-                    End If
-                Next
+            If Not (CartePareil()) Then
+                Task.Delay(500).Wait()
+                ResetPlateauErreur()
             End If
+
+            Carree()
 
             ' Verification du carre
-            If CarteRetourne.Count = 4 Then
-                CarteGagner.AddRange(CarteRetourne)
-                CarteRetourne.Clear()
-                compteurCarte = 0
-                LabelCompteurScore.Text = (CarteGagner.Count \ 4).ToString()
-            End If
+            'faire une fonction
+
 
             If TousCarteRetournee() Then
-                FinDeJeu()
-                'fin de jeu avec msg box, pseudo et timing?
-
+                    FinDeJeu()
+                End If
             End If
-        End If
 
     End Sub
 
@@ -155,19 +146,30 @@ Public Class Jeu
         MsgBox($"Bravo {joueurNom} ! Vous avez trouvé {nbCarres} carré(s) en {tempsEcoule} secondes.")
 
         ' Fermer ce formulaire et retourner à l'accueil
-        Me.Hide()
         Dim accueil As New Accueil()
         accueil.Show()
+        Me.Close()
     End Sub
 
     Private Function TousCarteRetournee() As Boolean
         Return CarteGagner.Count() = 20
     End Function
 
+    Private Sub Carree()
+        If CarteRetourne.Count = 4 Then
+            CarteGagner.AddRange(CarteRetourne)
+            CarteRetourne.Clear()
+            compteurCarte = 0
+            LabelCompteurScore.Text = (CarteGagner.Count \ 4).ToString()
+            ResetPlateauErreur()
+        End If
+    End Sub
+
     Private Function CartePareil() As Boolean
         Dim TypeCarte = CarteRetourne(0).Tag
         For i As Integer = 1 To CarteRetourne.Count - 1
             If CarteRetourne(i).Tag <> TypeCarte Then
+                CarteRetourne.Clear()
                 Return False
             End If
         Next
