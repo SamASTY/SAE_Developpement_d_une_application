@@ -1,5 +1,6 @@
 Imports System.Drawing.Drawing2D
 Imports System.Diagnostics
+Imports System.Reflection.Emit
 
 Public Class Jeu
     Dim joueurNom As String
@@ -9,6 +10,7 @@ Public Class Jeu
     Dim nbMaxCarteRetourner As Integer = 4
     Dim compteurCarte As Integer = 0
     Dim CarteGagner As List(Of Label)
+    Public cheminImages As String = System.IO.Path.Combine(Application.StartupPath, "Images")
 
     Public Sub RecupererJoueur(J As String)
         joueurNom = J
@@ -22,6 +24,8 @@ Public Class Jeu
             Accueil.Show()
         End If
     End Sub
+
+
     Private Sub Jeu_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         Application.Exit()
     End Sub
@@ -47,8 +51,9 @@ Public Class Jeu
             If label IsNot Nothing Then
                 label.Tag = cartes(i - 1)
                 AddHandler label.Click, AddressOf Carte_Click
-                'label.Image = My.Resources.noir
-                label.Text = label.Tag
+                Dim cheminComplet As String = System.IO.Path.Combine(cheminImages, "noir.jpeg")
+                label.Image = RedimensionnerImagePourLabel(Image.FromFile(cheminComplet), label)
+                label.Text = label.Tag ' a enlever quand les test seront fini
             End If
         Next
     End Sub
@@ -58,7 +63,8 @@ Public Class Jeu
             Dim labelName As String = "L_Carte" & i.ToString("00")
             Dim label As Label = CType(GroupBoxPlateau.Controls(labelName), Label)
             If label IsNot Nothing AndAlso Not CarteGagner.Any(Function(c) c.Name = label.Name) Then
-                label.Image = My.Resources.noir
+                Dim cheminComplet As String = System.IO.Path.Combine(cheminImages, "noir.jpeg")
+                label.Image = RedimensionnerImagePourLabel(Image.FromFile(cheminComplet), label)
             End If
         Next
     End Sub
@@ -96,16 +102,21 @@ Public Class Jeu
         Dim label As Label = CType(sender, Label)
 
         If Not (CarteGagner.Contains(label) Or CarteRetourne.Contains(label)) Then
+            Dim chemin1 As String = System.IO.Path.Combine(cheminImages, "1.jpeg")
+            Dim chemin2 As String = System.IO.Path.Combine(cheminImages, "2.jpeg")
+            Dim chemin3 As String = System.IO.Path.Combine(cheminImages, "3.jpeg")
+            Dim chemin4 As String = System.IO.Path.Combine(cheminImages, "4.jpeg")
+            Dim chemin5 As String = System.IO.Path.Combine(cheminImages, "5.jpeg")
             If label.Tag = 1 Then
-                label.Image = My.Resources._1
+                label.Image = RedimensionnerImagePourLabel(Image.FromFile(chemin1), label)
             ElseIf label.Tag = 2 Then
-                label.Image = My.Resources._2
+                label.Image = RedimensionnerImagePourLabel(Image.FromFile(chemin2), label)
             ElseIf label.Tag = 3 Then
-                label.Image = My.Resources._3
+                label.Image = RedimensionnerImagePourLabel(Image.FromFile(chemin3), label)
             ElseIf label.Tag = 4 Then
-                label.Image = My.Resources._4
+                label.Image = RedimensionnerImagePourLabel(Image.FromFile(chemin4), label)
             ElseIf label.Tag = 5 Then
-                label.Image = My.Resources._5
+                label.Image = RedimensionnerImagePourLabel(Image.FromFile(chemin5), label)
             End If
 
             compteurCarte += 1
@@ -125,9 +136,9 @@ Public Class Jeu
 
 
             If TousCarteRetournee() Then
-                    FinDeJeu()
-                End If
+                FinDeJeu()
             End If
+        End If
 
     End Sub
 
@@ -191,5 +202,17 @@ Public Class Jeu
             FinDeJeu()
         End If
     End Sub
+
+    Private Function RedimensionnerImagePourLabel(img As Image, lbl As Label) As Image
+        Dim bmp As New Bitmap(lbl.Width, lbl.Height)
+        Using g As Graphics = Graphics.FromImage(bmp)
+            g.InterpolationMode = Drawing2D.InterpolationMode.HighQualityBicubic
+            g.DrawImage(img, New Rectangle(0, 0, lbl.Width, lbl.Height))
+        End Using
+        Return bmp
+    End Function
+
+
+
 
 End Class

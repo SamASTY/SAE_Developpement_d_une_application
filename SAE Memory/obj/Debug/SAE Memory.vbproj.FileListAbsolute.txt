@@ -1,16 +1,3 @@
-D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE Memory.vbproj.AssemblyReference.cache
-D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE_Memory.Accueil.resources
-D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE_Memory.Jeu.resources
-D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE_Memory.Resources.resources
-D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE Memory.vbproj.GenerateResource.cache
-D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE Memory.vbproj.CoreCompileInputs.cache
-D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\bin\Debug\SAE Memory.exe.config
-D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\bin\Debug\SAE Memory.exe
-D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\bin\Debug\SAE Memory.pdb
-D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\bin\Debug\SAE Memory.xml
-D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE Memory.exe
-D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE Memory.xml
-D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE Memory.pdb
 C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\bin\Debug\SAE Memory.exe.config
 C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\bin\Debug\SAE Memory.exe
 C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\bin\Debug\SAE Memory.pdb
@@ -39,3 +26,10 @@ C:\Users\Angel\OneDrive - Université de Paris\SEMESTRE 2\SAE\SAE VB\SAE Memory\
 C:\Users\Angel\OneDrive - Université de Paris\SEMESTRE 2\SAE\SAE VB\SAE Memory\obj\Debug\SAE Memory.exe
 C:\Users\Angel\OneDrive - Université de Paris\SEMESTRE 2\SAE\SAE VB\SAE Memory\obj\Debug\SAE Memory.xml
 C:\Users\Angel\OneDrive - Université de Paris\SEMESTRE 2\SAE\SAE VB\SAE Memory\obj\Debug\SAE Memory.pdb
+D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE Memory.vbproj.AssemblyReference.cache
+D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE_Memory.Accueil.resources
+D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE_Memory.Jeu.resources
+D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE_Memory.Resources.resources
+D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE_Memory.formScore.resources
+D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE Memory.vbproj.GenerateResource.cache
+D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE Memory.vbproj.CoreCompileInputs.cache
