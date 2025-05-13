@@ -1,4 +1,6 @@
-﻿Public Module SauvegardeJoueur
+﻿Imports System.IO
+
+Public Module SauvegardeJoueur
 
     Dim cheminFichier As String = "joueurs.txt"
 
@@ -40,6 +42,7 @@
 
         ' Mettre à jour le joueur courant
         SauvegardeJoueur.P = P
+        SauvegarderDansFichier()
     End Sub
     Public Function ObtenirJoueur(pseudo As String) As Joueur?
         Return Joueurs.FirstOrDefault(Function(j) j.Pseudo = pseudo)

@@ -134,16 +134,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bin\Debug\Images\" />
     <Folder Include="Images\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\Images\couleurs.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\Images\noir.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\Images\truc.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\1.png" />

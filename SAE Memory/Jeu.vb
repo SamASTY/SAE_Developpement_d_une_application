@@ -1,7 +1,7 @@
 Public Class Jeu
     Dim joueurNom As String
     Dim cpt As Integer = 0
-    Dim TempsMax As Integer = 60
+    Dim TempsMax As Integer = 5
     Dim CarteRetourne As List(Of Label)
     Dim nbMaxCarteRetourner As Integer = 4
     Dim compteurCarte As Integer = 0
@@ -12,19 +12,12 @@ Public Class Jeu
         joueurNom = J
     End Sub
     Private Sub ButtonAbandon_Click(sender As Object, e As EventArgs) Handles ButtonAbandon.Click
-        Dim reponse = MsgBox("Voulez-vous vraiment quitter l'application ?", vbYesNo)
+        Dim reponse = MsgBox("Voulez-vous revenir à l'accueil ?", vbYesNo)
         If reponse = vbYes Then
-            Application.Exit()
-        Else
-            Me.Hide()
-            Accueil.Show()
+            Me.Close()
         End If
     End Sub
 
-
-    Private Sub Jeu_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        Application.Exit()
-    End Sub
     Private Sub Jeu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Debug.WriteLine("Chargement du formulaire score — joueur actuel : " & SauvegardeJoueur.P)
         Timer.Interval = 1000
@@ -41,7 +34,7 @@ Public Class Jeu
 
         'Affectations des valeurs au cartes
         For i As Integer = 1 To 20
-            Dim labelName As String = "L_Carte" & i.ToString("00")
+            Dim labelName As String = "Label" & i.ToString("00")
             Dim label As Label = CType(GroupBoxPlateau.Controls(labelName), Label)
 
             If label IsNot Nothing Then
@@ -56,7 +49,7 @@ Public Class Jeu
     Private Sub ResetPlateauErreur()
         'Reinitialisation du plateau de jeu durant le jeu
         For i As Integer = 1 To 20
-            Dim labelName As String = "L_Carte" & i.ToString("00")
+            Dim labelName As String = "Label" & i.ToString("00")
             Dim label As Label = CType(GroupBoxPlateau.Controls(labelName), Label)
             If label IsNot Nothing AndAlso Not CarteGagner.Any(Function(c) c.Name = label.Name) Then
                 Dim cheminComplet As String = System.IO.Path.Combine(cheminImages, "noir.jpeg")
@@ -130,10 +123,6 @@ Public Class Jeu
             ' Verification du carre
             'faire une fonction
 
-
-            If TousCarteRetournee() Then
-                FinDeJeu()
-            End If
         End If
 
     End Sub
@@ -153,8 +142,7 @@ Public Class Jeu
         MsgBox($"Bravo {joueurNom} ! Vous avez trouvé {nbCarres} carré(s) en {tempsEcoule} secondes.")
 
         ' Fermer ce formulaire et retourner à l'accueil
-        Dim accueil As New Accueil()
-        accueil.Show()
+        Dim A As New Accueil()
         Me.Close()
     End Sub
 
@@ -164,7 +152,7 @@ Public Class Jeu
 
     Private Sub Carree()
         If CarteRetourne.Count = 4 Then
-            CarteGagner.AddRange(CarteRetourne)
+            GriserCarteGagner()
             CarteRetourne.Clear()
             compteurCarte = 0
             LabelCompteurScore.Text = (CarteGagner.Count \ 4).ToString()
@@ -187,13 +175,35 @@ Public Class Jeu
         For Each carte As Label In CarteRetourne
             CarteGagner.Add(carte)
             'carte.Image = My.Resources.noir 'grisser
+            For i As Integer = 1 To 20
+                Dim labelName As String = "Label" & i.ToString("00")
+                Dim label As Label = CType(GroupBoxPlateau.Controls(labelName), Label)
+                If label IsNot Nothing AndAlso CarteRetourne.Contains(label) Then
+                    Dim chemin1 As String = System.IO.Path.Combine(cheminImages, "1gris.jpeg")
+                    Dim chemin2 As String = System.IO.Path.Combine(cheminImages, "2gris.jpeg")
+                    Dim chemin3 As String = System.IO.Path.Combine(cheminImages, "3gris.jpeg")
+                    Dim chemin4 As String = System.IO.Path.Combine(cheminImages, "4gris.jpeg")
+                    Dim chemin5 As String = System.IO.Path.Combine(cheminImages, "5gris.jpeg")
+                    If label.Tag = 1 Then
+                        label.Image = RedimensionnerImagePourLabel(Image.FromFile(chemin1), label)
+                    ElseIf label.Tag = 2 Then
+                        label.Image = RedimensionnerImagePourLabel(Image.FromFile(chemin2), label)
+                    ElseIf label.Tag = 3 Then
+                        label.Image = RedimensionnerImagePourLabel(Image.FromFile(chemin3), label)
+                    ElseIf label.Tag = 4 Then
+                        label.Image = RedimensionnerImagePourLabel(Image.FromFile(chemin4), label)
+                    ElseIf label.Tag = 5 Then
+                        label.Image = RedimensionnerImagePourLabel(Image.FromFile(chemin5), label)
+                    End If
+                End If
+            Next
         Next
     End Sub
 
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
         cpt += 1
         LabelTimer.Text = TempsMax - cpt
-        If cpt >= TempsMax Then
+        If cpt >= TempsMax Or TousCarteRetournee() Then
             Timer.Stop()
             FinDeJeu()
         End If
@@ -207,8 +217,4 @@ Public Class Jeu
         End Using
         Return bmp
     End Function
-
-
-
-
 End Class

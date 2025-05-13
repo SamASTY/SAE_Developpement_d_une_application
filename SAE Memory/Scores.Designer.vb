@@ -40,6 +40,7 @@ Partial Class formScore
         Me.Label2 = New System.Windows.Forms.Label()
         Me.labelMaxValeur = New System.Windows.Forms.Label()
         Me.labelMinValeur = New System.Windows.Forms.Label()
+        Me.ButtonAffJoueur = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'buttonQuitter
@@ -73,7 +74,7 @@ Partial Class formScore
         'ButtonFermer
         '
         Me.ButtonFermer.Location = New System.Drawing.Point(293, 74)
-        Me.ButtonFermer.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ButtonFermer.Margin = New System.Windows.Forms.Padding(2)
         Me.ButtonFermer.Name = "ButtonFermer"
         Me.ButtonFermer.Size = New System.Drawing.Size(70, 24)
         Me.ButtonFermer.TabIndex = 35
@@ -84,7 +85,7 @@ Partial Class formScore
         '
         Me.ComboBoxJoueurValeur.FormattingEnabled = True
         Me.ComboBoxJoueurValeur.Location = New System.Drawing.Point(103, 292)
-        Me.ComboBoxJoueurValeur.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ComboBoxJoueurValeur.Margin = New System.Windows.Forms.Padding(2)
         Me.ComboBoxJoueurValeur.Name = "ComboBoxJoueurValeur"
         Me.ComboBoxJoueurValeur.Size = New System.Drawing.Size(51, 21)
         Me.ComboBoxJoueurValeur.TabIndex = 34
@@ -92,7 +93,7 @@ Partial Class formScore
         'ButtonTri
         '
         Me.ButtonTri.Location = New System.Drawing.Point(193, 74)
-        Me.ButtonTri.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ButtonTri.Margin = New System.Windows.Forms.Padding(2)
         Me.ButtonTri.Name = "ButtonTri"
         Me.ButtonTri.Size = New System.Drawing.Size(71, 24)
         Me.ButtonTri.TabIndex = 33
@@ -104,7 +105,7 @@ Partial Class formScore
         Me.ListBoxTempsTotal.BackColor = System.Drawing.SystemColors.Window
         Me.ListBoxTempsTotal.FormattingEnabled = True
         Me.ListBoxTempsTotal.Location = New System.Drawing.Point(282, 273)
-        Me.ListBoxTempsTotal.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ListBoxTempsTotal.Margin = New System.Windows.Forms.Padding(2)
         Me.ListBoxTempsTotal.Name = "ListBoxTempsTotal"
         Me.ListBoxTempsTotal.Size = New System.Drawing.Size(117, 56)
         Me.ListBoxTempsTotal.TabIndex = 32
@@ -113,7 +114,7 @@ Partial Class formScore
         '
         Me.ListBoxNbParties.FormattingEnabled = True
         Me.ListBoxNbParties.Location = New System.Drawing.Point(282, 155)
-        Me.ListBoxNbParties.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ListBoxNbParties.Margin = New System.Windows.Forms.Padding(2)
         Me.ListBoxNbParties.Name = "ListBoxNbParties"
         Me.ListBoxNbParties.Size = New System.Drawing.Size(90, 56)
         Me.ListBoxNbParties.TabIndex = 31
@@ -122,7 +123,7 @@ Partial Class formScore
         '
         Me.ListBoxTemps.FormattingEnabled = True
         Me.ListBoxTemps.Location = New System.Drawing.Point(193, 155)
-        Me.ListBoxTemps.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ListBoxTemps.Margin = New System.Windows.Forms.Padding(2)
         Me.ListBoxTemps.Name = "ListBoxTemps"
         Me.ListBoxTemps.Size = New System.Drawing.Size(81, 56)
         Me.ListBoxTemps.TabIndex = 30
@@ -131,7 +132,7 @@ Partial Class formScore
         '
         Me.ListBoxScores.FormattingEnabled = True
         Me.ListBoxScores.Location = New System.Drawing.Point(92, 155)
-        Me.ListBoxScores.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ListBoxScores.Margin = New System.Windows.Forms.Padding(2)
         Me.ListBoxScores.Name = "ListBoxScores"
         Me.ListBoxScores.Size = New System.Drawing.Size(81, 56)
         Me.ListBoxScores.TabIndex = 29
@@ -140,7 +141,7 @@ Partial Class formScore
         '
         Me.ListBoxNoms.FormattingEnabled = True
         Me.ListBoxNoms.Location = New System.Drawing.Point(8, 155)
-        Me.ListBoxNoms.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ListBoxNoms.Margin = New System.Windows.Forms.Padding(2)
         Me.ListBoxNoms.Name = "ListBoxNoms"
         Me.ListBoxNoms.Size = New System.Drawing.Size(81, 56)
         Me.ListBoxNoms.TabIndex = 28
@@ -216,11 +217,21 @@ Partial Class formScore
         Me.labelMinValeur.TabIndex = 38
         Me.labelMinValeur.Text = "Min"
         '
+        'ButtonAffJoueur
+        '
+        Me.ButtonAffJoueur.Location = New System.Drawing.Point(169, 292)
+        Me.ButtonAffJoueur.Name = "ButtonAffJoueur"
+        Me.ButtonAffJoueur.Size = New System.Drawing.Size(59, 20)
+        Me.ButtonAffJoueur.TabIndex = 39
+        Me.ButtonAffJoueur.Text = "Afficher"
+        Me.ButtonAffJoueur.UseVisualStyleBackColor = True
+        '
         'formScore
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(436, 422)
+        Me.Controls.Add(Me.ButtonAffJoueur)
         Me.Controls.Add(Me.labelMinValeur)
         Me.Controls.Add(Me.labelMaxValeur)
         Me.Controls.Add(Me.LabelRechercher)
@@ -239,7 +250,7 @@ Partial Class formScore
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.buttonRejouer)
         Me.Controls.Add(Me.buttonQuitter)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "formScore"
         Me.Text = "Scores"
         Me.ResumeLayout(False)
@@ -264,4 +275,5 @@ Partial Class formScore
     Friend WithEvents Label2 As Label
     Friend WithEvents labelMaxValeur As Label
     Friend WithEvents labelMinValeur As Label
+    Friend WithEvents ButtonAffJoueur As Button
 End Class

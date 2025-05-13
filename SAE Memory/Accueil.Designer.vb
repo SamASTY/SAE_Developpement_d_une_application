@@ -33,38 +33,34 @@ Partial Class Accueil
         'ComboBoxPrenom
         '
         Me.ComboBoxPrenom.FormattingEnabled = True
-        Me.ComboBoxPrenom.Location = New System.Drawing.Point(193, 91)
-        Me.ComboBoxPrenom.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.ComboBoxPrenom.Location = New System.Drawing.Point(129, 59)
         Me.ComboBoxPrenom.Name = "ComboBoxPrenom"
-        Me.ComboBoxPrenom.Size = New System.Drawing.Size(180, 28)
+        Me.ComboBoxPrenom.Size = New System.Drawing.Size(121, 21)
         Me.ComboBoxPrenom.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(71, 91)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(47, 59)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(71, 20)
+        Me.Label1.Size = New System.Drawing.Size(49, 13)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Pseudo :"
         '
         'ButtonScores
         '
-        Me.ButtonScores.Location = New System.Drawing.Point(356, 145)
-        Me.ButtonScores.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.ButtonScores.Location = New System.Drawing.Point(237, 94)
         Me.ButtonScores.Name = "ButtonScores"
-        Me.ButtonScores.Size = New System.Drawing.Size(112, 35)
+        Me.ButtonScores.Size = New System.Drawing.Size(75, 23)
         Me.ButtonScores.TabIndex = 2
         Me.ButtonScores.Text = "Scores"
         Me.ButtonScores.UseVisualStyleBackColor = True
         '
         'ButtonQuitter
         '
-        Me.ButtonQuitter.Location = New System.Drawing.Point(51, 145)
-        Me.ButtonQuitter.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.ButtonQuitter.Location = New System.Drawing.Point(34, 94)
         Me.ButtonQuitter.Name = "ButtonQuitter"
-        Me.ButtonQuitter.Size = New System.Drawing.Size(112, 35)
+        Me.ButtonQuitter.Size = New System.Drawing.Size(75, 23)
         Me.ButtonQuitter.TabIndex = 3
         Me.ButtonQuitter.Text = "Quitter"
         Me.ButtonQuitter.UseVisualStyleBackColor = True
@@ -72,10 +68,9 @@ Partial Class Accueil
         'ButtonJeu
         '
         Me.ButtonJeu.Enabled = False
-        Me.ButtonJeu.Location = New System.Drawing.Point(193, 192)
-        Me.ButtonJeu.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.ButtonJeu.Location = New System.Drawing.Point(129, 125)
         Me.ButtonJeu.Name = "ButtonJeu"
-        Me.ButtonJeu.Size = New System.Drawing.Size(112, 35)
+        Me.ButtonJeu.Size = New System.Drawing.Size(75, 23)
         Me.ButtonJeu.TabIndex = 4
         Me.ButtonJeu.Text = "Jouer"
         Me.ButtonJeu.UseVisualStyleBackColor = True
@@ -84,24 +79,24 @@ Partial Class Accueil
         '
         Me.LblTitre.AutoSize = True
         Me.LblTitre.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblTitre.Location = New System.Drawing.Point(12, 5)
+        Me.LblTitre.Location = New System.Drawing.Point(8, 3)
+        Me.LblTitre.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LblTitre.Name = "LblTitre"
-        Me.LblTitre.Size = New System.Drawing.Size(198, 55)
+        Me.LblTitre.Size = New System.Drawing.Size(131, 37)
         Me.LblTitre.TabIndex = 5
         Me.LblTitre.Text = "Memory"
         '
         'Accueil
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(519, 351)
+        Me.ClientSize = New System.Drawing.Size(346, 228)
         Me.Controls.Add(Me.LblTitre)
         Me.Controls.Add(Me.ButtonJeu)
         Me.Controls.Add(Me.ButtonQuitter)
         Me.Controls.Add(Me.ButtonScores)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ComboBoxPrenom)
-        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Accueil"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
