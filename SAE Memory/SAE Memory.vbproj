@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{81CB4367-10B5-49EE-9184-091CEA04DE84}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>SAE_Memory.My.MyApplication</StartupObject>
+    <StartupObject>SAE_Memory.Accueil</StartupObject>
     <RootNamespace>SAE_Memory</RootNamespace>
     <AssemblyName>SAE Memory</AssemblyName>
     <FileAlignment>512</FileAlignment>

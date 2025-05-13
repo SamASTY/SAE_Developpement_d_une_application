@@ -1,7 +1,3 @@
-Imports System.Drawing.Drawing2D
-Imports System.Diagnostics
-Imports System.Reflection.Emit
-
 Public Class Jeu
     Dim joueurNom As String
     Dim cpt As Integer = 0

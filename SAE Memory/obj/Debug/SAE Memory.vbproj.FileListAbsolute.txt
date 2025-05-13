@@ -33,3 +33,10 @@ D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\
 D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE_Memory.formScore.resources
 D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE Memory.vbproj.GenerateResource.cache
 D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE Memory.vbproj.CoreCompileInputs.cache
+D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\bin\Debug\SAE Memory.exe.config
+D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\bin\Debug\SAE Memory.exe
+D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\bin\Debug\SAE Memory.pdb
+D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\bin\Debug\SAE Memory.xml
+D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE Memory.exe
+D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE Memory.xml
+D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE Memory.pdb
