@@ -30,7 +30,7 @@
     Private Sub Accueil_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ComboBoxPrenom.Items.Clear()
         For Each j In SauvegardeJoueur.Joueurs
-            ComboBoxPrenom.Items.Add(j.Pseudo) '//' erreur a rejouer de depuis score
+            ComboBoxPrenom.Items.Add(j.Pseudo)
         Next
     End Sub
 
@@ -58,5 +58,9 @@
                                         Me.Show()
                                         ComboBoxPrenom.Focus()
                                     End Sub
+    End Sub
+
+    Private Sub buttonOptions_Click(sender As Object, e As EventArgs) Handles buttonOptions.Click
+
     End Sub
 End Class

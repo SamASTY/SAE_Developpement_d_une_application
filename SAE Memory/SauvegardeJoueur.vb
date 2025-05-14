@@ -44,10 +44,12 @@ Public Module SauvegardeJoueur
         SauvegardeJoueur.P = P
         SauvegarderDansFichier()
     End Sub
+    ' Retourne le joueur ou le creer
     Public Function ObtenirJoueur(pseudo As String) As Joueur?
         Return Joueurs.FirstOrDefault(Function(j) j.Pseudo = pseudo)
     End Function
 
+    ' Ajout des donnees du joueur dans le txt
     Public Sub SauvegarderDansFichier()
         Dim lignes As New List(Of String)
         For Each j In Joueurs

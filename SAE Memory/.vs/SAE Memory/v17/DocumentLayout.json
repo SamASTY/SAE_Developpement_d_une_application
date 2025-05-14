@@ -1,34 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\OneDrive - Universit\u00E9 de Paris\\Bureau\\BUT\\SAE\\S2\\D\\VB\\Memory\\SAE Memory\\",
+  "WorkspaceRootPath": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|d:\\onedrive - universit\u00E9 de paris\\bureau\\but\\sae\\s2\\d\\vb\\memory\\sae memory\\sauvegardejoueur.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:sauvegardejoueur.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\accueil.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:accueil.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|D:\\OneDrive - Universit\u00E9 de Paris\\Bureau\\BUT\\SAE\\S2\\D\\VB\\Memory\\SAE Memory\\scores.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:scores.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|D:\\OneDrive - Universit\u00E9 de Paris\\Bureau\\BUT\\SAE\\S2\\D\\VB\\Memory\\SAE Memory\\scores.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:scores.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|D:\\OneDrive - Universit\u00E9 de Paris\\Bureau\\BUT\\SAE\\S2\\D\\VB\\Memory\\SAE Memory\\accueil.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\accueil.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:accueil.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|D:\\OneDrive - Universit\u00E9 de Paris\\Bureau\\BUT\\SAE\\S2\\D\\VB\\Memory\\SAE Memory\\jeu.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:jeu.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\scores.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:scores.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|D:\\OneDrive - Universit\u00E9 de Paris\\Bureau\\BUT\\SAE\\S2\\D\\VB\\Memory\\SAE Memory\\jeu.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\scores.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:scores.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|c:\\users\\licer\\source\\repos\\sae_developpement_d_une_application\\sae memory\\sauvegardejoueur.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:sauvegardejoueur.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\jeu.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:jeu.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|D:\\OneDrive - Universit\u00E9 de Paris\\Bureau\\BUT\\SAE\\S2\\D\\VB\\Memory\\SAE Memory\\accueil.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:accueil.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\jeu.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:jeu.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,30 +38,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 138,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "SauvegardeJoueur.vb",
-              "DocumentMoniker": "D:\\OneDrive - Universit\u00E9 de Paris\\Bureau\\BUT\\SAE\\S2\\D\\VB\\Memory\\SAE Memory\\SauvegardeJoueur.vb",
+              "DocumentMoniker": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\SauvegardeJoueur.vb",
               "RelativeDocumentMoniker": "SauvegardeJoueur.vb",
-              "ToolTip": "D:\\OneDrive - Universit\u00E9 de Paris\\Bureau\\BUT\\SAE\\S2\\D\\VB\\Memory\\SAE Memory\\SauvegardeJoueur.vb",
+              "ToolTip": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\SauvegardeJoueur.vb",
               "RelativeToolTip": "SauvegardeJoueur.vb",
-              "ViewState": "AgIAABsAAAAAAAAAAAAswDAAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-05-13T20:59:42.548Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Scores.vb",
-              "DocumentMoniker": "D:\\OneDrive - Universit\u00E9 de Paris\\Bureau\\BUT\\SAE\\S2\\D\\VB\\Memory\\SAE Memory\\Scores.vb",
+              "DocumentMoniker": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Scores.vb",
               "RelativeDocumentMoniker": "Scores.vb",
-              "ToolTip": "D:\\OneDrive - Universit\u00E9 de Paris\\Bureau\\BUT\\SAE\\S2\\D\\VB\\Memory\\SAE Memory\\Scores.vb",
+              "ToolTip": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Scores.vb",
               "RelativeToolTip": "Scores.vb",
-              "ViewState": "AgIAAIIAAAAAAAAAAAAUwKAAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-05-13T08:04:53.045Z",
               "EditorCaption": ""
@@ -70,9 +70,9 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Scores.vb [Design]",
-              "DocumentMoniker": "D:\\OneDrive - Universit\u00E9 de Paris\\Bureau\\BUT\\SAE\\S2\\D\\VB\\Memory\\SAE Memory\\Scores.vb",
+              "DocumentMoniker": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Scores.vb",
               "RelativeDocumentMoniker": "Scores.vb",
-              "ToolTip": "D:\\OneDrive - Universit\u00E9 de Paris\\Bureau\\BUT\\SAE\\S2\\D\\VB\\Memory\\SAE Memory\\Scores.vb [Design]",
+              "ToolTip": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Scores.vb [Design]",
               "RelativeToolTip": "Scores.vb [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-05-13T08:04:51.271Z",
@@ -80,24 +80,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "Accueil.vb",
-              "DocumentMoniker": "D:\\OneDrive - Universit\u00E9 de Paris\\Bureau\\BUT\\SAE\\S2\\D\\VB\\Memory\\SAE Memory\\Accueil.vb",
+              "DocumentMoniker": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Accueil.vb",
               "RelativeDocumentMoniker": "Accueil.vb",
-              "ToolTip": "D:\\OneDrive - Universit\u00E9 de Paris\\Bureau\\BUT\\SAE\\S2\\D\\VB\\Memory\\SAE Memory\\Accueil.vb",
+              "ToolTip": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Accueil.vb",
               "RelativeToolTip": "Accueil.vb",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAowCEAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAuwCAAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-05-13T08:04:22.119Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Accueil.vb [Design]",
-              "DocumentMoniker": "D:\\OneDrive - Universit\u00E9 de Paris\\Bureau\\BUT\\SAE\\S2\\D\\VB\\Memory\\SAE Memory\\Accueil.vb",
+              "DocumentMoniker": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Accueil.vb",
               "RelativeDocumentMoniker": "Accueil.vb",
-              "ToolTip": "D:\\OneDrive - Universit\u00E9 de Paris\\Bureau\\BUT\\SAE\\S2\\D\\VB\\Memory\\SAE Memory\\Accueil.vb [Design]",
+              "ToolTip": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Accueil.vb [Design]",
               "RelativeToolTip": "Accueil.vb [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-05-13T08:04:20.818Z",
@@ -107,22 +107,22 @@
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "Jeu.vb",
-              "DocumentMoniker": "D:\\OneDrive - Universit\u00E9 de Paris\\Bureau\\BUT\\SAE\\S2\\D\\VB\\Memory\\SAE Memory\\Jeu.vb",
+              "DocumentMoniker": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Jeu.vb",
               "RelativeDocumentMoniker": "Jeu.vb",
-              "ToolTip": "D:\\OneDrive - Universit\u00E9 de Paris\\Bureau\\BUT\\SAE\\S2\\D\\VB\\Memory\\SAE Memory\\Jeu.vb",
+              "ToolTip": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Jeu.vb",
               "RelativeToolTip": "Jeu.vb",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBAAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-05-12T19:08:46.264Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Jeu.vb [Design]",
-              "DocumentMoniker": "D:\\OneDrive - Universit\u00E9 de Paris\\Bureau\\BUT\\SAE\\S2\\D\\VB\\Memory\\SAE Memory\\Jeu.vb",
+              "DocumentMoniker": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Jeu.vb",
               "RelativeDocumentMoniker": "Jeu.vb",
-              "ToolTip": "D:\\OneDrive - Universit\u00E9 de Paris\\Bureau\\BUT\\SAE\\S2\\D\\VB\\Memory\\SAE Memory\\Jeu.vb [Design]",
+              "ToolTip": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Jeu.vb [Design]",
               "RelativeToolTip": "Jeu.vb [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-05-12T19:08:17.518Z",
