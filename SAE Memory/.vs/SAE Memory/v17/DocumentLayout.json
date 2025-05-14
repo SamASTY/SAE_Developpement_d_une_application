@@ -19,16 +19,20 @@
       "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:scores.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|c:\\users\\licer\\source\\repos\\sae_developpement_d_une_application\\sae memory\\sauvegardejoueur.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:sauvegardejoueur.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\jeu.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:jeu.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\jeu.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:jeu.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\jeu.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:jeu.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|c:\\users\\licer\\source\\repos\\sae_developpement_d_une_application\\sae memory\\formoptions.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:formoptions.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\sauvegardejoueur.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:sauvegardejoueur.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,33 +42,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 138,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SauvegardeJoueur.vb",
-              "DocumentMoniker": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\SauvegardeJoueur.vb",
-              "RelativeDocumentMoniker": "SauvegardeJoueur.vb",
-              "ToolTip": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\SauvegardeJoueur.vb",
-              "RelativeToolTip": "SauvegardeJoueur.vb",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAbAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Accueil.vb",
+              "DocumentMoniker": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Accueil.vb",
+              "RelativeDocumentMoniker": "Accueil.vb",
+              "ToolTip": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Accueil.vb*",
+              "RelativeToolTip": "Accueil.vb*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-05-13T20:59:42.548Z",
+              "WhenOpened": "2025-05-13T08:04:22.119Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Scores.vb",
-              "DocumentMoniker": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Scores.vb",
-              "RelativeDocumentMoniker": "Scores.vb",
-              "ToolTip": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Scores.vb",
-              "RelativeToolTip": "Scores.vb",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAiAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Accueil.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Accueil.vb",
+              "RelativeDocumentMoniker": "Accueil.vb",
+              "ToolTip": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Accueil.vb [Design]*",
+              "RelativeToolTip": "Accueil.vb [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-05-13T08:04:53.045Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T08:04:20.818Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -80,27 +83,27 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Accueil.vb",
-              "DocumentMoniker": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Accueil.vb",
-              "RelativeDocumentMoniker": "Accueil.vb",
-              "ToolTip": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Accueil.vb",
-              "RelativeToolTip": "Accueil.vb",
-              "ViewState": "AgIAABkAAAAAAAAAAAAuwCAAAAA4AAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Scores.vb",
+              "DocumentMoniker": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Scores.vb",
+              "RelativeDocumentMoniker": "Scores.vb",
+              "ToolTip": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Scores.vb",
+              "RelativeToolTip": "Scores.vb",
+              "ViewState": "AgIAAI4AAAAAAAAAAAAAwJ0AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-05-13T08:04:22.119Z",
+              "WhenOpened": "2025-05-13T08:04:53.045Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Accueil.vb [Design]",
-              "DocumentMoniker": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Accueil.vb",
-              "RelativeDocumentMoniker": "Accueil.vb",
-              "ToolTip": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Accueil.vb [Design]",
-              "RelativeToolTip": "Accueil.vb [Design]",
+              "DocumentIndex": 4,
+              "Title": "Jeu.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Jeu.vb",
+              "RelativeDocumentMoniker": "Jeu.vb",
+              "ToolTip": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Jeu.vb [Design]",
+              "RelativeToolTip": "Jeu.vb [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-05-13T08:04:20.818Z",
+              "WhenOpened": "2025-05-12T19:08:17.518Z",
               "EditorCaption": " [Design]"
             },
             {
@@ -111,7 +114,7 @@
               "RelativeDocumentMoniker": "Jeu.vb",
               "ToolTip": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Jeu.vb",
               "RelativeToolTip": "Jeu.vb",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAwAkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-05-12T19:08:46.264Z",
               "EditorCaption": ""
@@ -119,14 +122,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Jeu.vb [Design]",
-              "DocumentMoniker": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Jeu.vb",
-              "RelativeDocumentMoniker": "Jeu.vb",
-              "ToolTip": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Jeu.vb [Design]",
-              "RelativeToolTip": "Jeu.vb [Design]",
+              "Title": "formOptions.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\formOptions.vb",
+              "RelativeDocumentMoniker": "formOptions.vb",
+              "ToolTip": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\formOptions.vb [Design]",
+              "RelativeToolTip": "formOptions.vb [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-05-12T19:08:17.518Z",
+              "WhenOpened": "2025-05-14T14:33:16.646Z",
               "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SauvegardeJoueur.vb",
+              "DocumentMoniker": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\SauvegardeJoueur.vb",
+              "RelativeDocumentMoniker": "SauvegardeJoueur.vb",
+              "ToolTip": "C:\\Users\\licer\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\SauvegardeJoueur.vb",
+              "RelativeToolTip": "SauvegardeJoueur.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-05-13T20:59:42.548Z",
+              "EditorCaption": ""
             }
           ]
         }

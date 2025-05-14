@@ -1,7 +1,7 @@
 Public Class Jeu
     Dim joueurNom As String
     Dim cpt As Integer = 0
-    Dim TempsMax As Integer = 5
+    Dim TempsMax As Integer = 50
     Dim CarteRetourne As List(Of Label)
     Dim nbMaxCarteRetourner As Integer = 4
     Dim compteurCarte As Integer = 0
@@ -142,7 +142,7 @@ Public Class Jeu
         MsgBox($"Bravo {joueurNom} ! Vous avez trouvé {nbCarres} carré(s) en {tempsEcoule} secondes.")
 
         ' Fermer ce formulaire et retourner à l'accueil
-        Dim A As New Accueil()
+        Dim A As New FormAccueil()
         Me.Close()
     End Sub
 

@@ -54,3 +54,4 @@ C:\Users\licer\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\D
 C:\Users\licer\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE Memory.exe
 C:\Users\licer\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE Memory.xml
 C:\Users\licer\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE Memory.pdb
+C:\Users\licer\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE_Memory.formOptions.resources

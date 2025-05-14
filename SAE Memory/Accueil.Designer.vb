@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Accueil
+Partial Class FormAccueil
     Inherits System.Windows.Forms.Form
 
     'Form remplace la méthode Dispose pour nettoyer la liste des composants.
@@ -22,109 +22,109 @@ Partial Class Accueil
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.ComboBoxPrenom = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.ButtonScores = New System.Windows.Forms.Button()
-        Me.ButtonQuitter = New System.Windows.Forms.Button()
-        Me.ButtonJeu = New System.Windows.Forms.Button()
-        Me.LblTitre = New System.Windows.Forms.Label()
-        Me.buttonOptions = New System.Windows.Forms.Button()
+        Me.cmbPrenom = New System.Windows.Forms.ComboBox()
+        Me.lblPseudo = New System.Windows.Forms.Label()
+        Me.btnScores = New System.Windows.Forms.Button()
+        Me.btnQuitter = New System.Windows.Forms.Button()
+        Me.btnJeu = New System.Windows.Forms.Button()
+        Me.lblMemory = New System.Windows.Forms.Label()
+        Me.btnOptions = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'ComboBoxPrenom
+        'cmbPrenom
         '
-        Me.ComboBoxPrenom.FormattingEnabled = True
-        Me.ComboBoxPrenom.Location = New System.Drawing.Point(134, 73)
-        Me.ComboBoxPrenom.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.ComboBoxPrenom.Name = "ComboBoxPrenom"
-        Me.ComboBoxPrenom.Size = New System.Drawing.Size(160, 24)
-        Me.ComboBoxPrenom.TabIndex = 0
+        Me.cmbPrenom.FormattingEnabled = True
+        Me.cmbPrenom.Location = New System.Drawing.Point(134, 73)
+        Me.cmbPrenom.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmbPrenom.Name = "cmbPrenom"
+        Me.cmbPrenom.Size = New System.Drawing.Size(160, 24)
+        Me.cmbPrenom.TabIndex = 0
         '
-        'Label1
+        'lblPseudo
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(66, 76)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(60, 16)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Pseudo :"
+        Me.lblPseudo.AutoSize = True
+        Me.lblPseudo.Location = New System.Drawing.Point(66, 76)
+        Me.lblPseudo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblPseudo.Name = "lblPseudo"
+        Me.lblPseudo.Size = New System.Drawing.Size(60, 16)
+        Me.lblPseudo.TabIndex = 1
+        Me.lblPseudo.Text = "Pseudo :"
         '
-        'ButtonScores
+        'btnScores
         '
-        Me.ButtonScores.Location = New System.Drawing.Point(316, 70)
-        Me.ButtonScores.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.ButtonScores.Name = "ButtonScores"
-        Me.ButtonScores.Size = New System.Drawing.Size(100, 28)
-        Me.ButtonScores.TabIndex = 2
-        Me.ButtonScores.Text = "Scores"
-        Me.ButtonScores.UseVisualStyleBackColor = True
+        Me.btnScores.Location = New System.Drawing.Point(316, 70)
+        Me.btnScores.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnScores.Name = "btnScores"
+        Me.btnScores.Size = New System.Drawing.Size(100, 28)
+        Me.btnScores.TabIndex = 2
+        Me.btnScores.Text = "Scores"
+        Me.btnScores.UseVisualStyleBackColor = True
         '
-        'ButtonQuitter
+        'btnQuitter
         '
-        Me.ButtonQuitter.Location = New System.Drawing.Point(316, 214)
-        Me.ButtonQuitter.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.ButtonQuitter.Name = "ButtonQuitter"
-        Me.ButtonQuitter.Size = New System.Drawing.Size(100, 28)
-        Me.ButtonQuitter.TabIndex = 3
-        Me.ButtonQuitter.Text = "Quitter"
-        Me.ButtonQuitter.UseVisualStyleBackColor = True
+        Me.btnQuitter.Location = New System.Drawing.Point(316, 214)
+        Me.btnQuitter.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnQuitter.Name = "btnQuitter"
+        Me.btnQuitter.Size = New System.Drawing.Size(100, 28)
+        Me.btnQuitter.TabIndex = 3
+        Me.btnQuitter.Text = "Quitter"
+        Me.btnQuitter.UseVisualStyleBackColor = True
         '
-        'ButtonJeu
+        'btnJeu
         '
-        Me.ButtonJeu.Enabled = False
-        Me.ButtonJeu.Location = New System.Drawing.Point(26, 214)
-        Me.ButtonJeu.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.ButtonJeu.Name = "ButtonJeu"
-        Me.ButtonJeu.Size = New System.Drawing.Size(100, 28)
-        Me.ButtonJeu.TabIndex = 4
-        Me.ButtonJeu.Text = "Jouer"
-        Me.ButtonJeu.UseVisualStyleBackColor = True
+        Me.btnJeu.Enabled = False
+        Me.btnJeu.Location = New System.Drawing.Point(26, 214)
+        Me.btnJeu.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnJeu.Name = "btnJeu"
+        Me.btnJeu.Size = New System.Drawing.Size(100, 28)
+        Me.btnJeu.TabIndex = 4
+        Me.btnJeu.Text = "Jouer"
+        Me.btnJeu.UseVisualStyleBackColor = True
         '
-        'LblTitre
+        'lblMemory
         '
-        Me.LblTitre.AutoSize = True
-        Me.LblTitre.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblTitre.Location = New System.Drawing.Point(11, 4)
-        Me.LblTitre.Name = "LblTitre"
-        Me.LblTitre.Size = New System.Drawing.Size(164, 46)
-        Me.LblTitre.TabIndex = 5
-        Me.LblTitre.Text = "Memory"
+        Me.lblMemory.AutoSize = True
+        Me.lblMemory.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMemory.Location = New System.Drawing.Point(11, 4)
+        Me.lblMemory.Name = "lblMemory"
+        Me.lblMemory.Size = New System.Drawing.Size(164, 46)
+        Me.lblMemory.TabIndex = 5
+        Me.lblMemory.Text = "Memory"
         '
-        'buttonOptions
+        'btnOptions
         '
-        Me.buttonOptions.Location = New System.Drawing.Point(169, 214)
-        Me.buttonOptions.Name = "buttonOptions"
-        Me.buttonOptions.Size = New System.Drawing.Size(100, 28)
-        Me.buttonOptions.TabIndex = 6
-        Me.buttonOptions.Text = "Options"
-        Me.buttonOptions.UseVisualStyleBackColor = True
+        Me.btnOptions.Location = New System.Drawing.Point(169, 214)
+        Me.btnOptions.Name = "btnOptions"
+        Me.btnOptions.Size = New System.Drawing.Size(100, 28)
+        Me.btnOptions.TabIndex = 6
+        Me.btnOptions.Text = "Options"
+        Me.btnOptions.UseVisualStyleBackColor = True
         '
-        'Accueil
+        'FormAccueil
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(461, 281)
-        Me.Controls.Add(Me.buttonOptions)
-        Me.Controls.Add(Me.LblTitre)
-        Me.Controls.Add(Me.ButtonJeu)
-        Me.Controls.Add(Me.ButtonQuitter)
-        Me.Controls.Add(Me.ButtonScores)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.ComboBoxPrenom)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Name = "Accueil"
-        Me.Text = "Form1"
+        Me.Controls.Add(Me.btnOptions)
+        Me.Controls.Add(Me.lblMemory)
+        Me.Controls.Add(Me.btnJeu)
+        Me.Controls.Add(Me.btnQuitter)
+        Me.Controls.Add(Me.btnScores)
+        Me.Controls.Add(Me.lblPseudo)
+        Me.Controls.Add(Me.cmbPrenom)
+        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.Name = "FormAccueil"
+        Me.Text = "Accueil"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents ComboBoxPrenom As ComboBox
-    Friend WithEvents Label1 As Label
-    Friend WithEvents ButtonScores As Button
-    Friend WithEvents ButtonQuitter As Button
-    Friend WithEvents ButtonJeu As Button
-    Friend WithEvents LblTitre As Label
-    Friend WithEvents buttonOptions As Button
+    Friend WithEvents cmbPrenom As ComboBox
+    Friend WithEvents lblPseudo As Label
+    Friend WithEvents btnScores As Button
+    Friend WithEvents btnQuitter As Button
+    Friend WithEvents btnJeu As Button
+    Friend WithEvents lblMemory As Label
+    Friend WithEvents btnOptions As Button
 End Class
