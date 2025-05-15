@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class formOptions
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class formOptions
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.rdoDebutant = New System.Windows.Forms.RadioButton()
         Me.rdoIntermediaire = New System.Windows.Forms.RadioButton()
@@ -40,7 +40,7 @@ Partial Class formOptions
         '
         Me.rdoDebutant.AutoSize = True
         Me.rdoDebutant.Location = New System.Drawing.Point(5, 25)
-        Me.rdoDebutant.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.rdoDebutant.Margin = New System.Windows.Forms.Padding(2)
         Me.rdoDebutant.Name = "rdoDebutant"
         Me.rdoDebutant.Size = New System.Drawing.Size(69, 17)
         Me.rdoDebutant.TabIndex = 0
@@ -52,7 +52,7 @@ Partial Class formOptions
         '
         Me.rdoIntermediaire.AutoSize = True
         Me.rdoIntermediaire.Location = New System.Drawing.Point(5, 55)
-        Me.rdoIntermediaire.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.rdoIntermediaire.Margin = New System.Windows.Forms.Padding(2)
         Me.rdoIntermediaire.Name = "rdoIntermediaire"
         Me.rdoIntermediaire.Size = New System.Drawing.Size(85, 17)
         Me.rdoIntermediaire.TabIndex = 1
@@ -64,7 +64,7 @@ Partial Class formOptions
         '
         Me.rdoExpert.AutoSize = True
         Me.rdoExpert.Location = New System.Drawing.Point(5, 90)
-        Me.rdoExpert.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.rdoExpert.Margin = New System.Windows.Forms.Padding(2)
         Me.rdoExpert.Name = "rdoExpert"
         Me.rdoExpert.Size = New System.Drawing.Size(55, 17)
         Me.rdoExpert.TabIndex = 2
@@ -75,7 +75,7 @@ Partial Class formOptions
         'btnAvance
         '
         Me.btnAvance.Location = New System.Drawing.Point(46, 154)
-        Me.btnAvance.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnAvance.Margin = New System.Windows.Forms.Padding(2)
         Me.btnAvance.Name = "btnAvance"
         Me.btnAvance.Size = New System.Drawing.Size(56, 19)
         Me.btnAvance.TabIndex = 3
@@ -86,16 +86,17 @@ Partial Class formOptions
         '
         Me.pnlAvance.Controls.Add(Me.lblDepot)
         Me.pnlAvance.Location = New System.Drawing.Point(46, 178)
-        Me.pnlAvance.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.pnlAvance.Margin = New System.Windows.Forms.Padding(2)
         Me.pnlAvance.Name = "pnlAvance"
         Me.pnlAvance.Size = New System.Drawing.Size(470, 105)
         Me.pnlAvance.TabIndex = 5
         Me.pnlAvance.Tag = ""
+        Me.pnlAvance.Visible = False
         '
         'lblDepot
         '
         Me.lblDepot.AutoSize = True
-        Me.lblDepot.Location = New System.Drawing.Point(321, 44)
+        Me.lblDepot.Location = New System.Drawing.Point(12, 15)
         Me.lblDepot.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblDepot.Name = "lblDepot"
         Me.lblDepot.Size = New System.Drawing.Size(145, 13)
@@ -153,7 +154,7 @@ Partial Class formOptions
         Me.Controls.Add(Me.lblJsp)
         Me.Controls.Add(Me.pnlAvance)
         Me.Controls.Add(Me.btnAvance)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "formOptions"
         Me.Text = "formOptions"
         Me.pnlAvance.ResumeLayout(False)

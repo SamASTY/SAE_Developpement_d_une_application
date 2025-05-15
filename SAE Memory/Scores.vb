@@ -79,6 +79,12 @@
 
 
     Private Sub buttonRejouer_Click(sender As Object, e As EventArgs) Handles btnRejouer.Click
+        If cmbJoueurValeur.SelectedItem Is Nothing Then
+            MsgBox("Impossible de rejouer sans avoir rentrer de pseudo !", vbExclamation, "Attention")
+            FormAccueil.Show()
+            Me.Hide()
+            Exit Sub
+        End If
         Dim jeuForm As New FormJeu()
         jeuForm.RecupererJoueur(cmbJoueurValeur.SelectedItem.ToString()) ' afaire : attention quand on rejou ca ecrase les données, pas de sauvegarde des meilleur parties
         Me.Close()

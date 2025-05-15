@@ -25,4 +25,13 @@
             ModuleParametres.Difficulté = "Expert"
         End If
     End Sub
+
+    Private Sub btnAvance_Click(sender As Object, e As EventArgs) Handles btnAvance.Click
+        If pnlAvance.Visible Then
+            pnlAvance.Hide()
+        Else
+            pnlAvance.Show()
+        End If
+    End Sub
+
 End Class
