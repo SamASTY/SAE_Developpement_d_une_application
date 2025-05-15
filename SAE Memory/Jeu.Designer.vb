@@ -52,6 +52,7 @@ Partial Class FormJeu
         Me.Label03 = New System.Windows.Forms.Label()
         Me.Label02 = New System.Windows.Forms.Label()
         Me.Label01 = New System.Windows.Forms.Label()
+        Me.btnPause = New System.Windows.Forms.Button()
         Me.GroupBoxPlateau.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -76,7 +77,7 @@ Partial Class FormJeu
         'lblTemps
         '
         Me.lblTemps.AutoSize = True
-        Me.lblTemps.Location = New System.Drawing.Point(170, 22)
+        Me.lblTemps.Location = New System.Drawing.Point(156, 22)
         Me.lblTemps.Name = "lblTemps"
         Me.lblTemps.Size = New System.Drawing.Size(80, 13)
         Me.lblTemps.TabIndex = 2
@@ -85,7 +86,7 @@ Partial Class FormJeu
         'btnAbandon
         '
         Me.btnAbandon.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.btnAbandon.Location = New System.Drawing.Point(425, 14)
+        Me.btnAbandon.Location = New System.Drawing.Point(367, 14)
         Me.btnAbandon.Name = "btnAbandon"
         Me.btnAbandon.Size = New System.Drawing.Size(110, 29)
         Me.btnAbandon.TabIndex = 4
@@ -98,7 +99,7 @@ Partial Class FormJeu
         'lblTempsValeur
         '
         Me.lblTempsValeur.AutoSize = True
-        Me.lblTempsValeur.Location = New System.Drawing.Point(259, 22)
+        Me.lblTempsValeur.Location = New System.Drawing.Point(245, 22)
         Me.lblTempsValeur.Name = "lblTempsValeur"
         Me.lblTempsValeur.Size = New System.Drawing.Size(13, 13)
         Me.lblTempsValeur.TabIndex = 3
@@ -107,7 +108,7 @@ Partial Class FormJeu
         'lblScore
         '
         Me.lblScore.AutoSize = True
-        Me.lblScore.Location = New System.Drawing.Point(315, 22)
+        Me.lblScore.Location = New System.Drawing.Point(286, 22)
         Me.lblScore.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblScore.Name = "lblScore"
         Me.lblScore.Size = New System.Drawing.Size(35, 13)
@@ -117,7 +118,7 @@ Partial Class FormJeu
         'lblScoreValeur
         '
         Me.lblScoreValeur.AutoSize = True
-        Me.lblScoreValeur.Location = New System.Drawing.Point(370, 22)
+        Me.lblScoreValeur.Location = New System.Drawing.Point(341, 22)
         Me.lblScoreValeur.Name = "lblScoreValeur"
         Me.lblScoreValeur.Size = New System.Drawing.Size(13, 13)
         Me.lblScoreValeur.TabIndex = 12
@@ -331,11 +332,22 @@ Partial Class FormJeu
         Me.Label01.Size = New System.Drawing.Size(104, 157)
         Me.Label01.TabIndex = 20
         '
+        'btnPause
+        '
+        Me.btnPause.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.btnPause.Location = New System.Drawing.Point(485, 14)
+        Me.btnPause.Name = "btnPause"
+        Me.btnPause.Size = New System.Drawing.Size(110, 29)
+        Me.btnPause.TabIndex = 14
+        Me.btnPause.Text = "Pause"
+        Me.btnPause.UseVisualStyleBackColor = False
+        '
         'FormJeu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(601, 772)
+        Me.Controls.Add(Me.btnPause)
         Me.Controls.Add(Me.GroupBoxPlateau)
         Me.Controls.Add(Me.lblScoreValeur)
         Me.Controls.Add(Me.lblScore)
@@ -382,4 +394,5 @@ Partial Class FormJeu
     Friend WithEvents Label03 As Label
     Friend WithEvents Label02 As Label
     Friend WithEvents Label01 As Label
+    Friend WithEvents btnPause As Button
 End Class

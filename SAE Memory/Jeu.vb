@@ -217,4 +217,15 @@ Public Class FormJeu
         End Using
         Return bmp
     End Function
+
+    ' Met en pause le timer
+    Private Sub btnPause_Click(sender As Object, e As EventArgs) Handles btnPause.Click
+        If Timer.Enabled Then
+            Timer.Stop()
+            btnPause.Text = "Reprendre"
+        Else
+            Timer.Start()
+            btnPause.Text = "Pause"
+        End If
+    End Sub
 End Class
