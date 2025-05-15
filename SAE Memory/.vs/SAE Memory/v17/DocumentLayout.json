@@ -3,42 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|c:\\users\\soso\\source\\repos\\sae_developpement_d_une_application\\sae memory\\accueil.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:accueil.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|SAE Memory||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\accueil.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:accueil.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\jeu.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:jeu.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\jeu.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:jeu.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\scores.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:scores.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\scores.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:scores.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\formoptions.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:formoptions.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\jeu.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:jeu.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|c:\\users\\soso\\source\\repos\\sae_developpement_d_une_application\\sae memory\\accueil.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:accueil.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|c:\\users\\soso\\source\\repos\\sae_developpement_d_une_application\\sae memory\\formoptions.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:formoptions.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|c:\\users\\soso\\source\\repos\\sae_developpement_d_une_application\\sae memory\\moduleparametres.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:moduleparametres.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\sauvegardejoueur.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:sauvegardejoueur.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|c:\\users\\soso\\source\\repos\\sae_developpement_d_une_application\\sae memory\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|8998e48e-b89a-4034-b66e-353d8c1fdc2e"
+      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\accueil.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:accueil.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\scores.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:scores.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\scores.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{81CB4367-10B5-49EE-9184-091CEA04DE84}|SAE Memory.vbproj|solutionrelative:scores.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     }
   ],
   "DocumentGroupContainers": [
@@ -48,36 +50,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 138,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SAE Memory",
-              "DocumentMoniker": "C:\\Users\\Soso\\Source\\Repos\\SAE_Developpement_d_une_application\\SAE Memory\\SAE Memory.vbproj",
-              "RelativeDocumentMoniker": "SAE Memory.vbproj",
-              "ToolTip": "C:\\Users\\Soso\\Source\\Repos\\SAE_Developpement_d_une_application\\SAE Memory\\SAE Memory.vbproj",
-              "RelativeToolTip": "SAE Memory.vbproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-05-15T16:10:29.237Z",
+              "DocumentIndex": 5,
+              "Title": "ModuleParametres.vb",
+              "DocumentMoniker": "C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\ModuleParametres.vb",
+              "RelativeDocumentMoniker": "ModuleParametres.vb",
+              "ToolTip": "C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\ModuleParametres.vb",
+              "RelativeToolTip": "ModuleParametres.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-05-15T17:34:53.792Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Accueil.vb",
               "DocumentMoniker": "C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Accueil.vb",
               "RelativeDocumentMoniker": "Accueil.vb",
               "ToolTip": "C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Accueil.vb",
               "RelativeToolTip": "Accueil.vb",
-              "ViewState": "AgIAACgAAAAAAAAAAAAzwCwAAABMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAABlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-05-13T08:04:22.119Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "Accueil.vb [Design]",
               "DocumentMoniker": "C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Accueil.vb",
               "RelativeDocumentMoniker": "Accueil.vb",
@@ -89,7 +92,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Scores.vb [Design]",
               "DocumentMoniker": "C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Scores.vb",
               "RelativeDocumentMoniker": "Scores.vb",
@@ -101,20 +104,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "Scores.vb",
               "DocumentMoniker": "C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Scores.vb",
               "RelativeDocumentMoniker": "Scores.vb",
               "ToolTip": "C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Scores.vb",
               "RelativeToolTip": "Scores.vb",
-              "ViewState": "AgIAAKAAAAAAAAAAAAAAwJ0AAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAKAAAAAAAAAAAAAAwKIAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-05-13T08:04:53.045Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Jeu.vb [Design]",
               "DocumentMoniker": "C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Jeu.vb",
               "RelativeDocumentMoniker": "Jeu.vb",
@@ -126,20 +129,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Jeu.vb",
               "DocumentMoniker": "C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Jeu.vb",
               "RelativeDocumentMoniker": "Jeu.vb",
               "ToolTip": "C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\Jeu.vb",
               "RelativeToolTip": "Jeu.vb",
-              "ViewState": "AgIAAGsAAAAAAAAAAAAuwAEAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-05-12T19:08:46.264Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "formOptions.vb [Design]",
               "DocumentMoniker": "C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\formOptions.vb",
               "RelativeDocumentMoniker": "formOptions.vb",
@@ -151,13 +154,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 4,
+              "Title": "formOptions.vb",
+              "DocumentMoniker": "C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\formOptions.vb",
+              "RelativeDocumentMoniker": "formOptions.vb",
+              "ToolTip": "C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\formOptions.vb",
+              "RelativeToolTip": "formOptions.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-05-15T16:17:58.526Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "SauvegardeJoueur.vb",
               "DocumentMoniker": "C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\SauvegardeJoueur.vb",
               "RelativeDocumentMoniker": "SauvegardeJoueur.vb",
               "ToolTip": "C:\\Users\\Soso\\source\\repos\\SAE_Developpement_d_une_application\\SAE Memory\\SauvegardeJoueur.vb",
               "RelativeToolTip": "SauvegardeJoueur.vb",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAgwAYAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwBgAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-05-13T20:59:42.548Z",
               "EditorCaption": ""

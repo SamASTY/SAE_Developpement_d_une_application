@@ -92,6 +92,7 @@
     <Compile Include="Jeu.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ModuleParametres.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>

@@ -61,7 +61,8 @@
     End Sub
 
     Private Sub buttonOptions_Click(sender As Object, e As EventArgs) Handles btnOptions.Click
-
+        Me.Hide()
+        formOptions.Show()
     End Sub
 
 End Class

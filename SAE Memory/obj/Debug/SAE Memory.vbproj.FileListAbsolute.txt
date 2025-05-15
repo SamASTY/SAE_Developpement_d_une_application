@@ -3,7 +3,6 @@ C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\bin\De
 C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\bin\Debug\SAE Memory.pdb
 C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\bin\Debug\SAE Memory.xml
 C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE Memory.vbproj.AssemblyReference.cache
-C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE_Memory.Jeu.resources
 C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE_Memory.Resources.resources
 C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE Memory.vbproj.GenerateResource.cache
 C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE Memory.vbproj.CoreCompileInputs.cache
@@ -56,3 +55,4 @@ C:\Users\licer\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\D
 C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE_Memory.FormAccueil.resources
 C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE_Memory.formOptions.resources
 C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE_Memory.FormScores.resources
+C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE_Memory.FormJeu.resources

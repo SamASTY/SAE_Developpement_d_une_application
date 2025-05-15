@@ -3,11 +3,12 @@ Public Class FormJeu
     Dim cpt As Integer = 0
     Dim TempsMax As Integer = 50
     Dim CarteRetourne As List(Of Label)
-    Dim nbMaxCarteRetourner As Integer = 4
     Dim compteurCarte As Integer = 0
     Dim CarteGagner As List(Of Label)
     Public cheminImages As String = System.IO.Path.Combine(Application.StartupPath, "Images")
-
+    Dim CarteParSet As Integer = 4 ' 4 = carree, 2 = paires etc
+    Dim NbreDeSet As Integer = 5 ' nombre de set de carte
+    Dim TotalCarte As Integer = 20 ' nombre de cartes a deviner
     Public Sub RecupererJoueur(J As String)
         joueurNom = J
     End Sub
@@ -33,7 +34,7 @@ Public Class FormJeu
         CarteGagner = New List(Of Label)
 
         'Affectations des valeurs au cartes
-        For i As Integer = 1 To 20
+        For i As Integer = 1 To TotalCarte
             Dim labelName As String = "Label" & i.ToString("00")
             Dim label As Label = CType(GroupBoxPlateau.Controls(labelName), Label)
 
@@ -48,7 +49,7 @@ Public Class FormJeu
     End Sub
     Private Sub ResetPlateauErreur()
         'Reinitialisation du plateau de jeu durant le jeu
-        For i As Integer = 1 To 20
+        For i As Integer = 1 To TotalCarte
             Dim labelName As String = "Label" & i.ToString("00")
             Dim label As Label = CType(GroupBoxPlateau.Controls(labelName), Label)
             If label IsNot Nothing AndAlso Not CarteGagner.Any(Function(c) c.Name = label.Name) Then
@@ -62,8 +63,8 @@ Public Class FormJeu
         'Génération des cartes
         Dim Paquet As New List(Of Integer)
 
-        For valeur As Integer = 1 To 5
-            For i As Integer = 1 To 4
+        For valeur As Integer = 1 To NbreDeSet
+            For i As Integer = 1 To CarteParSet
                 Paquet.Add(valeur)
             Next
         Next
@@ -129,7 +130,7 @@ Public Class FormJeu
 
     Private Sub FinDeJeu()
         ' Calculer le nombre de carrés trouvés (4 cartes = 1 carré)
-        Dim nbCarres As Integer = CarteGagner.Count \ 4
+        Dim nbCarres As Integer = CarteGagner.Count \ CarteParSet
         Dim tempsEcoule As Integer = cpt
 
         ' Enregistrer le joueur
@@ -147,11 +148,11 @@ Public Class FormJeu
     End Sub
 
     Private Function TousCarteRetournee() As Boolean
-        Return CarteGagner.Count() = 20
+        Return CarteGagner.Count() = TotalCarte
     End Function
 
     Private Sub Carree()
-        If CarteRetourne.Count = 4 Then
+        If CarteRetourne.Count = CarteParSet Then
             GriserCarteGagner()
             CarteRetourne.Clear()
             compteurCarte = 0
@@ -175,7 +176,7 @@ Public Class FormJeu
         For Each carte As Label In CarteRetourne
             CarteGagner.Add(carte)
             'carte.Image = My.Resources.noir 'grisser
-            For i As Integer = 1 To 20
+            For i As Integer = 1 To TotalCarte
                 Dim labelName As String = "Label" & i.ToString("00")
                 Dim label As Label = CType(GroupBoxPlateau.Controls(labelName), Label)
                 If label IsNot Nothing AndAlso CarteRetourne.Contains(label) Then

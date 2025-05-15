@@ -26,17 +26,20 @@ Partial Class formOptions
         Me.rdoIntermediaire = New System.Windows.Forms.RadioButton()
         Me.rdoExpert = New System.Windows.Forms.RadioButton()
         Me.btnAvance = New System.Windows.Forms.Button()
-        Me.lblDifficulte = New System.Windows.Forms.Label()
         Me.pnlAvance = New System.Windows.Forms.Panel()
         Me.lblDepot = New System.Windows.Forms.Label()
         Me.lblJsp = New System.Windows.Forms.Label()
+        Me.btnRetour = New System.Windows.Forms.Button()
+        Me.btnJouer = New System.Windows.Forms.Button()
+        Me.grpDifficulte = New System.Windows.Forms.GroupBox()
         Me.pnlAvance.SuspendLayout()
+        Me.grpDifficulte.SuspendLayout()
         Me.SuspendLayout()
         '
         'rdoDebutant
         '
         Me.rdoDebutant.AutoSize = True
-        Me.rdoDebutant.Location = New System.Drawing.Point(47, 82)
+        Me.rdoDebutant.Location = New System.Drawing.Point(5, 25)
         Me.rdoDebutant.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.rdoDebutant.Name = "rdoDebutant"
         Me.rdoDebutant.Size = New System.Drawing.Size(69, 17)
@@ -48,7 +51,7 @@ Partial Class formOptions
         'rdoIntermediaire
         '
         Me.rdoIntermediaire.AutoSize = True
-        Me.rdoIntermediaire.Location = New System.Drawing.Point(47, 112)
+        Me.rdoIntermediaire.Location = New System.Drawing.Point(5, 55)
         Me.rdoIntermediaire.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.rdoIntermediaire.Name = "rdoIntermediaire"
         Me.rdoIntermediaire.Size = New System.Drawing.Size(85, 17)
@@ -60,7 +63,7 @@ Partial Class formOptions
         'rdoExpert
         '
         Me.rdoExpert.AutoSize = True
-        Me.rdoExpert.Location = New System.Drawing.Point(47, 147)
+        Me.rdoExpert.Location = New System.Drawing.Point(5, 90)
         Me.rdoExpert.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.rdoExpert.Name = "rdoExpert"
         Me.rdoExpert.Size = New System.Drawing.Size(55, 17)
@@ -71,7 +74,7 @@ Partial Class formOptions
         '
         'btnAvance
         '
-        Me.btnAvance.Location = New System.Drawing.Point(47, 216)
+        Me.btnAvance.Location = New System.Drawing.Point(46, 154)
         Me.btnAvance.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnAvance.Name = "btnAvance"
         Me.btnAvance.Size = New System.Drawing.Size(56, 19)
@@ -79,20 +82,10 @@ Partial Class formOptions
         Me.btnAvance.Text = "Avances"
         Me.btnAvance.UseVisualStyleBackColor = True
         '
-        'lblDifficulte
-        '
-        Me.lblDifficulte.AutoSize = True
-        Me.lblDifficulte.Location = New System.Drawing.Point(45, 58)
-        Me.lblDifficulte.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.lblDifficulte.Name = "lblDifficulte"
-        Me.lblDifficulte.Size = New System.Drawing.Size(48, 13)
-        Me.lblDifficulte.TabIndex = 4
-        Me.lblDifficulte.Text = "Difficulte"
-        '
         'pnlAvance
         '
         Me.pnlAvance.Controls.Add(Me.lblDepot)
-        Me.pnlAvance.Location = New System.Drawing.Point(47, 240)
+        Me.pnlAvance.Location = New System.Drawing.Point(46, 178)
         Me.pnlAvance.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.pnlAvance.Name = "pnlAvance"
         Me.pnlAvance.Size = New System.Drawing.Size(470, 105)
@@ -119,23 +112,54 @@ Partial Class formOptions
         Me.lblJsp.TabIndex = 6
         Me.lblJsp.Text = "Jsp ce qu'on mettrait ici"
         '
+        'btnRetour
+        '
+        Me.btnRetour.Location = New System.Drawing.Point(442, 318)
+        Me.btnRetour.Name = "btnRetour"
+        Me.btnRetour.Size = New System.Drawing.Size(91, 26)
+        Me.btnRetour.TabIndex = 7
+        Me.btnRetour.Text = "Retour"
+        Me.btnRetour.UseVisualStyleBackColor = True
+        '
+        'btnJouer
+        '
+        Me.btnJouer.Location = New System.Drawing.Point(46, 318)
+        Me.btnJouer.Name = "btnJouer"
+        Me.btnJouer.Size = New System.Drawing.Size(91, 26)
+        Me.btnJouer.TabIndex = 8
+        Me.btnJouer.Text = "Jouer"
+        Me.btnJouer.UseVisualStyleBackColor = True
+        '
+        'grpDifficulte
+        '
+        Me.grpDifficulte.Controls.Add(Me.rdoIntermediaire)
+        Me.grpDifficulte.Controls.Add(Me.rdoDebutant)
+        Me.grpDifficulte.Controls.Add(Me.rdoExpert)
+        Me.grpDifficulte.Location = New System.Drawing.Point(46, 24)
+        Me.grpDifficulte.Name = "grpDifficulte"
+        Me.grpDifficulte.Size = New System.Drawing.Size(200, 112)
+        Me.grpDifficulte.TabIndex = 9
+        Me.grpDifficulte.TabStop = False
+        Me.grpDifficulte.Text = "Difficulte"
+        '
         'formOptions
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(600, 366)
+        Me.Controls.Add(Me.grpDifficulte)
+        Me.Controls.Add(Me.btnJouer)
+        Me.Controls.Add(Me.btnRetour)
         Me.Controls.Add(Me.lblJsp)
         Me.Controls.Add(Me.pnlAvance)
-        Me.Controls.Add(Me.lblDifficulte)
         Me.Controls.Add(Me.btnAvance)
-        Me.Controls.Add(Me.rdoExpert)
-        Me.Controls.Add(Me.rdoIntermediaire)
-        Me.Controls.Add(Me.rdoDebutant)
         Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "formOptions"
         Me.Text = "formOptions"
         Me.pnlAvance.ResumeLayout(False)
         Me.pnlAvance.PerformLayout()
+        Me.grpDifficulte.ResumeLayout(False)
+        Me.grpDifficulte.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -145,8 +169,10 @@ Partial Class formOptions
     Friend WithEvents rdoIntermediaire As RadioButton
     Friend WithEvents rdoExpert As RadioButton
     Friend WithEvents btnAvance As Button
-    Friend WithEvents lblDifficulte As Label
     Friend WithEvents pnlAvance As Panel
     Friend WithEvents lblDepot As Label
     Friend WithEvents lblJsp As Label
+    Friend WithEvents btnRetour As Button
+    Friend WithEvents btnJouer As Button
+    Friend WithEvents grpDifficulte As GroupBox
 End Class
