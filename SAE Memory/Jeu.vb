@@ -1,4 +1,4 @@
-Public Class Jeu
+Public Class FormJeu
     Dim joueurNom As String
     Dim cpt As Integer = 0
     Dim TempsMax As Integer = 50
@@ -11,7 +11,7 @@ Public Class Jeu
     Public Sub RecupererJoueur(J As String)
         joueurNom = J
     End Sub
-    Private Sub ButtonAbandon_Click(sender As Object, e As EventArgs) Handles ButtonAbandon.Click
+    Private Sub ButtonAbandon_Click(sender As Object, e As EventArgs) Handles btnAbandon.Click
         Dim reponse = MsgBox("Voulez-vous revenir à l'accueil ?", vbYesNo)
         If reponse = vbYes Then
             Me.Close()
@@ -21,10 +21,10 @@ Public Class Jeu
     Private Sub Jeu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Debug.WriteLine("Chargement du formulaire score — joueur actuel : " & SauvegardeJoueur.P)
         Timer.Interval = 1000
-        LabelTimer.Text = TempsMax
+        lblTempsValeur.Text = TempsMax
         Timer.Start()
         InitJeu()
-        LabelPseudo.Text = joueurNom
+        lblPseudo.Text = joueurNom
     End Sub
     Private Sub InitJeu()
         'Initialisation des Listes de cartes
@@ -155,7 +155,7 @@ Public Class Jeu
             GriserCarteGagner()
             CarteRetourne.Clear()
             compteurCarte = 0
-            LabelCompteurScore.Text = (CarteGagner.Count \ 4).ToString()
+            lblScoreValeur.Text = (CarteGagner.Count \ 4).ToString()
             ResetPlateauErreur()
         End If
     End Sub
@@ -202,7 +202,7 @@ Public Class Jeu
 
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
         cpt += 1
-        LabelTimer.Text = TempsMax - cpt
+        lblTempsValeur.Text = TempsMax - cpt
         If cpt >= TempsMax Or TousCarteRetournee() Then
             Timer.Stop()
             FinDeJeu()

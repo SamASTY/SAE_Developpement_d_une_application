@@ -22,122 +22,131 @@ Partial Class formOptions
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.radioButtonDebutant = New System.Windows.Forms.RadioButton()
-        Me.radioButtonIntermediaire = New System.Windows.Forms.RadioButton()
-        Me.radioButtonExpert = New System.Windows.Forms.RadioButton()
-        Me.buttonAvance = New System.Windows.Forms.Button()
-        Me.labelDifficulte = New System.Windows.Forms.Label()
-        Me.panelAvance = New System.Windows.Forms.Panel()
-        Me.labelDragNDrop = New System.Windows.Forms.Label()
-        Me.labelDragNDropx = New System.Windows.Forms.Label()
-        Me.panelAvance.SuspendLayout()
+        Me.rdoDebutant = New System.Windows.Forms.RadioButton()
+        Me.rdoIntermediaire = New System.Windows.Forms.RadioButton()
+        Me.rdoExpert = New System.Windows.Forms.RadioButton()
+        Me.btnAvance = New System.Windows.Forms.Button()
+        Me.lblDifficulte = New System.Windows.Forms.Label()
+        Me.pnlAvance = New System.Windows.Forms.Panel()
+        Me.lblDepot = New System.Windows.Forms.Label()
+        Me.lblJsp = New System.Windows.Forms.Label()
+        Me.pnlAvance.SuspendLayout()
         Me.SuspendLayout()
         '
-        'radioButtonDebutant
+        'rdoDebutant
         '
-        Me.radioButtonDebutant.AutoSize = True
-        Me.radioButtonDebutant.Location = New System.Drawing.Point(63, 101)
-        Me.radioButtonDebutant.Name = "radioButtonDebutant"
-        Me.radioButtonDebutant.Size = New System.Drawing.Size(82, 20)
-        Me.radioButtonDebutant.TabIndex = 0
-        Me.radioButtonDebutant.TabStop = True
-        Me.radioButtonDebutant.Text = "Debutant"
-        Me.radioButtonDebutant.UseVisualStyleBackColor = True
+        Me.rdoDebutant.AutoSize = True
+        Me.rdoDebutant.Location = New System.Drawing.Point(47, 82)
+        Me.rdoDebutant.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.rdoDebutant.Name = "rdoDebutant"
+        Me.rdoDebutant.Size = New System.Drawing.Size(69, 17)
+        Me.rdoDebutant.TabIndex = 0
+        Me.rdoDebutant.TabStop = True
+        Me.rdoDebutant.Text = "Debutant"
+        Me.rdoDebutant.UseVisualStyleBackColor = True
         '
-        'radioButtonIntermediaire
+        'rdoIntermediaire
         '
-        Me.radioButtonIntermediaire.AutoSize = True
-        Me.radioButtonIntermediaire.Location = New System.Drawing.Point(63, 138)
-        Me.radioButtonIntermediaire.Name = "radioButtonIntermediaire"
-        Me.radioButtonIntermediaire.Size = New System.Drawing.Size(106, 20)
-        Me.radioButtonIntermediaire.TabIndex = 1
-        Me.radioButtonIntermediaire.TabStop = True
-        Me.radioButtonIntermediaire.Text = "Intermediaire"
-        Me.radioButtonIntermediaire.UseVisualStyleBackColor = True
+        Me.rdoIntermediaire.AutoSize = True
+        Me.rdoIntermediaire.Location = New System.Drawing.Point(47, 112)
+        Me.rdoIntermediaire.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.rdoIntermediaire.Name = "rdoIntermediaire"
+        Me.rdoIntermediaire.Size = New System.Drawing.Size(85, 17)
+        Me.rdoIntermediaire.TabIndex = 1
+        Me.rdoIntermediaire.TabStop = True
+        Me.rdoIntermediaire.Text = "Intermediaire"
+        Me.rdoIntermediaire.UseVisualStyleBackColor = True
         '
-        'radioButtonExpert
+        'rdoExpert
         '
-        Me.radioButtonExpert.AutoSize = True
-        Me.radioButtonExpert.Location = New System.Drawing.Point(63, 181)
-        Me.radioButtonExpert.Name = "radioButtonExpert"
-        Me.radioButtonExpert.Size = New System.Drawing.Size(66, 20)
-        Me.radioButtonExpert.TabIndex = 2
-        Me.radioButtonExpert.TabStop = True
-        Me.radioButtonExpert.Text = "Expert"
-        Me.radioButtonExpert.UseVisualStyleBackColor = True
+        Me.rdoExpert.AutoSize = True
+        Me.rdoExpert.Location = New System.Drawing.Point(47, 147)
+        Me.rdoExpert.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.rdoExpert.Name = "rdoExpert"
+        Me.rdoExpert.Size = New System.Drawing.Size(55, 17)
+        Me.rdoExpert.TabIndex = 2
+        Me.rdoExpert.TabStop = True
+        Me.rdoExpert.Text = "Expert"
+        Me.rdoExpert.UseVisualStyleBackColor = True
         '
-        'buttonAvance
+        'btnAvance
         '
-        Me.buttonAvance.Location = New System.Drawing.Point(63, 266)
-        Me.buttonAvance.Name = "buttonAvance"
-        Me.buttonAvance.Size = New System.Drawing.Size(75, 23)
-        Me.buttonAvance.TabIndex = 3
-        Me.buttonAvance.Text = "Avances"
-        Me.buttonAvance.UseVisualStyleBackColor = True
+        Me.btnAvance.Location = New System.Drawing.Point(47, 216)
+        Me.btnAvance.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnAvance.Name = "btnAvance"
+        Me.btnAvance.Size = New System.Drawing.Size(56, 19)
+        Me.btnAvance.TabIndex = 3
+        Me.btnAvance.Text = "Avances"
+        Me.btnAvance.UseVisualStyleBackColor = True
         '
-        'labelDifficulte
+        'lblDifficulte
         '
-        Me.labelDifficulte.AutoSize = True
-        Me.labelDifficulte.Location = New System.Drawing.Point(60, 71)
-        Me.labelDifficulte.Name = "labelDifficulte"
-        Me.labelDifficulte.Size = New System.Drawing.Size(57, 16)
-        Me.labelDifficulte.TabIndex = 4
-        Me.labelDifficulte.Text = "Difficulte"
+        Me.lblDifficulte.AutoSize = True
+        Me.lblDifficulte.Location = New System.Drawing.Point(45, 58)
+        Me.lblDifficulte.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblDifficulte.Name = "lblDifficulte"
+        Me.lblDifficulte.Size = New System.Drawing.Size(48, 13)
+        Me.lblDifficulte.TabIndex = 4
+        Me.lblDifficulte.Text = "Difficulte"
         '
-        'panelAvance
+        'pnlAvance
         '
-        Me.panelAvance.Controls.Add(Me.labelDragNDropx)
-        Me.panelAvance.Location = New System.Drawing.Point(63, 295)
-        Me.panelAvance.Name = "panelAvance"
-        Me.panelAvance.Size = New System.Drawing.Size(627, 129)
-        Me.panelAvance.TabIndex = 5
-        Me.panelAvance.Tag = ""
+        Me.pnlAvance.Controls.Add(Me.lblDepot)
+        Me.pnlAvance.Location = New System.Drawing.Point(47, 240)
+        Me.pnlAvance.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.pnlAvance.Name = "pnlAvance"
+        Me.pnlAvance.Size = New System.Drawing.Size(470, 105)
+        Me.pnlAvance.TabIndex = 5
+        Me.pnlAvance.Tag = ""
         '
-        'labelDragNDrop
+        'lblDepot
         '
-        Me.labelDragNDrop.AutoSize = True
-        Me.labelDragNDrop.Location = New System.Drawing.Point(555, 123)
-        Me.labelDragNDrop.Name = "labelDragNDrop"
-        Me.labelDragNDrop.Size = New System.Drawing.Size(145, 16)
-        Me.labelDragNDrop.TabIndex = 6
-        Me.labelDragNDrop.Text = "Jsp ce qu'on mettrait ici"
+        Me.lblDepot.AutoSize = True
+        Me.lblDepot.Location = New System.Drawing.Point(321, 44)
+        Me.lblDepot.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblDepot.Name = "lblDepot"
+        Me.lblDepot.Size = New System.Drawing.Size(145, 13)
+        Me.lblDepot.TabIndex = 0
+        Me.lblDepot.Text = "Ici on met le drag and drop  ?"
         '
-        'labelDragNDropx
+        'lblJsp
         '
-        Me.labelDragNDropx.AutoSize = True
-        Me.labelDragNDropx.Location = New System.Drawing.Point(428, 54)
-        Me.labelDragNDropx.Name = "labelDragNDropx"
-        Me.labelDragNDropx.Size = New System.Drawing.Size(178, 16)
-        Me.labelDragNDropx.TabIndex = 0
-        Me.labelDragNDropx.Text = "Ici on met le drag and drop  ?"
+        Me.lblJsp.AutoSize = True
+        Me.lblJsp.Location = New System.Drawing.Point(416, 100)
+        Me.lblJsp.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblJsp.Name = "lblJsp"
+        Me.lblJsp.Size = New System.Drawing.Size(117, 13)
+        Me.lblJsp.TabIndex = 6
+        Me.lblJsp.Text = "Jsp ce qu'on mettrait ici"
         '
         'formOptions
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.labelDragNDrop)
-        Me.Controls.Add(Me.panelAvance)
-        Me.Controls.Add(Me.labelDifficulte)
-        Me.Controls.Add(Me.buttonAvance)
-        Me.Controls.Add(Me.radioButtonExpert)
-        Me.Controls.Add(Me.radioButtonIntermediaire)
-        Me.Controls.Add(Me.radioButtonDebutant)
+        Me.ClientSize = New System.Drawing.Size(600, 366)
+        Me.Controls.Add(Me.lblJsp)
+        Me.Controls.Add(Me.pnlAvance)
+        Me.Controls.Add(Me.lblDifficulte)
+        Me.Controls.Add(Me.btnAvance)
+        Me.Controls.Add(Me.rdoExpert)
+        Me.Controls.Add(Me.rdoIntermediaire)
+        Me.Controls.Add(Me.rdoDebutant)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "formOptions"
         Me.Text = "formOptions"
-        Me.panelAvance.ResumeLayout(False)
-        Me.panelAvance.PerformLayout()
+        Me.pnlAvance.ResumeLayout(False)
+        Me.pnlAvance.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents radioButtonDebutant As RadioButton
-    Friend WithEvents radioButtonIntermediaire As RadioButton
-    Friend WithEvents radioButtonExpert As RadioButton
-    Friend WithEvents buttonAvance As Button
-    Friend WithEvents labelDifficulte As Label
-    Friend WithEvents panelAvance As Panel
-    Friend WithEvents labelDragNDropx As Label
-    Friend WithEvents labelDragNDrop As Label
+    Friend WithEvents rdoDebutant As RadioButton
+    Friend WithEvents rdoIntermediaire As RadioButton
+    Friend WithEvents rdoExpert As RadioButton
+    Friend WithEvents btnAvance As Button
+    Friend WithEvents lblDifficulte As Label
+    Friend WithEvents pnlAvance As Panel
+    Friend WithEvents lblDepot As Label
+    Friend WithEvents lblJsp As Label
 End Class

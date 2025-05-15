@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Jeu
+Partial Class FormJeu
     Inherits System.Windows.Forms.Form
 
     'Form remplace la méthode Dispose pour nettoyer la liste des composants.
@@ -23,14 +23,14 @@ Partial Class Jeu
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.LabelPseudo = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.ButtonAbandon = New System.Windows.Forms.Button()
+        Me.lblJoueur = New System.Windows.Forms.Label()
+        Me.lblPseudo = New System.Windows.Forms.Label()
+        Me.lblTemps = New System.Windows.Forms.Label()
+        Me.btnAbandon = New System.Windows.Forms.Button()
         Me.Timer = New System.Windows.Forms.Timer(Me.components)
-        Me.LabelTimer = New System.Windows.Forms.Label()
-        Me.LabelScore = New System.Windows.Forms.Label()
-        Me.LabelCompteurScore = New System.Windows.Forms.Label()
+        Me.lblTempsValeur = New System.Windows.Forms.Label()
+        Me.lblScore = New System.Windows.Forms.Label()
+        Me.lblScoreValeur = New System.Windows.Forms.Label()
         Me.GroupBoxPlateau = New System.Windows.Forms.GroupBox()
         Me.Label05 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
@@ -55,78 +55,73 @@ Partial Class Jeu
         Me.GroupBoxPlateau.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Label1
+        'lblJoueur
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(32, 27)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(48, 16)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Joueur"
+        Me.lblJoueur.AutoSize = True
+        Me.lblJoueur.Location = New System.Drawing.Point(24, 22)
+        Me.lblJoueur.Name = "lblJoueur"
+        Me.lblJoueur.Size = New System.Drawing.Size(39, 13)
+        Me.lblJoueur.TabIndex = 0
+        Me.lblJoueur.Text = "Joueur"
         '
-        'LabelPseudo
+        'lblPseudo
         '
-        Me.LabelPseudo.AutoSize = True
-        Me.LabelPseudo.Location = New System.Drawing.Point(104, 27)
-        Me.LabelPseudo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.LabelPseudo.Name = "LabelPseudo"
-        Me.LabelPseudo.Size = New System.Drawing.Size(73, 16)
-        Me.LabelPseudo.TabIndex = 1
-        Me.LabelPseudo.Text = "Nomjoueur"
+        Me.lblPseudo.AutoSize = True
+        Me.lblPseudo.Location = New System.Drawing.Point(78, 22)
+        Me.lblPseudo.Name = "lblPseudo"
+        Me.lblPseudo.Size = New System.Drawing.Size(58, 13)
+        Me.lblPseudo.TabIndex = 1
+        Me.lblPseudo.Text = "Nomjoueur"
         '
-        'Label2
+        'lblTemps
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(227, 27)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(99, 16)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Temps restant :"
+        Me.lblTemps.AutoSize = True
+        Me.lblTemps.Location = New System.Drawing.Point(170, 22)
+        Me.lblTemps.Name = "lblTemps"
+        Me.lblTemps.Size = New System.Drawing.Size(80, 13)
+        Me.lblTemps.TabIndex = 2
+        Me.lblTemps.Text = "Temps restant :"
         '
-        'ButtonAbandon
+        'btnAbandon
         '
-        Me.ButtonAbandon.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.ButtonAbandon.Location = New System.Drawing.Point(567, 17)
-        Me.ButtonAbandon.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.ButtonAbandon.Name = "ButtonAbandon"
-        Me.ButtonAbandon.Size = New System.Drawing.Size(147, 36)
-        Me.ButtonAbandon.TabIndex = 4
-        Me.ButtonAbandon.Text = "Abandon"
-        Me.ButtonAbandon.UseVisualStyleBackColor = False
+        Me.btnAbandon.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.btnAbandon.Location = New System.Drawing.Point(425, 14)
+        Me.btnAbandon.Name = "btnAbandon"
+        Me.btnAbandon.Size = New System.Drawing.Size(110, 29)
+        Me.btnAbandon.TabIndex = 4
+        Me.btnAbandon.Text = "Abandon"
+        Me.btnAbandon.UseVisualStyleBackColor = False
         '
         'Timer
         '
         '
-        'LabelTimer
+        'lblTempsValeur
         '
-        Me.LabelTimer.AutoSize = True
-        Me.LabelTimer.Location = New System.Drawing.Point(345, 27)
-        Me.LabelTimer.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.LabelTimer.Name = "LabelTimer"
-        Me.LabelTimer.Size = New System.Drawing.Size(14, 16)
-        Me.LabelTimer.TabIndex = 3
-        Me.LabelTimer.Text = "0"
+        Me.lblTempsValeur.AutoSize = True
+        Me.lblTempsValeur.Location = New System.Drawing.Point(259, 22)
+        Me.lblTempsValeur.Name = "lblTempsValeur"
+        Me.lblTempsValeur.Size = New System.Drawing.Size(13, 13)
+        Me.lblTempsValeur.TabIndex = 3
+        Me.lblTempsValeur.Text = "0"
         '
-        'LabelScore
+        'lblScore
         '
-        Me.LabelScore.AutoSize = True
-        Me.LabelScore.Location = New System.Drawing.Point(420, 27)
-        Me.LabelScore.Name = "LabelScore"
-        Me.LabelScore.Size = New System.Drawing.Size(43, 16)
-        Me.LabelScore.TabIndex = 11
-        Me.LabelScore.Text = "Score"
+        Me.lblScore.AutoSize = True
+        Me.lblScore.Location = New System.Drawing.Point(315, 22)
+        Me.lblScore.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblScore.Name = "lblScore"
+        Me.lblScore.Size = New System.Drawing.Size(35, 13)
+        Me.lblScore.TabIndex = 11
+        Me.lblScore.Text = "Score"
         '
-        'LabelCompteurScore
+        'lblScoreValeur
         '
-        Me.LabelCompteurScore.AutoSize = True
-        Me.LabelCompteurScore.Location = New System.Drawing.Point(493, 27)
-        Me.LabelCompteurScore.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.LabelCompteurScore.Name = "LabelCompteurScore"
-        Me.LabelCompteurScore.Size = New System.Drawing.Size(14, 16)
-        Me.LabelCompteurScore.TabIndex = 12
-        Me.LabelCompteurScore.Text = "0"
+        Me.lblScoreValeur.AutoSize = True
+        Me.lblScoreValeur.Location = New System.Drawing.Point(370, 22)
+        Me.lblScoreValeur.Name = "lblScoreValeur"
+        Me.lblScoreValeur.Size = New System.Drawing.Size(13, 13)
+        Me.lblScoreValeur.TabIndex = 12
+        Me.lblScoreValeur.Text = "0"
         '
         'GroupBoxPlateau
         '
@@ -150,11 +145,9 @@ Partial Class Jeu
         Me.GroupBoxPlateau.Controls.Add(Me.Label03)
         Me.GroupBoxPlateau.Controls.Add(Me.Label02)
         Me.GroupBoxPlateau.Controls.Add(Me.Label01)
-        Me.GroupBoxPlateau.Location = New System.Drawing.Point(1, 60)
-        Me.GroupBoxPlateau.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBoxPlateau.Location = New System.Drawing.Point(1, 49)
         Me.GroupBoxPlateau.Name = "GroupBoxPlateau"
-        Me.GroupBoxPlateau.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.GroupBoxPlateau.Size = New System.Drawing.Size(792, 869)
+        Me.GroupBoxPlateau.Size = New System.Drawing.Size(594, 706)
         Me.GroupBoxPlateau.TabIndex = 13
         Me.GroupBoxPlateau.TabStop = False
         '
@@ -162,217 +155,197 @@ Partial Class Jeu
         '
         Me.Label05.BackColor = System.Drawing.SystemColors.ButtonShadow
         Me.Label05.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label05.Location = New System.Drawing.Point(641, 21)
-        Me.Label05.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label05.Location = New System.Drawing.Point(481, 17)
         Me.Label05.Name = "Label05"
-        Me.Label05.Size = New System.Drawing.Size(139, 193)
+        Me.Label05.Size = New System.Drawing.Size(104, 157)
         Me.Label05.TabIndex = 24
         '
         'Label18
         '
         Me.Label18.BackColor = System.Drawing.SystemColors.ButtonShadow
         Me.Label18.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label18.Location = New System.Drawing.Point(325, 655)
-        Me.Label18.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label18.Location = New System.Drawing.Point(244, 532)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(139, 193)
+        Me.Label18.Size = New System.Drawing.Size(104, 157)
         Me.Label18.TabIndex = 37
         '
         'Label04
         '
         Me.Label04.BackColor = System.Drawing.SystemColors.ButtonShadow
         Me.Label04.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label04.Location = New System.Drawing.Point(484, 21)
-        Me.Label04.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label04.Location = New System.Drawing.Point(363, 17)
         Me.Label04.Name = "Label04"
-        Me.Label04.Size = New System.Drawing.Size(139, 193)
+        Me.Label04.Size = New System.Drawing.Size(104, 157)
         Me.Label04.TabIndex = 23
         '
         'Label17
         '
         Me.Label17.BackColor = System.Drawing.SystemColors.ButtonShadow
         Me.Label17.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label17.Location = New System.Drawing.Point(171, 655)
-        Me.Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label17.Location = New System.Drawing.Point(128, 532)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(139, 193)
+        Me.Label17.Size = New System.Drawing.Size(104, 157)
         Me.Label17.TabIndex = 36
         '
         'Label16
         '
         Me.Label16.BackColor = System.Drawing.SystemColors.ButtonShadow
         Me.Label16.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label16.Location = New System.Drawing.Point(12, 655)
-        Me.Label16.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label16.Location = New System.Drawing.Point(9, 532)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(139, 193)
+        Me.Label16.Size = New System.Drawing.Size(104, 157)
         Me.Label16.TabIndex = 35
         '
         'Label20
         '
         Me.Label20.BackColor = System.Drawing.SystemColors.ButtonShadow
         Me.Label20.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label20.Location = New System.Drawing.Point(641, 655)
-        Me.Label20.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label20.Location = New System.Drawing.Point(481, 532)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(139, 193)
+        Me.Label20.Size = New System.Drawing.Size(104, 157)
         Me.Label20.TabIndex = 39
         '
         'Label19
         '
         Me.Label19.BackColor = System.Drawing.SystemColors.ButtonShadow
         Me.Label19.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label19.Location = New System.Drawing.Point(484, 655)
-        Me.Label19.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label19.Location = New System.Drawing.Point(363, 532)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(139, 193)
+        Me.Label19.Size = New System.Drawing.Size(104, 157)
         Me.Label19.TabIndex = 38
         '
         'Label13
         '
         Me.Label13.BackColor = System.Drawing.SystemColors.ButtonShadow
         Me.Label13.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label13.Location = New System.Drawing.Point(325, 441)
-        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label13.Location = New System.Drawing.Point(244, 358)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(139, 193)
+        Me.Label13.Size = New System.Drawing.Size(104, 157)
         Me.Label13.TabIndex = 32
         '
         'Label12
         '
         Me.Label12.BackColor = System.Drawing.SystemColors.ButtonShadow
         Me.Label12.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label12.Location = New System.Drawing.Point(171, 441)
-        Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label12.Location = New System.Drawing.Point(128, 358)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(139, 193)
+        Me.Label12.Size = New System.Drawing.Size(104, 157)
         Me.Label12.TabIndex = 31
         '
         'Label11
         '
         Me.Label11.BackColor = System.Drawing.SystemColors.ButtonShadow
         Me.Label11.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label11.Location = New System.Drawing.Point(12, 441)
-        Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label11.Location = New System.Drawing.Point(9, 358)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(139, 193)
+        Me.Label11.Size = New System.Drawing.Size(104, 157)
         Me.Label11.TabIndex = 30
         '
         'Label15
         '
         Me.Label15.BackColor = System.Drawing.SystemColors.ButtonShadow
         Me.Label15.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label15.Location = New System.Drawing.Point(641, 441)
-        Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label15.Location = New System.Drawing.Point(481, 358)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(139, 193)
+        Me.Label15.Size = New System.Drawing.Size(104, 157)
         Me.Label15.TabIndex = 34
         '
         'Label14
         '
         Me.Label14.BackColor = System.Drawing.SystemColors.ButtonShadow
         Me.Label14.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label14.Location = New System.Drawing.Point(484, 441)
-        Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label14.Location = New System.Drawing.Point(363, 358)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(139, 193)
+        Me.Label14.Size = New System.Drawing.Size(104, 157)
         Me.Label14.TabIndex = 33
         '
         'Label08
         '
         Me.Label08.BackColor = System.Drawing.SystemColors.ButtonShadow
         Me.Label08.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label08.Location = New System.Drawing.Point(325, 230)
-        Me.Label08.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label08.Location = New System.Drawing.Point(244, 187)
         Me.Label08.Name = "Label08"
-        Me.Label08.Size = New System.Drawing.Size(139, 193)
+        Me.Label08.Size = New System.Drawing.Size(104, 157)
         Me.Label08.TabIndex = 27
         '
         'Label07
         '
         Me.Label07.BackColor = System.Drawing.SystemColors.ButtonShadow
         Me.Label07.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label07.Location = New System.Drawing.Point(171, 230)
-        Me.Label07.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label07.Location = New System.Drawing.Point(128, 187)
         Me.Label07.Name = "Label07"
-        Me.Label07.Size = New System.Drawing.Size(139, 193)
+        Me.Label07.Size = New System.Drawing.Size(104, 157)
         Me.Label07.TabIndex = 26
         '
         'Label06
         '
         Me.Label06.BackColor = System.Drawing.SystemColors.ButtonShadow
         Me.Label06.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label06.Location = New System.Drawing.Point(12, 230)
-        Me.Label06.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label06.Location = New System.Drawing.Point(9, 187)
         Me.Label06.Name = "Label06"
-        Me.Label06.Size = New System.Drawing.Size(139, 193)
+        Me.Label06.Size = New System.Drawing.Size(104, 157)
         Me.Label06.TabIndex = 25
         '
         'Label10
         '
         Me.Label10.BackColor = System.Drawing.SystemColors.ButtonShadow
         Me.Label10.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label10.Location = New System.Drawing.Point(641, 230)
-        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label10.Location = New System.Drawing.Point(481, 187)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(139, 193)
+        Me.Label10.Size = New System.Drawing.Size(104, 157)
         Me.Label10.TabIndex = 29
         '
         'Label09
         '
         Me.Label09.BackColor = System.Drawing.SystemColors.ButtonShadow
         Me.Label09.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label09.Location = New System.Drawing.Point(484, 230)
-        Me.Label09.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label09.Location = New System.Drawing.Point(363, 187)
         Me.Label09.Name = "Label09"
-        Me.Label09.Size = New System.Drawing.Size(139, 193)
+        Me.Label09.Size = New System.Drawing.Size(104, 157)
         Me.Label09.TabIndex = 28
         '
         'Label03
         '
         Me.Label03.BackColor = System.Drawing.SystemColors.ButtonShadow
         Me.Label03.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label03.Location = New System.Drawing.Point(329, 21)
-        Me.Label03.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label03.Location = New System.Drawing.Point(247, 17)
         Me.Label03.Name = "Label03"
-        Me.Label03.Size = New System.Drawing.Size(139, 193)
+        Me.Label03.Size = New System.Drawing.Size(104, 157)
         Me.Label03.TabIndex = 22
         '
         'Label02
         '
         Me.Label02.BackColor = System.Drawing.SystemColors.ButtonShadow
         Me.Label02.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label02.Location = New System.Drawing.Point(175, 21)
-        Me.Label02.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label02.Location = New System.Drawing.Point(131, 17)
         Me.Label02.Name = "Label02"
-        Me.Label02.Size = New System.Drawing.Size(139, 193)
+        Me.Label02.Size = New System.Drawing.Size(104, 157)
         Me.Label02.TabIndex = 21
         '
         'Label01
         '
         Me.Label01.BackColor = System.Drawing.SystemColors.ButtonShadow
         Me.Label01.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label01.Location = New System.Drawing.Point(16, 21)
-        Me.Label01.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label01.Location = New System.Drawing.Point(12, 17)
         Me.Label01.Name = "Label01"
-        Me.Label01.Size = New System.Drawing.Size(139, 193)
+        Me.Label01.Size = New System.Drawing.Size(104, 157)
         Me.Label01.TabIndex = 20
         '
-        'Jeu
+        'FormJeu
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(801, 950)
+        Me.ClientSize = New System.Drawing.Size(601, 772)
         Me.Controls.Add(Me.GroupBoxPlateau)
-        Me.Controls.Add(Me.LabelCompteurScore)
-        Me.Controls.Add(Me.LabelScore)
-        Me.Controls.Add(Me.ButtonAbandon)
-        Me.Controls.Add(Me.LabelTimer)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.LabelPseudo)
-        Me.Controls.Add(Me.Label1)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Name = "Jeu"
+        Me.Controls.Add(Me.lblScoreValeur)
+        Me.Controls.Add(Me.lblScore)
+        Me.Controls.Add(Me.btnAbandon)
+        Me.Controls.Add(Me.lblTempsValeur)
+        Me.Controls.Add(Me.lblTemps)
+        Me.Controls.Add(Me.lblPseudo)
+        Me.Controls.Add(Me.lblJoueur)
+        Me.Name = "FormJeu"
+        Me.Tag = ""
         Me.Text = "Memory"
         Me.GroupBoxPlateau.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -380,14 +353,14 @@ Partial Class Jeu
 
     End Sub
 
-    Friend WithEvents Label1 As Label
-    Friend WithEvents LabelPseudo As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents ButtonAbandon As Button
+    Friend WithEvents lblJoueur As Label
+    Friend WithEvents lblPseudo As Label
+    Friend WithEvents lblTemps As Label
+    Friend WithEvents btnAbandon As Button
     Friend WithEvents Timer As Timer
-    Friend WithEvents LabelTimer As Label
-    Friend WithEvents LabelScore As Label
-    Friend WithEvents LabelCompteurScore As Label
+    Friend WithEvents lblTempsValeur As Label
+    Friend WithEvents lblScore As Label
+    Friend WithEvents lblScoreValeur As Label
     Friend WithEvents GroupBoxPlateau As GroupBox
     Friend WithEvents Label05 As Label
     Friend WithEvents Label18 As Label

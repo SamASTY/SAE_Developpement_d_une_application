@@ -20,7 +20,7 @@
     Private Sub ButtonJeu_Click(sender As Object, e As EventArgs) Handles btnJeu.Click
         SauvegardeJoueur.ChargerDepuisFichier()
         SauvegardeJoueur.P = cmbPrenom.Text
-        Dim formJeu As New Jeu()
+        Dim formJeu As New FormJeu()
         formJeu.RecupererJoueur(cmbPrenom.Text)
         Me.Hide()
         ConfigurerRetourAccueil(formJeu)
