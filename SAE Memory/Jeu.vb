@@ -9,7 +9,7 @@ Public Class FormJeu
     Public cheminImages As String = System.IO.Path.Combine(Application.StartupPath, "Images")
     Dim CarteParSet As Integer = 4 ' 4 = carree, 2 = paires etc
     Dim NbreDeSet As Integer = 5 ' nombre de set de carte
-    Dim TotalCarte As Integer = 20 ' nombre de cartes a deviner
+    Dim TotalCarte As Integer = CarteParSet * NbreDeSet ' nombre de cartes a deviner
     Public Sub RecupererJoueur(J As String)
         joueurNom = J
     End Sub
