@@ -13,7 +13,7 @@ Public Class FormMultiJoueur
     Private cardsFound As Integer = 0
     Private tempsRestant As Integer
     Private WithEvents timer As New Timer
-    Private difficulte As Integer = 1 ' 0=Facile, 1=Moyen, 2=Difficile
+    Private difficulte As Integer = 1 ' 0=Facile, 1=Moyen, 2=Difficilee
 
     ' Variables pour stocker les références aux cartes et leurs valeurs
     Private cards As New List(Of Label)
