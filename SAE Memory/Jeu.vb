@@ -10,6 +10,8 @@ Public Class FormJeu
     Dim CarteParSet As Integer = 4 ' 4 = carree, 2 = paires etc
     Dim NbreDeSet As Integer = 5 ' nombre de set de carte
     Dim TotalCarte As Integer = CarteParSet * NbreDeSet ' nombre de cartes a deviner
+
+    Dim JeuEnPause As Boolean = False ' Gestion des pauses dans le jeu
     Public Sub RecupererJoueur(J As String)
         joueurNom = J
     End Sub
@@ -100,41 +102,42 @@ Public Class FormJeu
     Private Sub Carte_Click(sender As Object, e As EventArgs)
         Dim label As Label = CType(sender, Label)
 
-        If Not (CarteGagner.Contains(label) Or CarteRetourne.Contains(label)) Then
-            Dim chemin1 As String = System.IO.Path.Combine(cheminImages, "1.jpeg")
-            Dim chemin2 As String = System.IO.Path.Combine(cheminImages, "2.jpeg")
-            Dim chemin3 As String = System.IO.Path.Combine(cheminImages, "3.jpeg")
-            Dim chemin4 As String = System.IO.Path.Combine(cheminImages, "4.jpeg")
-            Dim chemin5 As String = System.IO.Path.Combine(cheminImages, "5.jpeg")
-            If label.Tag = 1 Then
-                label.Image = RedimensionnerImagePourLabel(Image.FromFile(chemin1), label)
-            ElseIf label.Tag = 2 Then
-                label.Image = RedimensionnerImagePourLabel(Image.FromFile(chemin2), label)
-            ElseIf label.Tag = 3 Then
-                label.Image = RedimensionnerImagePourLabel(Image.FromFile(chemin3), label)
-            ElseIf label.Tag = 4 Then
-                label.Image = RedimensionnerImagePourLabel(Image.FromFile(chemin4), label)
-            ElseIf label.Tag = 5 Then
-                label.Image = RedimensionnerImagePourLabel(Image.FromFile(chemin5), label)
+        If JeuEnPause = False Then
+            If Not (CarteGagner.Contains(label) Or CarteRetourne.Contains(label)) Then
+                Dim chemin1 As String = System.IO.Path.Combine(cheminImages, "1.jpeg")
+                Dim chemin2 As String = System.IO.Path.Combine(cheminImages, "2.jpeg")
+                Dim chemin3 As String = System.IO.Path.Combine(cheminImages, "3.jpeg")
+                Dim chemin4 As String = System.IO.Path.Combine(cheminImages, "4.jpeg")
+                Dim chemin5 As String = System.IO.Path.Combine(cheminImages, "5.jpeg")
+                If label.Tag = 1 Then
+                    label.Image = RedimensionnerImagePourLabel(Image.FromFile(chemin1), label)
+                ElseIf label.Tag = 2 Then
+                    label.Image = RedimensionnerImagePourLabel(Image.FromFile(chemin2), label)
+                ElseIf label.Tag = 3 Then
+                    label.Image = RedimensionnerImagePourLabel(Image.FromFile(chemin3), label)
+                ElseIf label.Tag = 4 Then
+                    label.Image = RedimensionnerImagePourLabel(Image.FromFile(chemin4), label)
+                ElseIf label.Tag = 5 Then
+                    label.Image = RedimensionnerImagePourLabel(Image.FromFile(chemin5), label)
+                End If
+
+                compteurCarte += 1
+
+
+                CarteRetourne.Add(label)
+
+                If Not (CartePareil()) Then
+                    Task.Delay(500).Wait()
+                    ResetPlateauErreur()
+                End If
+
+                Carree()
+
+                ' Verification du carre
+                'faire une fonction
+
             End If
-
-            compteurCarte += 1
-
-
-            CarteRetourne.Add(label)
-
-            If Not (CartePareil()) Then
-                Task.Delay(500).Wait()
-                ResetPlateauErreur()
-            End If
-
-            Carree()
-
-            ' Verification du carre
-            'faire une fonction
-
         End If
-
     End Sub
 
     Private Sub FinDeJeu()
@@ -153,6 +156,7 @@ Public Class FormJeu
 
         ' Fermer ce formulaire et retourner à l'accueil
         Dim A As New FormAccueil()
+
         Me.Close()
     End Sub
 
@@ -232,10 +236,14 @@ Public Class FormJeu
     Private Sub btnPause_Click(sender As Object, e As EventArgs) Handles btnPause.Click
         If Timer.Enabled Then
             Timer.Stop()
+            JeuEnPause = True
             btnPause.Text = "Reprendre"
         Else
             Timer.Start()
+            JeuEnPause = False
             btnPause.Text = "Pause"
         End If
     End Sub
+
+
 End Class

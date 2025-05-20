@@ -28,18 +28,21 @@
     End Sub
 
     Private Sub Accueil_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        PseudoCmb()
+    End Sub
+
+    Private Sub PseudoCmb()
+        ChargerDepuisFichier()
         cmbPrenom.Items.Clear()
-        For Each j In SauvegardeJoueur.Joueurs
+
+        Dim joueursTries = Joueurs.OrderBy(Function(j) j.Pseudo)
+        For Each j In joueursTries
             cmbPrenom.Items.Add(j.Pseudo)
         Next
     End Sub
 
     Private Sub ComboBoxPrenom_TextChanged(sender As Object, e As EventArgs) Handles cmbPrenom.TextChanged
         btnJeu.Enabled = (cmbPrenom.Text.Length >= 3)
-    End Sub
-
-    Private Sub ComboBoxPrenom_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbPrenom.SelectedIndexChanged
-
     End Sub
 
     Private Sub ButtonScores_Click(sender As Object, e As EventArgs) Handles btnScores.Click
@@ -55,6 +58,7 @@
 
     Private Sub ConfigurerRetourAccueil(form As Form)
         AddHandler form.FormClosed, Sub(s, args)
+                                        Me.PseudoCmb()
                                         Me.Show()
                                         cmbPrenom.Focus()
                                     End Sub
@@ -64,5 +68,4 @@
         Me.Hide()
         formOptions.Show()
     End Sub
-
 End Class

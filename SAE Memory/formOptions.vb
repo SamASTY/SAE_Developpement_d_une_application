@@ -1,6 +1,6 @@
 ﻿Public Class formOptions
     Private Sub formOptions_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        rdoDebutant.Enabled = True
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnRetour.Click

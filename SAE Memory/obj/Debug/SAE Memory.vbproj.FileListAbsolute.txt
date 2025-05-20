@@ -28,10 +28,7 @@ D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\bin\
 D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\bin\Debug\SAE Memory.pdb
 D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\bin\Debug\SAE Memory.xml
 D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE Memory.vbproj.AssemblyReference.cache
-D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE_Memory.Accueil.resources
-D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE_Memory.Jeu.resources
 D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE_Memory.Resources.resources
-D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE_Memory.formScore.resources
 D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE Memory.vbproj.GenerateResource.cache
 D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE Memory.vbproj.CoreCompileInputs.cache
 D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE Memory.exe
@@ -56,3 +53,7 @@ C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\De
 C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE_Memory.formOptions.resources
 C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE_Memory.FormScores.resources
 C:\Users\Soso\Source\Repos\SAE_Developpement_d_une_application\SAE Memory\obj\Debug\SAE_Memory.FormJeu.resources
+D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE_Memory.FormAccueil.resources
+D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE_Memory.formOptions.resources
+D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE_Memory.FormJeu.resources
+D:\OneDrive - Université de Paris\Bureau\BUT\SAE\S2\D\VB\Memory\SAE Memory\obj\Debug\SAE_Memory.FormScores.resources
