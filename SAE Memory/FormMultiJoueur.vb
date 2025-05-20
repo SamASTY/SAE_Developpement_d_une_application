@@ -73,10 +73,10 @@ Public Class FormMultiJoueur
 
     ' Méthode pour mettre à jour la liste des scores
     Private Sub MettreAJourListeScores()
-        ListBoxScores.Items.Clear()
+        lstScores.Items.Clear()
         For Each joueur In joueursSelectionnes
             Dim score As Integer = If(scoresJoueurs.ContainsKey(joueur), scoresJoueurs(joueur), 0)
-            ListBoxScores.Items.Add($"{joueur}: {score} carrés")
+            lstScores.Items.Add($"{joueur}: {score} carrés")
         Next
     End Sub
 
