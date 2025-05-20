@@ -28,6 +28,11 @@
     End Sub
 
     Private Sub Accueil_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        BtnMultijoueur = New Button()
+        BtnMultijoueur.Text = "Multijoueur"
+        BtnMultijoueur.Size = New Size(120, 40)
+        BtnMultijoueur.Location = New Point(300, 150) ' Ajustez la position selon votre layout
+        Me.Controls.Add(BtnMultijoueur)
         PseudoCmb()
     End Sub
 
@@ -67,5 +72,13 @@
     Private Sub buttonOptions_Click(sender As Object, e As EventArgs) Handles btnOptions.Click
         Me.Hide()
         formOptions.Show()
+    End Sub
+
+
+    Private Sub btnMultiJoueur_Click(sender As Object, e As EventArgs) Handles BtnMultijoueur.Click
+        Dim formMulti As New FormMultiJoueur()
+        Me.Hide()
+        ConfigurerRetourAccueil(formMulti)
+        formMulti.Show()
     End Sub
 End Class
