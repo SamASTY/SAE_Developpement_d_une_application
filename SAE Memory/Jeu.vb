@@ -25,7 +25,7 @@ Public Class FormJeu
     Private Sub Jeu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Debug.WriteLine("Chargement du formulaire score — joueur actuel : " & SauvegardeJoueur.P)
         Timer.Interval = 1000
-        Select Case Difficulté
+        Select Case DifActuelle
             Case "Debutant"
                 TempsMax = TempsMaxDebutant
             Case "Intermediaire"
