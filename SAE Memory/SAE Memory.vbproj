@@ -154,7 +154,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\Images\" />
-    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\1.png" />
@@ -182,6 +181,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\1.png" />
+    <Content Include="Images\2.png" />
+    <Content Include="Images\3.png" />
+    <Content Include="Images\4.png" />
+    <Content Include="Images\5.png" />
+    <Content Include="Images\noir.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
