@@ -29,15 +29,11 @@ Partial Class FormMultiJoueur
         Me.LblTemps = New System.Windows.Forms.Label()
         Me.LblManche = New System.Windows.Forms.Label()
         Me.Lbloptions = New System.Windows.Forms.Label()
-        Me.LabelJoueurActif = New System.Windows.Forms.Label()
-        Me.LabelTempsRestant = New System.Windows.Forms.Label()
         Me.lstScores = New System.Windows.Forms.ListBox()
         Me.ButtonCommencer = New System.Windows.Forms.Button()
         Me.ButtonAbandonner = New System.Windows.Forms.Button()
         Me.ButtonRetour = New System.Windows.Forms.Button()
         Me.ComboBoxDifficulte = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.lblTitre = New System.Windows.Forms.Label()
         Me.LblJoeurSelectionne = New System.Windows.Forms.Label()
@@ -49,20 +45,19 @@ Partial Class FormMultiJoueur
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.LblScore = New System.Windows.Forms.Label()
-        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.NumericUpDownManches, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDownTemps, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelCartes.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'NumericUpDownManches
         '
-        Me.NumericUpDownManches.Location = New System.Drawing.Point(525, 14)
+        Me.NumericUpDownManches.Location = New System.Drawing.Point(549, 28)
         Me.NumericUpDownManches.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.NumericUpDownManches.Name = "NumericUpDownManches"
         Me.NumericUpDownManches.Size = New System.Drawing.Size(107, 22)
@@ -70,7 +65,7 @@ Partial Class FormMultiJoueur
         '
         'NumericUpDownTemps
         '
-        Me.NumericUpDownTemps.Location = New System.Drawing.Point(311, 14)
+        Me.NumericUpDownTemps.Location = New System.Drawing.Point(426, 28)
         Me.NumericUpDownTemps.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.NumericUpDownTemps.Name = "NumericUpDownTemps"
         Me.NumericUpDownTemps.Size = New System.Drawing.Size(107, 22)
@@ -79,32 +74,34 @@ Partial Class FormMultiJoueur
         'CheckBoxOrdreAleatoire
         '
         Me.CheckBoxOrdreAleatoire.AutoSize = True
-        Me.CheckBoxOrdreAleatoire.Location = New System.Drawing.Point(137, 14)
+        Me.CheckBoxOrdreAleatoire.Location = New System.Drawing.Point(326, 19)
         Me.CheckBoxOrdreAleatoire.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CheckBoxOrdreAleatoire.Name = "CheckBoxOrdreAleatoire"
-        Me.CheckBoxOrdreAleatoire.Size = New System.Drawing.Size(83, 20)
+        Me.CheckBoxOrdreAleatoire.Size = New System.Drawing.Size(80, 20)
         Me.CheckBoxOrdreAleatoire.TabIndex = 7
         Me.CheckBoxOrdreAleatoire.Text = "Aleatoire"
         Me.CheckBoxOrdreAleatoire.UseVisualStyleBackColor = True
         '
         'PanelCartes
         '
+        Me.PanelCartes.Controls.Add(Me.Label1)
         Me.PanelCartes.Controls.Add(Me.LblTemps)
         Me.PanelCartes.Controls.Add(Me.LblManche)
         Me.PanelCartes.Controls.Add(Me.Lbloptions)
         Me.PanelCartes.Controls.Add(Me.CheckBoxOrdreAleatoire)
         Me.PanelCartes.Controls.Add(Me.NumericUpDownTemps)
         Me.PanelCartes.Controls.Add(Me.NumericUpDownManches)
+        Me.PanelCartes.Controls.Add(Me.ComboBoxDifficulte)
         Me.PanelCartes.Location = New System.Drawing.Point(11, 236)
         Me.PanelCartes.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PanelCartes.Name = "PanelCartes"
-        Me.PanelCartes.Size = New System.Drawing.Size(669, 80)
+        Me.PanelCartes.Size = New System.Drawing.Size(669, 64)
         Me.PanelCartes.TabIndex = 8
         '
         'LblTemps
         '
         Me.LblTemps.AutoSize = True
-        Me.LblTemps.Location = New System.Drawing.Point(247, 18)
+        Me.LblTemps.Location = New System.Drawing.Point(455, 10)
         Me.LblTemps.Name = "LblTemps"
         Me.LblTemps.Size = New System.Drawing.Size(50, 16)
         Me.LblTemps.TabIndex = 9
@@ -113,7 +110,7 @@ Partial Class FormMultiJoueur
         'LblManche
         '
         Me.LblManche.AutoSize = True
-        Me.LblManche.Location = New System.Drawing.Point(457, 15)
+        Me.LblManche.Location = New System.Drawing.Point(572, 10)
         Me.LblManche.Name = "LblManche"
         Me.LblManche.Size = New System.Drawing.Size(55, 16)
         Me.LblManche.TabIndex = 8
@@ -122,38 +119,20 @@ Partial Class FormMultiJoueur
         'Lbloptions
         '
         Me.Lbloptions.AutoSize = True
-        Me.Lbloptions.Location = New System.Drawing.Point(20, 14)
+        Me.Lbloptions.Location = New System.Drawing.Point(3, 4)
         Me.Lbloptions.Name = "Lbloptions"
         Me.Lbloptions.Size = New System.Drawing.Size(53, 16)
         Me.Lbloptions.TabIndex = 0
         Me.Lbloptions.Text = "Options"
         '
-        'LabelJoueurActif
-        '
-        Me.LabelJoueurActif.AutoSize = True
-        Me.LabelJoueurActif.Location = New System.Drawing.Point(23, 27)
-        Me.LabelJoueurActif.Name = "LabelJoueurActif"
-        Me.LabelJoueurActif.Size = New System.Drawing.Size(75, 16)
-        Me.LabelJoueurActif.TabIndex = 9
-        Me.LabelJoueurActif.Text = "Joueur actif"
-        '
-        'LabelTempsRestant
-        '
-        Me.LabelTempsRestant.AutoSize = True
-        Me.LabelTempsRestant.Location = New System.Drawing.Point(412, 36)
-        Me.LabelTempsRestant.Name = "LabelTempsRestant"
-        Me.LabelTempsRestant.Size = New System.Drawing.Size(93, 16)
-        Me.LabelTempsRestant.TabIndex = 10
-        Me.LabelTempsRestant.Text = "Temps restant"
-        '
         'lstScores
         '
         Me.lstScores.FormattingEnabled = True
         Me.lstScores.ItemHeight = 16
-        Me.lstScores.Location = New System.Drawing.Point(55, 38)
+        Me.lstScores.Location = New System.Drawing.Point(43, 38)
         Me.lstScores.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lstScores.Name = "lstScores"
-        Me.lstScores.Size = New System.Drawing.Size(107, 68)
+        Me.lstScores.Size = New System.Drawing.Size(174, 100)
         Me.lstScores.TabIndex = 11
         '
         'ButtonCommencer
@@ -189,37 +168,19 @@ Partial Class FormMultiJoueur
         'ComboBoxDifficulte
         '
         Me.ComboBoxDifficulte.FormattingEnabled = True
-        Me.ComboBoxDifficulte.Location = New System.Drawing.Point(23, 628)
+        Me.ComboBoxDifficulte.Location = New System.Drawing.Point(132, 32)
         Me.ComboBoxDifficulte.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ComboBoxDifficulte.Name = "ComboBoxDifficulte"
         Me.ComboBoxDifficulte.Size = New System.Drawing.Size(108, 24)
         Me.ComboBoxDifficulte.TabIndex = 15
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(352, 640)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(48, 16)
-        Me.Label1.TabIndex = 16
-        Me.Label1.Text = "Label1"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(158, 634)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(48, 16)
-        Me.Label2.TabIndex = 17
-        Me.Label2.Text = "Label2"
-        '
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(518, 636)
+        Me.CheckBox1.Location = New System.Drawing.Point(588, 379)
         Me.CheckBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(97, 20)
+        Me.CheckBox1.Size = New System.Drawing.Size(94, 20)
         Me.CheckBox1.TabIndex = 18
         Me.CheckBox1.Text = "CheckBox1"
         Me.CheckBox1.UseVisualStyleBackColor = True
@@ -230,27 +191,25 @@ Partial Class FormMultiJoueur
         Me.lblTitre.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitre.Location = New System.Drawing.Point(15, 22)
         Me.lblTitre.Name = "lblTitre"
-        Me.lblTitre.Size = New System.Drawing.Size(355, 31)
+        Me.lblTitre.Size = New System.Drawing.Size(291, 26)
         Me.lblTitre.TabIndex = 19
         Me.lblTitre.Text = "MEMORY MULTIJOUEUR"
         '
         'LblJoeurSelectionne
         '
-        Me.LblJoeurSelectionne.AutoSize = True
         Me.LblJoeurSelectionne.Location = New System.Drawing.Point(220, 10)
         Me.LblJoeurSelectionne.Name = "LblJoeurSelectionne"
-        Me.LblJoeurSelectionne.Size = New System.Drawing.Size(113, 16)
+        Me.LblJoeurSelectionne.Size = New System.Drawing.Size(138, 16)
         Me.LblJoeurSelectionne.TabIndex = 27
-        Me.LblJoeurSelectionne.Text = "Joeur selectionné"
+        Me.LblJoeurSelectionne.Text = "Joueur selectionné"
         '
         'LblJoeurDispo
         '
-        Me.LblJoeurDispo.AutoSize = True
         Me.LblJoeurDispo.Location = New System.Drawing.Point(8, 10)
         Me.LblJoeurDispo.Name = "LblJoeurDispo"
-        Me.LblJoeurDispo.Size = New System.Drawing.Size(107, 16)
+        Me.LblJoeurDispo.Size = New System.Drawing.Size(127, 16)
         Me.LblJoeurDispo.TabIndex = 26
-        Me.LblJoeurDispo.Text = "Joeur disponible"
+        Me.LblJoeurDispo.Text = "Joueur disponible"
         '
         'ButtonRetirerJoueur
         '
@@ -310,56 +269,50 @@ Partial Class FormMultiJoueur
         '
         Me.Panel2.Controls.Add(Me.LblScore)
         Me.Panel2.Controls.Add(Me.lstScores)
-        Me.Panel2.Location = New System.Drawing.Point(473, 52)
+        Me.Panel2.Location = New System.Drawing.Point(426, 52)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(208, 164)
+        Me.Panel2.Size = New System.Drawing.Size(255, 164)
         Me.Panel2.TabIndex = 29
         '
         'LblScore
         '
         Me.LblScore.AutoSize = True
-        Me.LblScore.Location = New System.Drawing.Point(52, 12)
+        Me.LblScore.Location = New System.Drawing.Point(78, 12)
         Me.LblScore.Name = "LblScore"
         Me.LblScore.Size = New System.Drawing.Size(90, 16)
         Me.LblScore.TabIndex = 0
         Me.LblScore.Text = "Score et Stats"
-        '
-        'Panel3
-        '
-        Me.Panel3.Controls.Add(Me.LabelJoueurActif)
-        Me.Panel3.Controls.Add(Me.LabelTempsRestant)
-        Me.Panel3.Location = New System.Drawing.Point(11, 338)
-        Me.Panel3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(671, 80)
-        Me.Panel3.TabIndex = 30
         '
         'Panel4
         '
         Me.Panel4.Controls.Add(Me.ButtonCommencer)
         Me.Panel4.Controls.Add(Me.ButtonAbandonner)
         Me.Panel4.Controls.Add(Me.ButtonRetour)
-        Me.Panel4.Location = New System.Drawing.Point(11, 449)
+        Me.Panel4.Location = New System.Drawing.Point(11, 315)
         Me.Panel4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(671, 55)
+        Me.Panel4.Size = New System.Drawing.Size(671, 60)
         Me.Panel4.TabIndex = 31
+        '
+        'Label1
+        '
+        Me.Label1.Location = New System.Drawing.Point(119, 8)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(138, 22)
+        Me.Label1.TabIndex = 32
+        Me.Label1.Text = "Choix de la difficulté :"
         '
         'FormMultiJoueur
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(713, 684)
+        Me.ClientSize = New System.Drawing.Size(713, 409)
         Me.Controls.Add(Me.Panel4)
-        Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.lblTitre)
         Me.Controls.Add(Me.CheckBox1)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.ComboBoxDifficulte)
         Me.Controls.Add(Me.PanelCartes)
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "FormMultiJoueur"
@@ -369,11 +322,8 @@ Partial Class FormMultiJoueur
         Me.PanelCartes.ResumeLayout(False)
         Me.PanelCartes.PerformLayout()
         Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel3.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -383,15 +333,11 @@ Partial Class FormMultiJoueur
     Friend WithEvents NumericUpDownTemps As NumericUpDown
     Friend WithEvents CheckBoxOrdreAleatoire As CheckBox
     Friend WithEvents PanelCartes As Panel
-    Friend WithEvents LabelJoueurActif As Label
-    Friend WithEvents LabelTempsRestant As Label
     Friend WithEvents lstScores As ListBox
     Friend WithEvents ButtonCommencer As Button
     Friend WithEvents ButtonAbandonner As Button
     Friend WithEvents ButtonRetour As Button
     Friend WithEvents ComboBoxDifficulte As ComboBox
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
     Friend WithEvents CheckBox1 As CheckBox
     Friend WithEvents lblTitre As Label
     Friend WithEvents LblJoeurSelectionne As Label
@@ -406,6 +352,6 @@ Partial Class FormMultiJoueur
     Friend WithEvents Lbloptions As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents LblScore As Label
-    Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel4 As Panel
+    Friend WithEvents Label1 As Label
 End Class

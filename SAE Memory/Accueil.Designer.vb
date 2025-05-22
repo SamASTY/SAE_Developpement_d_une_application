@@ -88,7 +88,7 @@ Partial Class FormAccueil
         Me.lblMemory.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMemory.Location = New System.Drawing.Point(11, 4)
         Me.lblMemory.Name = "lblMemory"
-        Me.lblMemory.Size = New System.Drawing.Size(164, 46)
+        Me.lblMemory.Size = New System.Drawing.Size(131, 37)
         Me.lblMemory.TabIndex = 5
         Me.lblMemory.Text = "Memory"
         '
@@ -106,7 +106,7 @@ Partial Class FormAccueil
         Me.BtnMultijoueur.BackColor = System.Drawing.Color.Silver
         Me.BtnMultijoueur.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BtnMultijoueur.ForeColor = System.Drawing.Color.Black
-        Me.BtnMultijoueur.Location = New System.Drawing.Point(140, 232)
+        Me.BtnMultijoueur.Location = New System.Drawing.Point(155, 213)
         Me.BtnMultijoueur.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.BtnMultijoueur.Name = "BtnMultijoueur"
         Me.BtnMultijoueur.Size = New System.Drawing.Size(127, 30)
@@ -119,7 +119,7 @@ Partial Class FormAccueil
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(428, 288)
+        Me.ClientSize = New System.Drawing.Size(428, 259)
         Me.Controls.Add(Me.BtnMultijoueur)
         Me.Controls.Add(Me.btnOptions)
         Me.Controls.Add(Me.lblMemory)

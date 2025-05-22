@@ -48,8 +48,6 @@ Public Class FormMultiJoueur
         NumericUpDownTemps.Maximum = 120
         NumericUpDownTemps.Value = tempsParManche
 
-        Label1.Text = ""
-        Label2.Text = ""
     End Sub
 
     ' Méthode pour charger les joueurs depuis le module de données
@@ -135,7 +133,7 @@ Public Class FormMultiJoueur
             scoresJoueurs(joueur) = 0
         Next
 
-        If CheckBox1.Checked Then MelangerJoueurs()
+        ' If CheckBox1.Checked Then MelangerJoueurs() // pas convaincu de l'utilité ?!
 
         indexJoueurActif = 0
         partieEnCours = True
@@ -143,12 +141,10 @@ Public Class FormMultiJoueur
         InitialiserPlateau()
         AfficherCartesDansNouvelleFenetre()
 
-        Label1.Text = "Joueur actif: " & joueursSelectionnes(indexJoueurActif)
         MettreAJourListeScores()
         ActiverDesactiverBoutons()
 
         tempsRestant = tempsParManche
-        Label2.Text = $"Temps restant: {tempsRestant} secondes"
         timer.Start()
     End Sub
 
@@ -366,7 +362,6 @@ Public Class FormMultiJoueur
                                                 currentCardValue = -1
                                                 PasserAuJoueurSuivant()
                                                 tempsRestant = tempsParManche
-                                                Label2.Text = $"Temps restant: {tempsRestant} secondes"
                                                 timer.Start()
                                                 CType(s, Timer).Stop()
                                                 CType(s, Timer).Dispose()
@@ -394,9 +389,7 @@ Public Class FormMultiJoueur
                 FinDeLaPartie()
             Else
                 ' Continuer avec le même joueur s'il a trouvé une paire
-                Label1.Text = "Joueur actif: " & joueursSelectionnes(indexJoueurActif)
                 tempsRestant = tempsParManche
-                Label2.Text = $"Temps restant: {tempsRestant} secondes"
             End If
         End If
     End Sub
