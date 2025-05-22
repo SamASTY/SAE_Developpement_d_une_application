@@ -237,39 +237,45 @@ Public Class FormMultiJoueur
         fenetreCartes.MaximizeBox = False
         fenetreCartes.MinimizeBox = False
 
-        ' Définir la taille selon la difficulté
-        Select Case difficulte
-            Case 0 ' Facile
-                fenetreCartes.ClientSize = New Size(400, 350)
-            Case 1 ' Moyen
-                fenetreCartes.ClientSize = New Size(550, 450)
-            Case 2 ' Difficile
-                fenetreCartes.ClientSize = New Size(700, 550)
-        End Select
+        LblTemps = New Label()
+        LblTemps.Text = $"Temps restant: "
+        LblTemps.TextAlign = ContentAlignment.MiddleCenter
+        LblTemps.Height = 30
+        LblTemps.Font = New Font("Arial", 12, FontStyle.Bold)
+        LblTemps.Dock = DockStyle.Top
+        fenetreCartes.Controls.Add(LblTemps)
 
-        ' Créer un TableLayoutPanel pour organiser les cartes
-        Dim tableLayout As New TableLayoutPanel()
-        tableLayout.Dock = DockStyle.Fill
-        fenetreCartes.Controls.Add(tableLayout)
-
-        ' Déterminer le nombre de lignes et colonnes
-        Dim lignes, colonnes As Integer
+        Dim largeur, hauteur As Integer
         Select Case difficulte
             Case 0
-                lignes = 3
-                colonnes = 4
+                largeur = 400 : hauteur = 350
             Case 1
-                lignes = 4
-                colonnes = 5
+                largeur = 550 : hauteur = 450
             Case 2
-                lignes = 5
-                colonnes = 6
+                largeur = 700 : hauteur = 550
+        End Select
+        fenetreCartes.ClientSize = New Size(largeur, hauteur + LblTemps.Height)
+
+        Dim tableLayout As New TableLayoutPanel()
+        tableLayout.Location = New Point(0, LblTemps.Height)
+        tableLayout.Size = New Size(largeur, hauteur)
+        tableLayout.Margin = New Padding(0)
+        tableLayout.Padding = New Padding(0)
+        tableLayout.BackColor = Color.Transparent
+        fenetreCartes.Controls.Add(tableLayout)
+
+        ' Lignes / colonnes selon difficulté
+        Dim lignes, colonnes As Integer
+        Select Case difficulte
+            Case 0 : lignes = 3 : colonnes = 4
+            Case 1 : lignes = 4 : colonnes = 5
+            Case 2 : lignes = 5 : colonnes = 6
         End Select
 
         tableLayout.ColumnCount = colonnes
         tableLayout.RowCount = lignes
 
-        ' Configurer les proportions
+        ' Styles proportionnels
         For i As Integer = 0 To colonnes - 1
             tableLayout.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100 / colonnes))
         Next
@@ -277,15 +283,16 @@ Public Class FormMultiJoueur
             tableLayout.RowStyles.Add(New RowStyle(SizeType.Percent, 100 / lignes))
         Next
 
-        ' Ajouter les cartes au TableLayoutPanel
+        ' Ajout des cartes
         For i As Integer = 0 To cards.Count - 1
             Dim card = cards(i)
+            card.Margin = New Padding(2)
             tableLayout.Controls.Add(card, i Mod colonnes, i \ colonnes)
         Next
 
-        ' Afficher la fenêtre
         fenetreCartes.Show()
     End Sub
+
 
     ' Méthode pour gérer le click sur une carte
     Private Sub Card_Click(sender As Object, e As EventArgs)
@@ -363,7 +370,7 @@ Public Class FormMultiJoueur
     ' Méthode appelée à chaque tick du timer principal
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles timer.Tick
         tempsRestant -= 1
-        Label2.Text = $"Temps restant: {tempsRestant} secondes"
+        LblTemps.Text = $"Temps restant: {tempsRestant} secondes"
 
         If tempsRestant <= 0 Then
             timer.Stop()
