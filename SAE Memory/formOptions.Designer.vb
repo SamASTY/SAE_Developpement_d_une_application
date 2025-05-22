@@ -113,7 +113,7 @@ Partial Class formOptions
         'btnRetour
         '
         Me.btnRetour.Location = New System.Drawing.Point(589, 391)
-        Me.btnRetour.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnRetour.Margin = New System.Windows.Forms.Padding(4)
         Me.btnRetour.Name = "btnRetour"
         Me.btnRetour.Size = New System.Drawing.Size(121, 32)
         Me.btnRetour.TabIndex = 7
@@ -126,9 +126,9 @@ Partial Class formOptions
         Me.grpDifficulte.Controls.Add(Me.rdoDebutant)
         Me.grpDifficulte.Controls.Add(Me.rdoExpert)
         Me.grpDifficulte.Location = New System.Drawing.Point(61, 30)
-        Me.grpDifficulte.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grpDifficulte.Margin = New System.Windows.Forms.Padding(4)
         Me.grpDifficulte.Name = "grpDifficulte"
-        Me.grpDifficulte.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grpDifficulte.Padding = New System.Windows.Forms.Padding(4)
         Me.grpDifficulte.Size = New System.Drawing.Size(267, 138)
         Me.grpDifficulte.TabIndex = 9
         Me.grpDifficulte.TabStop = False

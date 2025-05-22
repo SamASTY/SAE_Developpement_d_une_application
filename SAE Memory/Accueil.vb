@@ -1,13 +1,13 @@
 ﻿Public Class FormAccueil
 
-    Private Sub ButtonQuitter_Click(sender As Object, e As EventArgs) Handles btnQuitter.Click
+    Private Sub btnQuitter_Click(sender As Object, e As EventArgs) Handles btnQuitter.Click
         Dim reponse = MsgBox("Voulez vous vraiment quitter l'application?", vbYesNo)
         If reponse = vbYes Then
             Application.Exit()
         End If
     End Sub
 
-    Private Sub ComboBoxPrenom_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbPrenom.KeyPress
+    Private Sub cmbPrenom_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbPrenom.KeyPress
         If Not (Char.IsLetter(e.KeyChar) Or Char.IsControl(e.KeyChar)) Then
             e.Handled = True
         End If
@@ -17,7 +17,7 @@
         End If
     End Sub
 
-    Private Sub ButtonJeu_Click(sender As Object, e As EventArgs) Handles btnJeu.Click
+    Private Sub btnJeu_Click(sender As Object, e As EventArgs) Handles btnJeu.Click
         SauvegardeJoueur.ChargerDepuisFichier()
         SauvegardeJoueur.P = cmbPrenom.Text
         Dim formJeu As New FormJeu()
@@ -28,11 +28,6 @@
     End Sub
 
     Private Sub Accueil_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        BtnMultijoueur = New Button()
-        BtnMultijoueur.Text = "Multijoueur"
-        BtnMultijoueur.Size = New Size(120, 40)
-        BtnMultijoueur.Location = New Point(300, 150) ' Ajustez la position selon votre layout
-        Me.Controls.Add(BtnMultijoueur)
         PseudoCmb()
     End Sub
 

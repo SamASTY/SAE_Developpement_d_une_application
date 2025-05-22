@@ -18,6 +18,8 @@ Public Class FormMultiJoueur
     Private LblScoreJ1 As Label
     Private LblScoreJ2 As Label
 
+    Private JoueurEnJeu As String
+
     ' Variables pour stocker les références aux cartes et leurs valeurs
     Private cards As New List(Of Label)
     Private cardValues As New List(Of Integer)
@@ -35,8 +37,8 @@ Public Class FormMultiJoueur
 
     ' Méthode pour initialiser l'interface utilisateur
     Private Sub InitialiserInterface()
-        ComboBox1.Items.AddRange({"Facile", "Moyen", "Difficile"})
-        ComboBox1.SelectedIndex = 1
+        ComboBoxDifficulte.Items.AddRange({"Facile", "Moyen", "Difficile"})
+        ComboBoxDifficulte.SelectedIndex = 1
 
         NumericUpDownManches.Minimum = 1
         NumericUpDownManches.Maximum = 10
@@ -114,7 +116,7 @@ Public Class FormMultiJoueur
         ButtonRetirerJoueur.Enabled = Not partieEnCours
         NumericUpDownManches.Enabled = Not partieEnCours
         NumericUpDownTemps.Enabled = Not partieEnCours
-        ComboBox1.Enabled = Not partieEnCours
+        ComboBoxDifficulte.Enabled = Not partieEnCours
         CheckBox1.Enabled = Not partieEnCours
     End Sub
 
@@ -127,7 +129,7 @@ Public Class FormMultiJoueur
 
         nbManches = CInt(NumericUpDownManches.Value)
         tempsParManche = CInt(NumericUpDownTemps.Value)
-        difficulte = ComboBox1.SelectedIndex
+        difficulte = ComboBoxDifficulte.SelectedIndex
 
         For Each joueur In joueursSelectionnes
             scoresJoueurs(joueur) = 0
@@ -256,7 +258,9 @@ Public Class FormMultiJoueur
 
         ' Label temps restant (au centre)
         LblTemps = New Label()
-        LblTemps.Text = $"Temps restant: {tempsRestant} secondes"
+        LblTemps.BackColor = Color.Gray
+        LblTemps.ForeColor = Color.LightCyan
+        LblTemps.Text = $"Temps : {tempsRestant} s, Joueur actif: " & joueursSelectionnes(indexJoueurActif)
         LblTemps.TextAlign = ContentAlignment.MiddleCenter
         LblTemps.Dock = DockStyle.Fill
         LblTemps.Font = New Font("Arial", 10, FontStyle.Bold)
@@ -396,20 +400,23 @@ Public Class FormMultiJoueur
             End If
         End If
     End Sub
+
     ' Méthode pour passer au joueur suivant
     Private Sub PasserAuJoueurSuivant()
         indexJoueurActif = (indexJoueurActif + 1) Mod joueursSelectionnes.Count
-        Label1.Text = "Joueur actif: " & joueursSelectionnes(indexJoueurActif)
+        JoueurEnJeu = "Joueur actif: " & joueursSelectionnes(indexJoueurActif)
         ' Changer la couleur du label pour indiquer le joueur actif
-        Label1.ForeColor = playerColors(indexJoueurActif Mod playerColors.Count)
+        LblTemps.ForeColor = playerColors(indexJoueurActif Mod playerColors.Count)
     End Sub
 
     ' Méthode appelée à chaque tick du timer principal
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles timer.Tick
         tempsRestant -= 1
-        LblTemps.Text = $"Temps restant: {tempsRestant} secondes"
+
         LblScoreJ1.Text = $"{joueursSelectionnes(0)} : {scoresJoueurs(joueursSelectionnes(0))} carrés"
         LblScoreJ2.Text = $"{joueursSelectionnes(1)} : {scoresJoueurs(joueursSelectionnes(1))} carrés"
+
+        LblTemps.Text = $"Temps : {tempsRestant} s, Joueur actif: " & joueursSelectionnes(indexJoueurActif)
 
 
         If tempsRestant <= 0 Then
@@ -520,8 +527,8 @@ Public Class FormMultiJoueur
         tempsParManche = CInt(NumericUpDownTemps.Value)
     End Sub
 
-    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
-        difficulte = ComboBox1.SelectedIndex
+    Private Sub ComboBoxDifficulte_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxDifficulte.SelectedIndexChanged
+        difficulte = ComboBoxDifficulte.SelectedIndex
     End Sub
 
     Private playerColors As New List(Of Color) From {
