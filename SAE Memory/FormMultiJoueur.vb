@@ -15,6 +15,9 @@ Public Class FormMultiJoueur
     Private WithEvents timer As New Timer
     Private difficulte As Integer = 1 ' 0=Facile, 1=Moyen, 2=Difficilee
 
+    Private LblScoreJ1 As Label
+    Private LblScoreJ2 As Label
+
     ' Variables pour stocker les références aux cartes et leurs valeurs
     Private cards As New List(Of Label)
     Private cardValues As New List(Of Integer)
@@ -237,14 +240,42 @@ Public Class FormMultiJoueur
         fenetreCartes.MaximizeBox = False
         fenetreCartes.MinimizeBox = False
 
-        LblTemps = New Label()
-        LblTemps.Text = $"Temps restant: "
-        LblTemps.TextAlign = ContentAlignment.MiddleCenter
-        LblTemps.Height = 30
-        LblTemps.Font = New Font("Arial", 12, FontStyle.Bold)
-        LblTemps.Dock = DockStyle.Top
-        fenetreCartes.Controls.Add(LblTemps)
+        ' Création de la bande supérieure (panel)
+        Dim bandeHaut As New Panel()
+        bandeHaut.Height = 30
+        bandeHaut.Dock = DockStyle.Top
 
+        ' Label score J1 (à gauche)
+        LblScoreJ1 = New Label()
+        LblScoreJ1.Text = $"{joueursSelectionnes(0)} : {scoresJoueurs(joueursSelectionnes(0))} carrés"
+        LblScoreJ1.TextAlign = ContentAlignment.MiddleLeft
+        LblScoreJ1.Dock = DockStyle.Left
+        LblScoreJ1.Width = 100
+        LblScoreJ1.BackColor = Color.LightCyan
+        LblScoreJ1.Font = New Font("Arial", 10, FontStyle.Bold)
+
+        ' Label temps restant (au centre)
+        LblTemps = New Label()
+        LblTemps.Text = $"Temps restant: {tempsRestant} secondes"
+        LblTemps.TextAlign = ContentAlignment.MiddleCenter
+        LblTemps.Dock = DockStyle.Fill
+        LblTemps.Font = New Font("Arial", 10, FontStyle.Bold)
+
+        ' Label score J2 (à droite)
+        LblScoreJ2 = New Label()
+        LblScoreJ2.Text = $"{joueursSelectionnes(1)} : {scoresJoueurs(joueursSelectionnes(1))} carrés"
+        LblScoreJ2.TextAlign = ContentAlignment.MiddleRight
+        LblScoreJ2.Dock = DockStyle.Right
+        LblScoreJ2.Width = 100
+        LblScoreJ2.BackColor = Color.LightPink
+        LblScoreJ2.Font = New Font("Arial", 10, FontStyle.Bold)
+
+        ' Ajout des labels au panel
+        bandeHaut.Controls.Add(LblTemps)
+        bandeHaut.Controls.Add(LblScoreJ2)
+        bandeHaut.Controls.Add(LblScoreJ1)
+
+        ' Déterminer la taille du plateau selon difficulté
         Dim largeur, hauteur As Integer
         Select Case difficulte
             Case 0
@@ -254,17 +285,23 @@ Public Class FormMultiJoueur
             Case 2
                 largeur = 700 : hauteur = 550
         End Select
-        fenetreCartes.ClientSize = New Size(largeur, hauteur + LblTemps.Height)
 
+        fenetreCartes.ClientSize = New Size(largeur, hauteur + bandeHaut.Height)
+
+        ' Ajout de la bande en haut
+        fenetreCartes.Controls.Add(bandeHaut)
+
+        ' Création du TableLayoutPanel pour les cartes
         Dim tableLayout As New TableLayoutPanel()
-        tableLayout.Location = New Point(0, LblTemps.Height)
+        tableLayout.Location = New Point(0, bandeHaut.Height)
         tableLayout.Size = New Size(largeur, hauteur)
         tableLayout.Margin = New Padding(0)
         tableLayout.Padding = New Padding(0)
         tableLayout.BackColor = Color.Transparent
+
         fenetreCartes.Controls.Add(tableLayout)
 
-        ' Lignes / colonnes selon difficulté
+        ' Lignes et colonnes selon difficulté
         Dim lignes, colonnes As Integer
         Select Case difficulte
             Case 0 : lignes = 3 : colonnes = 4
@@ -283,7 +320,7 @@ Public Class FormMultiJoueur
             tableLayout.RowStyles.Add(New RowStyle(SizeType.Percent, 100 / lignes))
         Next
 
-        ' Ajout des cartes
+        ' Ajout des cartes dans le tableLayout
         For i As Integer = 0 To cards.Count - 1
             Dim card = cards(i)
             card.Margin = New Padding(2)
@@ -371,6 +408,9 @@ Public Class FormMultiJoueur
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles timer.Tick
         tempsRestant -= 1
         LblTemps.Text = $"Temps restant: {tempsRestant} secondes"
+        LblScoreJ1.Text = $"{joueursSelectionnes(0)} : {scoresJoueurs(joueursSelectionnes(0))} carrés"
+        LblScoreJ2.Text = $"{joueursSelectionnes(1)} : {scoresJoueurs(joueursSelectionnes(1))} carrés"
+
 
         If tempsRestant <= 0 Then
             timer.Stop()
@@ -382,7 +422,6 @@ Public Class FormMultiJoueur
             currentCardValue = -1
             PasserAuJoueurSuivant()
             tempsRestant = tempsParManche
-            Label2.Text = $"Temps restant: {tempsRestant} secondes"
             timer.Start()
         End If
     End Sub
