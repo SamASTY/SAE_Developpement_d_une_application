@@ -15,6 +15,11 @@ Public Class FormMultiJoueur
     Private WithEvents timer As New Timer
     Private difficulte As Integer = 1 ' 0=Facile, 1=Moyen, 2=Difficilee
 
+    Private LblScoreJ1 As Label
+    Private LblScoreJ2 As Label
+
+    Private JoueurEnJeu As String
+
     ' Variables pour stocker les références aux cartes et leurs valeurs
     Private cards As New List(Of Label)
     Private cardValues As New List(Of Integer)
@@ -32,8 +37,8 @@ Public Class FormMultiJoueur
 
     ' Méthode pour initialiser l'interface utilisateur
     Private Sub InitialiserInterface()
-        ComboBox1.Items.AddRange({"Facile", "Moyen", "Difficile"})
-        ComboBox1.SelectedIndex = 1
+        ComboBoxDifficulte.Items.AddRange({"Facile", "Moyen", "Difficile"})
+        ComboBoxDifficulte.SelectedIndex = 1
 
         NumericUpDownManches.Minimum = 1
         NumericUpDownManches.Maximum = 10
@@ -43,8 +48,6 @@ Public Class FormMultiJoueur
         NumericUpDownTemps.Maximum = 120
         NumericUpDownTemps.Value = tempsParManche
 
-        Label1.Text = ""
-        Label2.Text = ""
     End Sub
 
     ' Méthode pour charger les joueurs depuis le module de données
@@ -111,7 +114,7 @@ Public Class FormMultiJoueur
         ButtonRetirerJoueur.Enabled = Not partieEnCours
         NumericUpDownManches.Enabled = Not partieEnCours
         NumericUpDownTemps.Enabled = Not partieEnCours
-        ComboBox1.Enabled = Not partieEnCours
+        ComboBoxDifficulte.Enabled = Not partieEnCours
         CheckBox1.Enabled = Not partieEnCours
     End Sub
 
@@ -124,13 +127,13 @@ Public Class FormMultiJoueur
 
         nbManches = CInt(NumericUpDownManches.Value)
         tempsParManche = CInt(NumericUpDownTemps.Value)
-        difficulte = ComboBox1.SelectedIndex
+        difficulte = ComboBoxDifficulte.SelectedIndex
 
         For Each joueur In joueursSelectionnes
             scoresJoueurs(joueur) = 0
         Next
 
-        If CheckBox1.Checked Then MelangerJoueurs()
+        ' If CheckBox1.Checked Then MelangerJoueurs() // pas convaincu de l'utilité ?!
 
         indexJoueurActif = 0
         partieEnCours = True
@@ -138,12 +141,10 @@ Public Class FormMultiJoueur
         InitialiserPlateau()
         AfficherCartesDansNouvelleFenetre()
 
-        Label1.Text = "Joueur actif: " & joueursSelectionnes(indexJoueurActif)
         MettreAJourListeScores()
         ActiverDesactiverBoutons()
 
         tempsRestant = tempsParManche
-        Label2.Text = $"Temps restant: {tempsRestant} secondes"
         timer.Start()
     End Sub
 
@@ -237,39 +238,81 @@ Public Class FormMultiJoueur
         fenetreCartes.MaximizeBox = False
         fenetreCartes.MinimizeBox = False
 
-        ' Définir la taille selon la difficulté
-        Select Case difficulte
-            Case 0 ' Facile
-                fenetreCartes.ClientSize = New Size(400, 350)
-            Case 1 ' Moyen
-                fenetreCartes.ClientSize = New Size(550, 450)
-            Case 2 ' Difficile
-                fenetreCartes.ClientSize = New Size(700, 550)
-        End Select
+        ' Création de la bande supérieure (panel)
+        Dim bandeHaut As New Panel()
+        bandeHaut.Height = 30
+        bandeHaut.Dock = DockStyle.Top
 
-        ' Créer un TableLayoutPanel pour organiser les cartes
-        Dim tableLayout As New TableLayoutPanel()
-        tableLayout.Dock = DockStyle.Fill
-        fenetreCartes.Controls.Add(tableLayout)
+        ' Label score J1 (à gauche)
+        LblScoreJ1 = New Label()
+        LblScoreJ1.Text = $"{joueursSelectionnes(0)} : {scoresJoueurs(joueursSelectionnes(0))} carrés"
+        LblScoreJ1.TextAlign = ContentAlignment.MiddleLeft
+        LblScoreJ1.Dock = DockStyle.Left
+        LblScoreJ1.Width = 100
+        LblScoreJ1.BackColor = Color.LightCyan
+        LblScoreJ1.Font = New Font("Arial", 10, FontStyle.Bold)
 
-        ' Déterminer le nombre de lignes et colonnes
-        Dim lignes, colonnes As Integer
+        ' Label temps restant (au centre)
+        LblTemps = New Label()
+        LblTemps.BackColor = Color.Gray
+        LblTemps.ForeColor = Color.LightCyan
+        LblTemps.Text = $"Temps : {tempsRestant} s, Joueur actif: " & joueursSelectionnes(indexJoueurActif)
+        LblTemps.TextAlign = ContentAlignment.MiddleCenter
+        LblTemps.Dock = DockStyle.Fill
+        LblTemps.Font = New Font("Arial", 10, FontStyle.Bold)
+
+        ' Label score J2 (à droite)
+        LblScoreJ2 = New Label()
+        LblScoreJ2.Text = $"{joueursSelectionnes(1)} : {scoresJoueurs(joueursSelectionnes(1))} carrés"
+        LblScoreJ2.TextAlign = ContentAlignment.MiddleRight
+        LblScoreJ2.Dock = DockStyle.Right
+        LblScoreJ2.Width = 100
+        LblScoreJ2.BackColor = Color.LightPink
+        LblScoreJ2.Font = New Font("Arial", 10, FontStyle.Bold)
+
+        ' Ajout des labels au panel
+        bandeHaut.Controls.Add(LblTemps)
+        bandeHaut.Controls.Add(LblScoreJ2)
+        bandeHaut.Controls.Add(LblScoreJ1)
+
+        ' Déterminer la taille du plateau selon difficulté
+        Dim largeur, hauteur As Integer
         Select Case difficulte
             Case 0
-                lignes = 3
-                colonnes = 4
+                largeur = 400 : hauteur = 350
             Case 1
-                lignes = 4
-                colonnes = 5
+                largeur = 550 : hauteur = 450
             Case 2
-                lignes = 5
-                colonnes = 6
+                largeur = 700 : hauteur = 550
+        End Select
+
+        fenetreCartes.ClientSize = New Size(largeur, hauteur + bandeHaut.Height)
+
+        ' Ajout de la bande en haut
+        fenetreCartes.Controls.Add(bandeHaut)
+
+        ' Création du TableLayoutPanel pour les cartes
+        Dim tableLayout As New TableLayoutPanel()
+        tableLayout.Location = New Point(0, bandeHaut.Height)
+        tableLayout.Size = New Size(largeur, hauteur)
+        tableLayout.Margin = New Padding(0)
+        tableLayout.Padding = New Padding(0)
+        tableLayout.BackColor = Color.Transparent
+
+        fenetreCartes.Controls.Add(tableLayout)
+
+        ' Lignes et colonnes selon difficulté
+        Dim lignes, colonnes As Integer
+        Select Case difficulte
+            Case 0 : lignes = 3 : colonnes = 4
+            Case 1 : lignes = 4 : colonnes = 5
+            Case 2 : lignes = 5 : colonnes = 6
         End Select
 
         tableLayout.ColumnCount = colonnes
         tableLayout.RowCount = lignes
 
-        ' Configurer les proportions
+        ' Styles proportionnels
         For i As Integer = 0 To colonnes - 1
             tableLayout.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100 / colonnes))
         Next
@@ -277,15 +320,16 @@ Public Class FormMultiJoueur
             tableLayout.RowStyles.Add(New RowStyle(SizeType.Percent, 100 / lignes))
         Next
 
-        ' Ajouter les cartes au TableLayoutPanel
+        ' Ajout des cartes dans le tableLayout
         For i As Integer = 0 To cards.Count - 1
             Dim card = cards(i)
+            card.Margin = New Padding(2)
             tableLayout.Controls.Add(card, i Mod colonnes, i \ colonnes)
         Next
 
-        ' Afficher la fenêtre
         fenetreCartes.Show()
     End Sub
+
 
     ' Méthode pour gérer le click sur une carte
     Private Sub Card_Click(sender As Object, e As EventArgs)
@@ -318,7 +362,6 @@ Public Class FormMultiJoueur
                                                 currentCardValue = -1
                                                 PasserAuJoueurSuivant()
                                                 tempsRestant = tempsParManche
-                                                Label2.Text = $"Temps restant: {tempsRestant} secondes"
                                                 timer.Start()
                                                 CType(s, Timer).Stop()
                                                 CType(s, Timer).Dispose()
@@ -346,24 +389,28 @@ Public Class FormMultiJoueur
                 FinDeLaPartie()
             Else
                 ' Continuer avec le même joueur s'il a trouvé une paire
-                Label1.Text = "Joueur actif: " & joueursSelectionnes(indexJoueurActif)
                 tempsRestant = tempsParManche
-                Label2.Text = $"Temps restant: {tempsRestant} secondes"
             End If
         End If
     End Sub
+
     ' Méthode pour passer au joueur suivant
     Private Sub PasserAuJoueurSuivant()
         indexJoueurActif = (indexJoueurActif + 1) Mod joueursSelectionnes.Count
-        Label1.Text = "Joueur actif: " & joueursSelectionnes(indexJoueurActif)
+        JoueurEnJeu = "Joueur actif: " & joueursSelectionnes(indexJoueurActif)
         ' Changer la couleur du label pour indiquer le joueur actif
-        Label1.ForeColor = playerColors(indexJoueurActif Mod playerColors.Count)
+        LblTemps.ForeColor = playerColors(indexJoueurActif Mod playerColors.Count)
     End Sub
 
     ' Méthode appelée à chaque tick du timer principal
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles timer.Tick
         tempsRestant -= 1
-        Label2.Text = $"Temps restant: {tempsRestant} secondes"
+
+        LblScoreJ1.Text = $"{joueursSelectionnes(0)} : {scoresJoueurs(joueursSelectionnes(0))} carrés"
+        LblScoreJ2.Text = $"{joueursSelectionnes(1)} : {scoresJoueurs(joueursSelectionnes(1))} carrés"
+
+        LblTemps.Text = $"Temps : {tempsRestant} s, Joueur actif: " & joueursSelectionnes(indexJoueurActif)
+
 
         If tempsRestant <= 0 Then
             timer.Stop()
@@ -375,7 +422,6 @@ Public Class FormMultiJoueur
             currentCardValue = -1
             PasserAuJoueurSuivant()
             tempsRestant = tempsParManche
-            Label2.Text = $"Temps restant: {tempsRestant} secondes"
             timer.Start()
         End If
     End Sub
@@ -474,8 +520,8 @@ Public Class FormMultiJoueur
         tempsParManche = CInt(NumericUpDownTemps.Value)
     End Sub
 
-    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
-        difficulte = ComboBox1.SelectedIndex
+    Private Sub ComboBoxDifficulte_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxDifficulte.SelectedIndexChanged
+        difficulte = ComboBoxDifficulte.SelectedIndex
     End Sub
 
     Private playerColors As New List(Of Color) From {
