@@ -10,7 +10,7 @@ Public Class FormJeu
     Dim compteurCarte As Integer = 0 ' compte le nombre de clics en cours
     Dim CarteGagner As List(Of Label) ' cartes validées
     Public cheminImages As String = Path.Combine(Application.StartupPath, "Images")
-    Public cheminVerso As String = Path.Combine(cheminImages, "verso.png")
+    Public cheminVerso As String = Path.Combine(cheminImages, "verso.jpeg")
     Dim CarteParSet As Integer ' nb de cartes par carré (souvent 4)
     Dim NbreDeSet As Integer ' nombre de carrés à trouver
     Dim TotalCarte As Integer ' cartes totales à afficher
@@ -157,7 +157,7 @@ Public Class FormJeu
         If JeuEnPause = False Then
             If Not (CarteGagner.Contains(label) Or CarteRetourne.Contains(label)) Then
                 Dim index As Integer = CInt(label.Tag)
-                Dim nomFichier As String = $"{index}.png"
+                Dim nomFichier As String = $"{index}.jpeg"
                 Dim chemin As String = Path.Combine(cheminImages, nomFichier)
 
                 ' Affiche l’image si elle existe, sinon un "?"
