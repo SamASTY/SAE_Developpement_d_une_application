@@ -7,7 +7,7 @@ Public Class FormMultiJoueur
     Private scoresJoueurs As New Dictionary(Of String, Integer)
     Private indexJoueurActif As Integer = 0
     Private nbManches As Integer = 3
-    Private tempsParManche As Integer = 60
+    Private tempsParManche As Integer
     Private partieEnCours As Boolean = False
     Private cardsRevealed As New List(Of Label)
     Private cardsFound As Integer = 0
@@ -115,7 +115,6 @@ Public Class FormMultiJoueur
         NumericUpDownManches.Enabled = Not partieEnCours
         NumericUpDownTemps.Enabled = Not partieEnCours
         ComboBoxDifficulte.Enabled = Not partieEnCours
-        CheckBox1.Enabled = Not partieEnCours
     End Sub
 
     ' Gestion du bouton pour commencer la partie
@@ -126,7 +125,13 @@ Public Class FormMultiJoueur
         End If
 
         nbManches = CInt(NumericUpDownManches.Value)
-        tempsParManche = CInt(NumericUpDownTemps.Value)
+        If difficulte = 0 Then
+            tempsParManche = 20
+        ElseIf difficulte = 1 Then
+            tempsParManche = 40
+        Else
+            tempsParManche = 60
+        End If
         difficulte = ComboBoxDifficulte.SelectedIndex
 
         For Each joueur In joueursSelectionnes
@@ -418,6 +423,13 @@ Public Class FormMultiJoueur
                 card.Text = ""
                 card.BackColor = Color.SteelBlue
             Next
+            If difficulte = 0 Then
+                tempsParManche = 20
+            ElseIf difficulte = 1 Then
+                tempsParManche = 40
+            Else
+                tempsParManche = 60
+            End If
             cardsRevealed.Clear()
             currentCardValue = -1
             PasserAuJoueurSuivant()

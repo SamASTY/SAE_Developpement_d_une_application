@@ -35,34 +35,38 @@ Partial Class FormAccueil
         'cmbPrenom
         '
         Me.cmbPrenom.FormattingEnabled = True
-        Me.cmbPrenom.Location = New System.Drawing.Point(101, 59)
+        Me.cmbPrenom.Location = New System.Drawing.Point(135, 73)
+        Me.cmbPrenom.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmbPrenom.Name = "cmbPrenom"
-        Me.cmbPrenom.Size = New System.Drawing.Size(121, 21)
+        Me.cmbPrenom.Size = New System.Drawing.Size(160, 24)
         Me.cmbPrenom.TabIndex = 0
         '
         'lblPseudo
         '
         Me.lblPseudo.AutoSize = True
-        Me.lblPseudo.Location = New System.Drawing.Point(49, 62)
+        Me.lblPseudo.Location = New System.Drawing.Point(65, 76)
+        Me.lblPseudo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblPseudo.Name = "lblPseudo"
-        Me.lblPseudo.Size = New System.Drawing.Size(49, 13)
+        Me.lblPseudo.Size = New System.Drawing.Size(60, 16)
         Me.lblPseudo.TabIndex = 1
         Me.lblPseudo.Text = "Pseudo :"
         '
         'btnScores
         '
-        Me.btnScores.Location = New System.Drawing.Point(237, 57)
+        Me.btnScores.Location = New System.Drawing.Point(316, 70)
+        Me.btnScores.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnScores.Name = "btnScores"
-        Me.btnScores.Size = New System.Drawing.Size(75, 23)
+        Me.btnScores.Size = New System.Drawing.Size(100, 28)
         Me.btnScores.TabIndex = 2
         Me.btnScores.Text = "Scores"
         Me.btnScores.UseVisualStyleBackColor = True
         '
         'btnQuitter
         '
-        Me.btnQuitter.Location = New System.Drawing.Point(237, 174)
+        Me.btnQuitter.Location = New System.Drawing.Point(316, 119)
+        Me.btnQuitter.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnQuitter.Name = "btnQuitter"
-        Me.btnQuitter.Size = New System.Drawing.Size(75, 23)
+        Me.btnQuitter.Size = New System.Drawing.Size(100, 28)
         Me.btnQuitter.TabIndex = 3
         Me.btnQuitter.Text = "Quitter"
         Me.btnQuitter.UseVisualStyleBackColor = True
@@ -70,9 +74,10 @@ Partial Class FormAccueil
         'btnJeu
         '
         Me.btnJeu.Enabled = False
-        Me.btnJeu.Location = New System.Drawing.Point(19, 174)
+        Me.btnJeu.Location = New System.Drawing.Point(25, 119)
+        Me.btnJeu.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnJeu.Name = "btnJeu"
-        Me.btnJeu.Size = New System.Drawing.Size(75, 23)
+        Me.btnJeu.Size = New System.Drawing.Size(100, 28)
         Me.btnJeu.TabIndex = 4
         Me.btnJeu.Text = "Jouer"
         Me.btnJeu.UseVisualStyleBackColor = True
@@ -81,29 +86,28 @@ Partial Class FormAccueil
         '
         Me.lblMemory.AutoSize = True
         Me.lblMemory.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMemory.Location = New System.Drawing.Point(8, 3)
-        Me.lblMemory.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblMemory.Location = New System.Drawing.Point(11, 4)
         Me.lblMemory.Name = "lblMemory"
-        Me.lblMemory.Size = New System.Drawing.Size(131, 37)
+        Me.lblMemory.Size = New System.Drawing.Size(164, 46)
         Me.lblMemory.TabIndex = 5
         Me.lblMemory.Text = "Memory"
         '
         'btnOptions
         '
-        Me.btnOptions.Location = New System.Drawing.Point(127, 174)
-        Me.btnOptions.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.btnOptions.Location = New System.Drawing.Point(169, 119)
+        Me.btnOptions.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnOptions.Name = "btnOptions"
-        Me.btnOptions.Size = New System.Drawing.Size(75, 23)
+        Me.btnOptions.Size = New System.Drawing.Size(100, 28)
         Me.btnOptions.TabIndex = 6
         Me.btnOptions.Text = "Options"
         Me.btnOptions.UseVisualStyleBackColor = True
         '
         'BtnMultijoueur
         '
-        Me.BtnMultijoueur.Location = New System.Drawing.Point(15, 217)
-        Me.BtnMultijoueur.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.BtnMultijoueur.Location = New System.Drawing.Point(20, 172)
+        Me.BtnMultijoueur.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.BtnMultijoueur.Name = "BtnMultijoueur"
-        Me.BtnMultijoueur.Size = New System.Drawing.Size(95, 24)
+        Me.BtnMultijoueur.Size = New System.Drawing.Size(127, 30)
         Me.BtnMultijoueur.TabIndex = 7
         Me.BtnMultijoueur.Text = "Multijoueur"
         Me.BtnMultijoueur.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -111,9 +115,9 @@ Partial Class FormAccueil
         '
         'FormAccueil
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(551, 311)
+        Me.ClientSize = New System.Drawing.Size(450, 226)
         Me.Controls.Add(Me.BtnMultijoueur)
         Me.Controls.Add(Me.btnOptions)
         Me.Controls.Add(Me.lblMemory)
@@ -122,6 +126,7 @@ Partial Class FormAccueil
         Me.Controls.Add(Me.btnScores)
         Me.Controls.Add(Me.lblPseudo)
         Me.Controls.Add(Me.cmbPrenom)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "FormAccueil"
         Me.Text = "Accueil"
         Me.ResumeLayout(False)
