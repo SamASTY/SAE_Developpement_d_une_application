@@ -309,7 +309,7 @@ Public Class FormMultiJoueur
 
 
     ' Méthode pour gérer le click sur une carte
-    Private Sub Card_Click(sender As Object, e As EventArgs)
+    Private Async Sub Card_Click(sender As Object, e As EventArgs)
         If Not partieEnCours Then Return
 
         Dim clickedCard As Label = DirectCast(sender, Label)
@@ -326,22 +326,20 @@ Public Class FormMultiJoueur
         If currentCardValue = -1 Then
             currentCardValue = cardValue
         ElseIf currentCardValue <> cardValue Then
+            partieEnCours = False
+            Await Task.Delay(500)
+            partieEnCours = True
             ' Les cartes ne correspondent pas
-            Dim retournerTimer As New Timer() With {.Interval = 1000}
+            For Each card In cardsRevealed
+                card.Text = ""
+                card.BackColor = Color.SteelBlue
+            Next
+            cardsRevealed.Clear()
+            currentCardValue = -1
+            PasserAuJoueurSuivant()
+            tempsRestant = tempsParManche
 
-            AddHandler retournerTimer.Tick, Sub(s, args)
-                                                For Each card In cardsRevealed
-                                                    card.Text = ""
-                                                    card.BackColor = Color.SteelBlue
-                                                Next
-                                                cardsRevealed.Clear()
-                                                currentCardValue = -1
-                                                PasserAuJoueurSuivant()
-                                                tempsRestant = tempsParManche
 
-                                            End Sub
-
-            retournerTimer.Start()
         ElseIf cardsRevealed.Count = 4 Then ' On vérifie maintenant 4 cartes au lieu de 2
             ' Les 4 cartes correspondent
             Dim joueurActif As String = If(indexJoueurActif = True, Joueur1, Joueur2)
