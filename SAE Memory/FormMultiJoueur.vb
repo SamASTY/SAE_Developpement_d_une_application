@@ -59,7 +59,6 @@ Public Class FormMultiJoueur
         Next
     End Sub
 
-
     ' Méthode pour mettre à jour la liste des scores
     Private Sub MettreAJourListeScores()
         lstScores.Items.Clear()
@@ -307,7 +306,6 @@ Public Class FormMultiJoueur
         fenetreCartes.Show()
     End Sub
 
-
     ' Méthode pour gérer le click sur une carte
     Private Async Sub Card_Click(sender As Object, e As EventArgs)
         If Not partieEnCours Then Return
@@ -345,6 +343,7 @@ Public Class FormMultiJoueur
             Dim joueurActif As String = If(indexJoueurActif = True, Joueur1, Joueur2)
             scoresJoueurs(joueurActif) += 1
 
+
             For Each card In cardsRevealed
                 card.Enabled = False
                 card.BackColor = Color.LightGray ' Couleur pour les cartes trouvées
@@ -355,6 +354,9 @@ Public Class FormMultiJoueur
             cardsFound += 1
 
             MettreAJourListeScores()
+            LblScoreJ1.Text = $"{Joueur1} : {scoresJoueurs(Joueur1)} carrés"
+            LblScoreJ2.Text = $"{Joueur2} : {scoresJoueurs(Joueur2)} carrés"
+
 
             ' Vérifier si toutes les paires ont été trouvées
             If cardsFound = cardValues.Count \ 4 Then ' Divisé par 4 maintenant
@@ -409,12 +411,13 @@ Public Class FormMultiJoueur
         timer.Stop()
         partieEnCours = False
 
-        Dim scoreMax As Integer = If(scoresJoueurs.Count > 0, scoresJoueurs.Values.Max(), 0)
-        Dim gagnants = joueursSelectionnes.Where(Function(j) scoresJoueurs(j) = scoreMax).ToList()
 
-        Dim message As String = If(gagnants.Count = 1,
-                                $"Le gagnant est {gagnants(0)} avec {scoreMax} carrés trouvés!",
-                                $"Il y a une égalité entre: {String.Join(", ", gagnants)} avec {scoreMax} carrés trouvés!")
+        Dim gagnant As String = If(scoresJoueurs(Joueur1) > scoresJoueurs(Joueur2), Joueur1, Joueur2)
+        Dim egalite As Boolean = scoresJoueurs(Joueur1) = scoresJoueurs(Joueur2)
+
+        Dim message As String = If(egalite = False,
+                                $"Le gagnant est {gagnant} avec {scoresJoueurs(gagnant)} carrés trouvés!",
+                                $"Il y a une égalité entre: " & Joueur1 & " et" & Joueur2 & " avec {scoresJoueurs(gagnant)} carrés trouvés!")
 
         MessageBox.Show(message, "Fin de la partie", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
@@ -472,7 +475,7 @@ Public Class FormMultiJoueur
     End Sub
 
     ' Gestionnaires pour les changements de configuration
-    Private Sub NumericUpDown1_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDownManches.ValueChanged
+    Private Sub NumericUpDown1_ValueChanged(sender As Object, e As EventArgs)
         nbManches = CInt(NumericUpDownManches.Value)
     End Sub
 
