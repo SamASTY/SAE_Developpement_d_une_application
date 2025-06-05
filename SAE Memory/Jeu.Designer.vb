@@ -34,53 +34,53 @@ Partial Class FormJeu
         Me.btnPause = New System.Windows.Forms.Button()
         Me.TableLayoutPlateau = New System.Windows.Forms.TableLayoutPanel()
         Me.pnlTop = New System.Windows.Forms.Panel()
-        Me.pnlJeu = New System.Windows.Forms.Panel()
+        Me.pnlScore = New System.Windows.Forms.Panel()
         Me.pnlIndice = New System.Windows.Forms.Panel()
         Me.btnIndice = New System.Windows.Forms.Button()
-        Me.pnlScore = New System.Windows.Forms.Panel()
+        Me.pnlJeu = New System.Windows.Forms.Panel()
         Me.pnlTop.SuspendLayout()
-        Me.pnlJeu.SuspendLayout()
-        Me.pnlIndice.SuspendLayout()
         Me.pnlScore.SuspendLayout()
+        Me.pnlIndice.SuspendLayout()
+        Me.pnlJeu.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblJoueur
         '
         Me.lblJoueur.AutoSize = True
-        Me.lblJoueur.Location = New System.Drawing.Point(13, 17)
+        Me.lblJoueur.Location = New System.Drawing.Point(15, 21)
         Me.lblJoueur.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblJoueur.Name = "lblJoueur"
-        Me.lblJoueur.Size = New System.Drawing.Size(48, 16)
+        Me.lblJoueur.Size = New System.Drawing.Size(58, 20)
         Me.lblJoueur.TabIndex = 0
         Me.lblJoueur.Text = "Joueur"
         '
         'lblPseudo
         '
         Me.lblPseudo.AutoSize = True
-        Me.lblPseudo.Location = New System.Drawing.Point(69, 17)
+        Me.lblPseudo.Location = New System.Drawing.Point(78, 21)
         Me.lblPseudo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblPseudo.Name = "lblPseudo"
-        Me.lblPseudo.Size = New System.Drawing.Size(73, 16)
+        Me.lblPseudo.Size = New System.Drawing.Size(86, 20)
         Me.lblPseudo.TabIndex = 1
         Me.lblPseudo.Text = "Nomjoueur"
         '
         'lblTemps
         '
         Me.lblTemps.AutoSize = True
-        Me.lblTemps.Location = New System.Drawing.Point(190, 33)
+        Me.lblTemps.Location = New System.Drawing.Point(214, 41)
         Me.lblTemps.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTemps.Name = "lblTemps"
-        Me.lblTemps.Size = New System.Drawing.Size(99, 16)
+        Me.lblTemps.Size = New System.Drawing.Size(119, 20)
         Me.lblTemps.TabIndex = 2
         Me.lblTemps.Text = "Temps restant :"
         '
         'btnAbandon
         '
         Me.btnAbandon.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.btnAbandon.Location = New System.Drawing.Point(489, 17)
-        Me.btnAbandon.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnAbandon.Location = New System.Drawing.Point(550, 21)
+        Me.btnAbandon.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnAbandon.Name = "btnAbandon"
-        Me.btnAbandon.Size = New System.Drawing.Size(147, 36)
+        Me.btnAbandon.Size = New System.Drawing.Size(165, 45)
         Me.btnAbandon.TabIndex = 4
         Me.btnAbandon.Text = "Abandon"
         Me.btnAbandon.UseVisualStyleBackColor = False
@@ -91,39 +91,39 @@ Partial Class FormJeu
         'lblTempsValeur
         '
         Me.lblTempsValeur.AutoSize = True
-        Me.lblTempsValeur.Location = New System.Drawing.Point(297, 33)
+        Me.lblTempsValeur.Location = New System.Drawing.Point(334, 41)
         Me.lblTempsValeur.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTempsValeur.Name = "lblTempsValeur"
-        Me.lblTempsValeur.Size = New System.Drawing.Size(14, 16)
+        Me.lblTempsValeur.Size = New System.Drawing.Size(18, 20)
         Me.lblTempsValeur.TabIndex = 3
         Me.lblTempsValeur.Text = "0"
         '
         'lblScore
         '
         Me.lblScore.AutoSize = True
-        Me.lblScore.Location = New System.Drawing.Point(7, 13)
+        Me.lblScore.Location = New System.Drawing.Point(8, 16)
         Me.lblScore.Name = "lblScore"
-        Me.lblScore.Size = New System.Drawing.Size(43, 16)
+        Me.lblScore.Size = New System.Drawing.Size(51, 20)
         Me.lblScore.TabIndex = 11
         Me.lblScore.Text = "Score"
         '
         'lblScoreValeur
         '
         Me.lblScoreValeur.AutoSize = True
-        Me.lblScoreValeur.Location = New System.Drawing.Point(68, 13)
+        Me.lblScoreValeur.Location = New System.Drawing.Point(76, 16)
         Me.lblScoreValeur.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblScoreValeur.Name = "lblScoreValeur"
-        Me.lblScoreValeur.Size = New System.Drawing.Size(14, 16)
+        Me.lblScoreValeur.Size = New System.Drawing.Size(18, 20)
         Me.lblScoreValeur.TabIndex = 12
         Me.lblScoreValeur.Text = "0"
         '
         'btnPause
         '
         Me.btnPause.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.btnPause.Location = New System.Drawing.Point(647, 17)
-        Me.btnPause.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnPause.Location = New System.Drawing.Point(728, 21)
+        Me.btnPause.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnPause.Name = "btnPause"
-        Me.btnPause.Size = New System.Drawing.Size(147, 36)
+        Me.btnPause.Size = New System.Drawing.Size(165, 45)
         Me.btnPause.TabIndex = 14
         Me.btnPause.Text = "Pause"
         Me.btnPause.UseVisualStyleBackColor = False
@@ -137,16 +137,17 @@ Partial Class FormJeu
         Me.TableLayoutPlateau.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPlateau.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize
         Me.TableLayoutPlateau.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPlateau.Margin = New System.Windows.Forms.Padding(4)
+        Me.TableLayoutPlateau.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TableLayoutPlateau.Name = "TableLayoutPlateau"
         Me.TableLayoutPlateau.RowCount = 2
         Me.TableLayoutPlateau.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPlateau.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPlateau.Size = New System.Drawing.Size(801, 871)
+        Me.TableLayoutPlateau.Size = New System.Drawing.Size(901, 1071)
         Me.TableLayoutPlateau.TabIndex = 15
         '
         'pnlTop
         '
+        Me.pnlTop.BackColor = System.Drawing.Color.Beige
         Me.pnlTop.Controls.Add(Me.pnlScore)
         Me.pnlTop.Controls.Add(Me.pnlIndice)
         Me.pnlTop.Controls.Add(Me.lblTempsValeur)
@@ -157,65 +158,71 @@ Partial Class FormJeu
         Me.pnlTop.Controls.Add(Me.btnPause)
         Me.pnlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlTop.Location = New System.Drawing.Point(0, 0)
-        Me.pnlTop.Margin = New System.Windows.Forms.Padding(4)
+        Me.pnlTop.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.pnlTop.Name = "pnlTop"
-        Me.pnlTop.Size = New System.Drawing.Size(801, 79)
+        Me.pnlTop.Size = New System.Drawing.Size(901, 99)
         Me.pnlTop.TabIndex = 16
+        '
+        'pnlScore
+        '
+        Me.pnlScore.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.pnlScore.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.pnlScore.Controls.Add(Me.lblScore)
+        Me.pnlScore.Controls.Add(Me.lblScoreValeur)
+        Me.pnlScore.Location = New System.Drawing.Point(12, 45)
+        Me.pnlScore.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.pnlScore.Name = "pnlScore"
+        Me.pnlScore.Size = New System.Drawing.Size(110, 46)
+        Me.pnlScore.TabIndex = 16
+        '
+        'pnlIndice
+        '
+        Me.pnlIndice.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.pnlIndice.Controls.Add(Me.btnIndice)
+        Me.pnlIndice.Location = New System.Drawing.Point(406, 12)
+        Me.pnlIndice.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.pnlIndice.Name = "pnlIndice"
+        Me.pnlIndice.Size = New System.Drawing.Size(111, 78)
+        Me.pnlIndice.TabIndex = 15
+        '
+        'btnIndice
+        '
+        Me.btnIndice.Location = New System.Drawing.Point(18, 25)
+        Me.btnIndice.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnIndice.Name = "btnIndice"
+        Me.btnIndice.Size = New System.Drawing.Size(79, 29)
+        Me.btnIndice.TabIndex = 1
+        Me.btnIndice.Text = "Indice"
+        Me.btnIndice.UseVisualStyleBackColor = True
         '
         'pnlJeu
         '
         Me.pnlJeu.Controls.Add(Me.TableLayoutPlateau)
         Me.pnlJeu.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlJeu.Location = New System.Drawing.Point(0, 79)
-        Me.pnlJeu.Margin = New System.Windows.Forms.Padding(4)
+        Me.pnlJeu.Location = New System.Drawing.Point(0, 99)
+        Me.pnlJeu.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.pnlJeu.Name = "pnlJeu"
-        Me.pnlJeu.Size = New System.Drawing.Size(801, 871)
+        Me.pnlJeu.Size = New System.Drawing.Size(901, 1071)
         Me.pnlJeu.TabIndex = 15
-        '
-        'pnlIndice
-        '
-        Me.pnlIndice.Controls.Add(Me.btnIndice)
-        Me.pnlIndice.Location = New System.Drawing.Point(361, 10)
-        Me.pnlIndice.Name = "pnlIndice"
-        Me.pnlIndice.Size = New System.Drawing.Size(99, 62)
-        Me.pnlIndice.TabIndex = 15
-        '
-        'btnIndice
-        '
-        Me.btnIndice.Location = New System.Drawing.Point(16, 20)
-        Me.btnIndice.Name = "btnIndice"
-        Me.btnIndice.Size = New System.Drawing.Size(70, 23)
-        Me.btnIndice.TabIndex = 1
-        Me.btnIndice.Text = "Indice"
-        Me.btnIndice.UseVisualStyleBackColor = True
-        '
-        'pnlScore
-        '
-        Me.pnlScore.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.pnlScore.Controls.Add(Me.lblScore)
-        Me.pnlScore.Controls.Add(Me.lblScoreValeur)
-        Me.pnlScore.Location = New System.Drawing.Point(11, 36)
-        Me.pnlScore.Name = "pnlScore"
-        Me.pnlScore.Size = New System.Drawing.Size(98, 37)
-        Me.pnlScore.TabIndex = 16
         '
         'FormJeu
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(801, 950)
+        Me.BackColor = System.Drawing.Color.LightYellow
+        Me.ClientSize = New System.Drawing.Size(901, 1170)
         Me.Controls.Add(Me.pnlJeu)
         Me.Controls.Add(Me.pnlTop)
-        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "FormJeu"
         Me.Tag = ""
         Me.Text = "Memory"
         Me.pnlTop.ResumeLayout(False)
         Me.pnlTop.PerformLayout()
-        Me.pnlJeu.ResumeLayout(False)
-        Me.pnlIndice.ResumeLayout(False)
         Me.pnlScore.ResumeLayout(False)
         Me.pnlScore.PerformLayout()
+        Me.pnlIndice.ResumeLayout(False)
+        Me.pnlJeu.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

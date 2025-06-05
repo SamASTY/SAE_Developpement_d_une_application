@@ -43,7 +43,7 @@
         Next
     End Sub
 
-    Private Sub ListBoxNoms_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstNoms.SelectedIndexChanged
+    Private Sub ListBoxNoms_SelectedIndexChanged(sender As Object, e As EventArgs)
         If lstNoms.SelectedIndex >= 0 Then
             Dim pseudo As String = lstNoms.Items(lstNoms.SelectedIndex).ToString()
             cmbJoueurValeur.SelectedItem = pseudo
@@ -51,7 +51,7 @@
         End If
     End Sub
 
-    Private Sub ComboBoxJoueurValeur_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbJoueurValeur.SelectedIndexChanged
+    Private Sub ComboBoxJoueurValeur_SelectedIndexChanged(sender As Object, e As EventArgs)
         If cmbJoueurValeur.SelectedIndex >= 0 Then
             Dim pseudo As String = cmbJoueurValeur.SelectedItem.ToString()
             AfficherDetailsJoueur(pseudo)
@@ -113,11 +113,7 @@
 
     ' Gère la sélection dans n'importe quelle ListBox
     Private Sub AnyListBox_SelectedIndexChanged(sender As Object, e As EventArgs) _
-        Handles lstNoms.SelectedIndexChanged,
-                lstScores.SelectedIndexChanged,
-                lstTemps.SelectedIndexChanged,
-                lstTmpTot.SelectedIndexChanged,
-                lstNbParties.SelectedIndexChanged
+        Handles lstNoms.SelectedIndexChanged
 
         ' Si déjà en train de synchroniser ou aucune sélection, on sort
         If syncingSelection OrElse DirectCast(sender, ListBox).SelectedIndex = -1 Then Return
@@ -144,7 +140,7 @@
         End Try
     End Sub
 
-    Private Sub ButtonAffJoueur_Click(sender As Object, e As EventArgs) Handles btnAffJoueur.Click
+    Private Sub ButtonAffJoueur_Click(sender As Object, e As EventArgs)
         ' Vérifier que la ComboBox n'est pas vide
         If String.IsNullOrEmpty(cmbJoueurValeur.Text) Then
             MsgBox("Veuillez sélectionner ou saisir un joueur", vbInformation, "Information")
@@ -177,5 +173,9 @@
             MsgBox($"Le joueur {pseudo} n'a pas été trouvé dans les statistiques.",
                vbExclamation, "Non trouvé")
         End If
+    End Sub
+
+    Private Sub lblTableauScores_Click(sender As Object, e As EventArgs) Handles lblTableauScores.Click
+
     End Sub
 End Class
