@@ -501,4 +501,49 @@ Public Class FormMultiJoueur
         MettreAJourListeScores()
     End Sub
 
+    Private Sub Lbloptions_Click(sender As Object, e As EventArgs) Handles Lbloptions.Click
+
+    End Sub
+
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles LblChoix.Click
+
+    End Sub
+
+    Private Sub BtnRegles_Click(sender As Object, e As EventArgs) Handles BtnRegles.Click
+        AfficherReglesDuJeu()
+
+    End Sub
+    Private Sub AfficherReglesDuJeu()
+        Dim regles As String = " RÈGLES DU JEU MULTIJOUEUR - MEMORY CARRÉS 🎮" & vbCrLf & vbCrLf &
+                              "OBJECTIF :" & vbCrLf &
+                              "Trouvez le maximum de carrés (groupes de 4 cartes identiques) en alternant avec votre adversaire." & vbCrLf & vbCrLf &
+                              "PRÉPARATION :" & vbCrLf &
+                              "• Sélectionnez 2 joueurs différents dans les listes déroulantes" & vbCrLf &
+                              "• Choisissez le niveau de difficulté :" & vbCrLf &
+                              "  - Facile : 3x4 cartes (12 cartes), 20 secondes" & vbCrLf &
+                              "  - Moyen : 4x5 cartes (20 cartes), 40 secondes" & vbCrLf &
+                              "  - Difficile : 5x6 cartes (30 cartes), 60 secondes" & vbCrLf & vbCrLf &
+                              "🎯 DÉROULEMENT :" & vbCrLf &
+                              "1. Le premier joueur commence et a un temps limité pour jouer" & vbCrLf &
+                              "2. Cliquez sur les cartes pour les révéler une par une" & vbCrLf &
+                              "3. Vous devez trouver 4 cartes identiques pour former un carré" & vbCrLf &
+                              "4. Si vous trouvez un carré complet, vous gagnez 1 point et continuez" & vbCrLf &
+                              "5. Si vous révélez une carte différente, toutes les cartes se retournent" & vbCrLf &
+                              "6. C'est alors au tour de l'adversaire" & vbCrLf & vbCrLf &
+                              "TEMPS :" & vbCrLf &
+                              "• Chaque joueur dispose d'un temps limité pour son tour" & vbCrLf &
+                              "• Si le temps s'écoule, les cartes se retournent automatiquement" & vbCrLf &
+                              "• C'est au tour du joueur suivant" & vbCrLf & vbCrLf &
+                              "🏆 VICTOIRE :" & vbCrLf &
+                              "• Le joueur qui trouve le plus de carrés gagne la partie" & vbCrLf &
+                              "• En cas d'égalité, c'est un match nul" & vbCrLf & vbCrLf &
+                              "💡 CONSEILS :" & vbCrLf &
+                              "• Mémorisez les positions des cartes révélées" & vbCrLf &
+                              "• Soyez stratégique dans vos choix" & vbCrLf &
+                              "• Utilisez bien votre temps imparti" & vbCrLf & vbCrLf &
+                              "Bonne chance et amusez-vous bien ! 🎉"
+
+        ' Affichage dans une MessageBox avec défilement possible
+        MessageBox.Show(regles, "Règles du jeu - Mode Multijoueur", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
 End Class
