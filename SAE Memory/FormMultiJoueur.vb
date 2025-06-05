@@ -43,11 +43,6 @@ Public Class FormMultiJoueur
     Private Sub InitialiserInterface()
         ComboBoxDifficulte.Items.AddRange({"Facile", "Moyen", "Difficile"})
         ComboBoxDifficulte.SelectedIndex = 1
-
-        NumericUpDownManches.Minimum = 1
-        NumericUpDownManches.Maximum = 10
-        NumericUpDownManches.Value = nbManches
-
     End Sub
 
     ' Méthode pour charger les joueurs depuis le module de données
@@ -80,7 +75,6 @@ Public Class FormMultiJoueur
     ' Méthode pour activer/désactiver les boutons en fonction du contexte
     Private Sub ActiverDesactiverBoutons()
         ButtonAbandonner.Enabled = partieEnCours
-        NumericUpDownManches.Enabled = Not partieEnCours
         ComboBoxDifficulte.Enabled = Not partieEnCours
     End Sub
 
@@ -92,7 +86,6 @@ Public Class FormMultiJoueur
             Joueur1 = cmbox_Joueur1.SelectedItem.ToString
             Joueur2 = cmbox_Joueur2.SelectedItem.ToString
 
-            nbManches = CInt(NumericUpDownManches.Value)
             If difficulte = 0 Then
                 tempsParManche = 20
             ElseIf difficulte = 1 Then
@@ -475,10 +468,6 @@ Public Class FormMultiJoueur
     End Sub
 
     ' Gestionnaires pour les changements de configuration
-    Private Sub NumericUpDown1_ValueChanged(sender As Object, e As EventArgs)
-        nbManches = CInt(NumericUpDownManches.Value)
-    End Sub
-
     Private Sub ComboBoxDifficulte_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxDifficulte.SelectedIndexChanged
         difficulte = ComboBoxDifficulte.SelectedIndex
     End Sub

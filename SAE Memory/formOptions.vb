@@ -5,8 +5,7 @@
     End Sub
 
     Private Sub btnRetour_Click(sender As Object, e As EventArgs) Handles btnRetour.Click
-        Me.Hide()
-        FormAccueil.Show()
+        Me.Close()
     End Sub
 
     Private Sub rdoDebutant_CheckedChanged(sender As Object, e As EventArgs) Handles rdoDebutant.CheckedChanged
@@ -35,4 +34,7 @@
         End If
     End Sub
 
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+
+    End Sub
 End Class

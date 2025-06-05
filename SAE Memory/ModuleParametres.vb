@@ -37,4 +37,6 @@
                 Return 8 'par defaut si erreur
         End Select
     End Function
+
+    Dim Triche As Boolean = False
 End Module
