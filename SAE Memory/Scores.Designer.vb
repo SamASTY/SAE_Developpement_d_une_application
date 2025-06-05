@@ -169,7 +169,7 @@ Partial Class FormScores
         '
         Me.lstTemps.FormattingEnabled = True
         Me.lstTemps.ItemHeight = 20
-        Me.lstTemps.Location = New System.Drawing.Point(279, 63)
+        Me.lstTemps.Location = New System.Drawing.Point(297, 63)
         Me.lstTemps.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lstTemps.Name = "lstTemps"
         Me.lstTemps.Size = New System.Drawing.Size(120, 164)
@@ -179,7 +179,7 @@ Partial Class FormScores
         '
         Me.lstScores.FormattingEnabled = True
         Me.lstScores.ItemHeight = 20
-        Me.lstScores.Location = New System.Drawing.Point(140, 63)
+        Me.lstScores.Location = New System.Drawing.Point(154, 63)
         Me.lstScores.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lstScores.Name = "lstScores"
         Me.lstScores.Size = New System.Drawing.Size(120, 164)
@@ -189,7 +189,7 @@ Partial Class FormScores
         '
         Me.lstNoms.FormattingEnabled = True
         Me.lstNoms.ItemHeight = 20
-        Me.lstNoms.Location = New System.Drawing.Point(2, 63)
+        Me.lstNoms.Location = New System.Drawing.Point(8, 63)
         Me.lstNoms.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lstNoms.Name = "lstNoms"
         Me.lstNoms.Size = New System.Drawing.Size(120, 164)
@@ -206,7 +206,7 @@ Partial Class FormScores
         '
         'lblTemps
         '
-        Me.lblTemps.Location = New System.Drawing.Point(279, 13)
+        Me.lblTemps.Location = New System.Drawing.Point(301, 10)
         Me.lblTemps.Name = "lblTemps"
         Me.lblTemps.Size = New System.Drawing.Size(124, 51)
         Me.lblTemps.TabIndex = 44
@@ -214,7 +214,7 @@ Partial Class FormScores
         '
         'lblScore
         '
-        Me.lblScore.Location = New System.Drawing.Point(141, 9)
+        Me.lblScore.Location = New System.Drawing.Point(164, 10)
         Me.lblScore.Name = "lblScore"
         Me.lblScore.Size = New System.Drawing.Size(110, 51)
         Me.lblScore.TabIndex = 43
@@ -223,7 +223,7 @@ Partial Class FormScores
         'lblNom
         '
         Me.lblNom.AutoSize = True
-        Me.lblNom.Location = New System.Drawing.Point(4, 27)
+        Me.lblNom.Location = New System.Drawing.Point(47, 27)
         Me.lblNom.Name = "lblNom"
         Me.lblNom.Size = New System.Drawing.Size(42, 20)
         Me.lblNom.TabIndex = 42
