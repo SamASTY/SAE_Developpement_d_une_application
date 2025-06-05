@@ -23,11 +23,10 @@ Partial Class FormMultiJoueur
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.NumericUpDownManches = New System.Windows.Forms.NumericUpDown()
-        Me.NumericUpDownTemps = New System.Windows.Forms.NumericUpDown()
         Me.ComboBoxDifficulte = New System.Windows.Forms.ComboBox()
         Me.CheckBoxOrdreAleatoire = New System.Windows.Forms.CheckBox()
         Me.PanelCartes = New System.Windows.Forms.Panel()
-        Me.LblTemps = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.LblManche = New System.Windows.Forms.Label()
         Me.Lbloptions = New System.Windows.Forms.Label()
         Me.lstScores = New System.Windows.Forms.ListBox()
@@ -35,19 +34,13 @@ Partial Class FormMultiJoueur
         Me.ButtonAbandonner = New System.Windows.Forms.Button()
         Me.ButtonRetour = New System.Windows.Forms.Button()
         Me.lblTitre = New System.Windows.Forms.Label()
-        Me.LblJoeurSelectionne = New System.Windows.Forms.Label()
-        Me.LblJoeurDispo = New System.Windows.Forms.Label()
-        Me.ButtonRetirerJoueur = New System.Windows.Forms.Button()
-        Me.ButtonAjouterJoueur = New System.Windows.Forms.Button()
-        Me.ListBoxJoueursSelectionnes = New System.Windows.Forms.ListBox()
-        Me.ListBoxJoueursDisponibles = New System.Windows.Forms.ListBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.cmbox_Joueur2 = New System.Windows.Forms.ComboBox()
+        Me.cmbox_Joueur1 = New System.Windows.Forms.ComboBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.LblScore = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.NumericUpDownManches, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDownTemps, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelCartes.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -61,14 +54,6 @@ Partial Class FormMultiJoueur
         Me.NumericUpDownManches.Name = "NumericUpDownManches"
         Me.NumericUpDownManches.Size = New System.Drawing.Size(107, 22)
         Me.NumericUpDownManches.TabIndex = 4
-        '
-        'NumericUpDownTemps
-        '
-        Me.NumericUpDownTemps.Location = New System.Drawing.Point(311, 14)
-        Me.NumericUpDownTemps.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.NumericUpDownTemps.Name = "NumericUpDownTemps"
-        Me.NumericUpDownTemps.Size = New System.Drawing.Size(107, 22)
-        Me.NumericUpDownTemps.TabIndex = 5
         '
         'ComboBoxDifficulte
         '
@@ -93,11 +78,9 @@ Partial Class FormMultiJoueur
         'PanelCartes
         '
         Me.PanelCartes.Controls.Add(Me.Label1)
-        Me.PanelCartes.Controls.Add(Me.LblTemps)
         Me.PanelCartes.Controls.Add(Me.LblManche)
         Me.PanelCartes.Controls.Add(Me.Lbloptions)
         Me.PanelCartes.Controls.Add(Me.CheckBoxOrdreAleatoire)
-        Me.PanelCartes.Controls.Add(Me.NumericUpDownTemps)
         Me.PanelCartes.Controls.Add(Me.NumericUpDownManches)
         Me.PanelCartes.Controls.Add(Me.ComboBoxDifficulte)
         Me.PanelCartes.Location = New System.Drawing.Point(11, 236)
@@ -106,14 +89,14 @@ Partial Class FormMultiJoueur
         Me.PanelCartes.Size = New System.Drawing.Size(669, 80)
         Me.PanelCartes.TabIndex = 8
         '
-        'LblTemps
+        'Label1
         '
-        Me.LblTemps.AutoSize = True
-        Me.LblTemps.Location = New System.Drawing.Point(247, 18)
-        Me.LblTemps.Name = "LblTemps"
-        Me.LblTemps.Size = New System.Drawing.Size(50, 16)
-        Me.LblTemps.TabIndex = 9
-        Me.LblTemps.Text = "Temps"
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(3, 46)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(75, 16)
+        Me.Label1.TabIndex = 10
+        Me.Label1.Text = "Nombre de"
         '
         'LblManche
         '
@@ -183,77 +166,33 @@ Partial Class FormMultiJoueur
         Me.lblTitre.TabIndex = 19
         Me.lblTitre.Text = "MEMORY MULTIJOUEUR"
         '
-        'LblJoeurSelectionne
-        '
-        Me.LblJoeurSelectionne.AutoSize = True
-        Me.LblJoeurSelectionne.Location = New System.Drawing.Point(220, 10)
-        Me.LblJoeurSelectionne.Name = "LblJoeurSelectionne"
-        Me.LblJoeurSelectionne.Size = New System.Drawing.Size(113, 16)
-        Me.LblJoeurSelectionne.TabIndex = 27
-        Me.LblJoeurSelectionne.Text = "Joeur selectionné"
-        '
-        'LblJoeurDispo
-        '
-        Me.LblJoeurDispo.AutoSize = True
-        Me.LblJoeurDispo.Location = New System.Drawing.Point(8, 10)
-        Me.LblJoeurDispo.Name = "LblJoeurDispo"
-        Me.LblJoeurDispo.Size = New System.Drawing.Size(107, 16)
-        Me.LblJoeurDispo.TabIndex = 26
-        Me.LblJoeurDispo.Text = "Joeur disponible"
-        '
-        'ButtonRetirerJoueur
-        '
-        Me.ButtonRetirerJoueur.Location = New System.Drawing.Point(241, 108)
-        Me.ButtonRetirerJoueur.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.ButtonRetirerJoueur.Name = "ButtonRetirerJoueur"
-        Me.ButtonRetirerJoueur.Size = New System.Drawing.Size(84, 28)
-        Me.ButtonRetirerJoueur.TabIndex = 25
-        Me.ButtonRetirerJoueur.Text = "Retirer joueur"
-        Me.ButtonRetirerJoueur.UseVisualStyleBackColor = True
-        '
-        'ButtonAjouterJoueur
-        '
-        Me.ButtonAjouterJoueur.Location = New System.Drawing.Point(55, 108)
-        Me.ButtonAjouterJoueur.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.ButtonAjouterJoueur.Name = "ButtonAjouterJoueur"
-        Me.ButtonAjouterJoueur.Size = New System.Drawing.Size(79, 28)
-        Me.ButtonAjouterJoueur.TabIndex = 24
-        Me.ButtonAjouterJoueur.Text = "Ajouter joueur"
-        Me.ButtonAjouterJoueur.UseVisualStyleBackColor = True
-        '
-        'ListBoxJoueursSelectionnes
-        '
-        Me.ListBoxJoueursSelectionnes.FormattingEnabled = True
-        Me.ListBoxJoueursSelectionnes.ItemHeight = 16
-        Me.ListBoxJoueursSelectionnes.Location = New System.Drawing.Point(207, 28)
-        Me.ListBoxJoueursSelectionnes.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.ListBoxJoueursSelectionnes.Name = "ListBoxJoueursSelectionnes"
-        Me.ListBoxJoueursSelectionnes.Size = New System.Drawing.Size(161, 68)
-        Me.ListBoxJoueursSelectionnes.TabIndex = 23
-        '
-        'ListBoxJoueursDisponibles
-        '
-        Me.ListBoxJoueursDisponibles.FormattingEnabled = True
-        Me.ListBoxJoueursDisponibles.ItemHeight = 16
-        Me.ListBoxJoueursDisponibles.Location = New System.Drawing.Point(8, 28)
-        Me.ListBoxJoueursDisponibles.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.ListBoxJoueursDisponibles.Name = "ListBoxJoueursDisponibles"
-        Me.ListBoxJoueursDisponibles.Size = New System.Drawing.Size(168, 68)
-        Me.ListBoxJoueursDisponibles.TabIndex = 22
-        '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.ListBoxJoueursSelectionnes)
-        Me.Panel1.Controls.Add(Me.LblJoeurSelectionne)
-        Me.Panel1.Controls.Add(Me.ListBoxJoueursDisponibles)
-        Me.Panel1.Controls.Add(Me.LblJoeurDispo)
-        Me.Panel1.Controls.Add(Me.ButtonAjouterJoueur)
-        Me.Panel1.Controls.Add(Me.ButtonRetirerJoueur)
+        Me.Panel1.Controls.Add(Me.cmbox_Joueur2)
+        Me.Panel1.Controls.Add(Me.cmbox_Joueur1)
         Me.Panel1.Location = New System.Drawing.Point(12, 54)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(388, 161)
         Me.Panel1.TabIndex = 28
+        '
+        'cmbox_Joueur2
+        '
+        Me.cmbox_Joueur2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbox_Joueur2.FormattingEnabled = True
+        Me.cmbox_Joueur2.Location = New System.Drawing.Point(136, 99)
+        Me.cmbox_Joueur2.Name = "cmbox_Joueur2"
+        Me.cmbox_Joueur2.Size = New System.Drawing.Size(121, 24)
+        Me.cmbox_Joueur2.TabIndex = 29
+        '
+        'cmbox_Joueur1
+        '
+        Me.cmbox_Joueur1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbox_Joueur1.FormattingEnabled = True
+        Me.cmbox_Joueur1.Location = New System.Drawing.Point(136, 36)
+        Me.cmbox_Joueur1.Name = "cmbox_Joueur1"
+        Me.cmbox_Joueur1.Size = New System.Drawing.Size(121, 24)
+        Me.cmbox_Joueur1.TabIndex = 28
         '
         'Panel2
         '
@@ -285,15 +224,6 @@ Partial Class FormMultiJoueur
         Me.Panel4.Size = New System.Drawing.Size(671, 57)
         Me.Panel4.TabIndex = 31
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(3, 46)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(75, 16)
-        Me.Label1.TabIndex = 10
-        Me.Label1.Text = "Nombre de"
-        '
         'FormMultiJoueur
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -308,11 +238,9 @@ Partial Class FormMultiJoueur
         Me.Name = "FormMultiJoueur"
         Me.Text = "Form1"
         CType(Me.NumericUpDownManches, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDownTemps, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelCartes.ResumeLayout(False)
         Me.PanelCartes.PerformLayout()
         Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel4.ResumeLayout(False)
@@ -321,7 +249,6 @@ Partial Class FormMultiJoueur
 
     End Sub
     Friend WithEvents NumericUpDownManches As NumericUpDown
-    Friend WithEvents NumericUpDownTemps As NumericUpDown
     Friend WithEvents ComboBoxDifficulte As ComboBox
     Friend WithEvents CheckBoxOrdreAleatoire As CheckBox
     Friend WithEvents PanelCartes As Panel
@@ -330,18 +257,13 @@ Partial Class FormMultiJoueur
     Friend WithEvents ButtonAbandonner As Button
     Friend WithEvents ButtonRetour As Button
     Friend WithEvents lblTitre As Label
-    Friend WithEvents LblJoeurSelectionne As Label
-    Friend WithEvents LblJoeurDispo As Label
-    Friend WithEvents ButtonRetirerJoueur As Button
-    Friend WithEvents ButtonAjouterJoueur As Button
-    Friend WithEvents ListBoxJoueursSelectionnes As ListBox
-    Friend WithEvents ListBoxJoueursDisponibles As ListBox
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents LblTemps As Label
     Friend WithEvents LblManche As Label
     Friend WithEvents Lbloptions As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents LblScore As Label
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Label1 As Label
+    Friend WithEvents cmbox_Joueur2 As ComboBox
+    Friend WithEvents cmbox_Joueur1 As ComboBox
 End Class

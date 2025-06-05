@@ -1,11 +1,12 @@
-﻿Imports System.Threading.Tasks
+﻿Imports System.ComponentModel
+Imports System.Threading.Tasks
 
 Public Class FormMultiJoueur
     ' Variables pour le mode multijoueur
     Private joueursDisponibles As New List(Of String)
     Private joueursSelectionnes As New List(Of String)
     Private scoresJoueurs As New Dictionary(Of String, Integer)
-    Private indexJoueurActif As Integer = 0
+    Private indexJoueurActif As Boolean ' true = J1, false = J2
     Private nbManches As Integer = 3
     Private tempsParManche As Integer
     Private partieEnCours As Boolean = False
@@ -17,8 +18,12 @@ Public Class FormMultiJoueur
 
     Private LblScoreJ1 As Label
     Private LblScoreJ2 As Label
+    Private LblTemps As Label
 
     Private JoueurEnJeu As String
+
+    Private Joueur1 As String
+    Private Joueur2 As String
 
     ' Variables pour stocker les références aux cartes et leurs valeurs
     Private cards As New List(Of Label)
@@ -31,7 +36,6 @@ Public Class FormMultiJoueur
         ChargerJoueursDisponibles()
         timer.Interval = 1000
         InitialiserInterface()
-        MettreAJourListesJoueurs()
         ActiverDesactiverBoutons()
     End Sub
 
@@ -44,113 +48,81 @@ Public Class FormMultiJoueur
         NumericUpDownManches.Maximum = 10
         NumericUpDownManches.Value = nbManches
 
-        NumericUpDownTemps.Minimum = 30
-        NumericUpDownTemps.Maximum = 120
-        NumericUpDownTemps.Value = tempsParManche
-
     End Sub
 
     ' Méthode pour charger les joueurs depuis le module de données
     Private Sub ChargerJoueursDisponibles()
-        Try
-            SauvegardeJoueur.ChargerDepuisFichier()
-            For Each joueur In SauvegardeJoueur.Joueurs
-                joueursDisponibles.Add(joueur.Pseudo)
-            Next
-        Catch ex As Exception
-            joueursDisponibles.AddRange({"Joueur 1", "Joueur 2", "Joueur 3"})
-            MessageBox.Show("Erreur lors du chargement des joueurs: " & ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
+        SauvegardeJoueur.ChargerDepuisFichier()
+        For Each joueur In SauvegardeJoueur.Joueurs
+            cmbox_Joueur1.Items.Add(joueur.Pseudo)
+            cmbox_Joueur2.Items.Add(joueur.Pseudo)
+        Next
     End Sub
 
-    ' Méthode pour mettre à jour les listes de joueurs dans l'interface
-    Private Sub MettreAJourListesJoueurs()
-        ListBoxJoueursDisponibles.Items.Clear()
-        ListBoxJoueursDisponibles.Items.AddRange(joueursDisponibles.ToArray())
-
-        ListBoxJoueursSelectionnes.Items.Clear()
-        ListBoxJoueursSelectionnes.Items.AddRange(joueursSelectionnes.ToArray())
-
-        MettreAJourListeScores()
-    End Sub
 
     ' Méthode pour mettre à jour la liste des scores
     Private Sub MettreAJourListeScores()
         lstScores.Items.Clear()
-        For Each joueur In joueursSelectionnes
-            Dim score As Integer = If(scoresJoueurs.ContainsKey(joueur), scoresJoueurs(joueur), 0)
-            lstScores.Items.Add($"{joueur}: {score} carrés")
-        Next
-    End Sub
 
-    ' Gestion des boutons pour ajouter/retirer des joueurs
-    Private Sub ButtonAjouter_Click(sender As Object, e As EventArgs) Handles ButtonAjouterJoueur.Click
-        If ListBoxJoueursDisponibles.SelectedIndex >= 0 Then
-            Dim joueurSelectionne = ListBoxJoueursDisponibles.SelectedItem.ToString()
-            joueursSelectionnes.Add(joueurSelectionne)
-            joueursDisponibles.Remove(joueurSelectionne)
-            scoresJoueurs(joueurSelectionne) = 0
-            MettreAJourListesJoueurs()
-            ActiverDesactiverBoutons()
+        If cmbox_Joueur1.SelectedItem IsNot Nothing Then
+            Dim joueur1 As String = cmbox_Joueur1.SelectedItem.ToString()
+            Dim score1 As Integer = If(scoresJoueurs.ContainsKey(joueur1), scoresJoueurs(joueur1), 0)
+            lstScores.Items.Add($"{joueur1}: {score1} carrés")
         End If
-    End Sub
 
-    Private Sub ButtonRetirer_Click(sender As Object, e As EventArgs) Handles ButtonRetirerJoueur.Click
-        If ListBoxJoueursSelectionnes.SelectedIndex >= 0 Then
-            Dim joueurSelectionne = ListBoxJoueursSelectionnes.SelectedItem.ToString()
-            joueursDisponibles.Add(joueurSelectionne)
-            joueursSelectionnes.Remove(joueurSelectionne)
-            If scoresJoueurs.ContainsKey(joueurSelectionne) Then scoresJoueurs.Remove(joueurSelectionne)
-            MettreAJourListesJoueurs()
-            ActiverDesactiverBoutons()
+        If cmbox_Joueur2.SelectedItem IsNot Nothing Then
+            Dim joueur2 As String = cmbox_Joueur2.SelectedItem.ToString()
+            Dim score2 As Integer = If(scoresJoueurs.ContainsKey(joueur2), scoresJoueurs(joueur2), 0)
+            lstScores.Items.Add($"{joueur2}: {score2} carrés")
         End If
+
     End Sub
 
     ' Méthode pour activer/désactiver les boutons en fonction du contexte
     Private Sub ActiverDesactiverBoutons()
-        ButtonCommencer.Enabled = (joueursSelectionnes.Count >= 2 AndAlso Not partieEnCours)
         ButtonAbandonner.Enabled = partieEnCours
-        ButtonAjouterJoueur.Enabled = Not partieEnCours
-        ButtonRetirerJoueur.Enabled = Not partieEnCours
         NumericUpDownManches.Enabled = Not partieEnCours
-        NumericUpDownTemps.Enabled = Not partieEnCours
         ComboBoxDifficulte.Enabled = Not partieEnCours
     End Sub
 
     ' Gestion du bouton pour commencer la partie
     Private Sub ButtonCommencer_Click(sender As Object, e As EventArgs) Handles ButtonCommencer.Click
-        If joueursSelectionnes.Count < 2 Then
-            MessageBox.Show("Il faut au moins 2 joueurs pour commencer une partie multijoueur.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Return
-        End If
-
-        nbManches = CInt(NumericUpDownManches.Value)
-        If difficulte = 0 Then
-            tempsParManche = 20
-        ElseIf difficulte = 1 Then
-            tempsParManche = 40
+        If cmbox_Joueur1.SelectedItem Is Nothing AndAlso cmbox_Joueur2.SelectedItem Is Nothing Then
+            MessageBox.Show("Il vous faut 2 joueurs pour commencer une partie multijoueur.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
-            tempsParManche = 60
+            Joueur1 = cmbox_Joueur1.SelectedItem.ToString
+            Joueur2 = cmbox_Joueur2.SelectedItem.ToString
+
+            nbManches = CInt(NumericUpDownManches.Value)
+            If difficulte = 0 Then
+                tempsParManche = 20
+            ElseIf difficulte = 1 Then
+                tempsParManche = 40
+            Else
+                tempsParManche = 60
+            End If
+            difficulte = ComboBoxDifficulte.SelectedIndex
+
+            scoresJoueurs(Joueur1) = 0
+            scoresJoueurs(Joueur2) = 0
+
+
+            ' If CheckBox1.Checked Then MelangerJoueurs() // pas convaincu de l'utilité ?!
+
+            indexJoueurActif = True
+            partieEnCours = True
+
+            InitialiserPlateau()
+            AfficherCartesDansNouvelleFenetre()
+
+            MettreAJourListeScores()
+            ActiverDesactiverBoutons()
+
+            tempsRestant = tempsParManche
+            timer.Start()
         End If
-        difficulte = ComboBoxDifficulte.SelectedIndex
 
-        For Each joueur In joueursSelectionnes
-            scoresJoueurs(joueur) = 0
-        Next
 
-        ' If CheckBox1.Checked Then MelangerJoueurs() // pas convaincu de l'utilité ?!
-
-        indexJoueurActif = 0
-        partieEnCours = True
-
-        InitialiserPlateau()
-        AfficherCartesDansNouvelleFenetre()
-
-        MettreAJourListeScores()
-        ActiverDesactiverBoutons()
-
-        tempsRestant = tempsParManche
-        timer.Start()
     End Sub
 
     ' Méthode pour mélanger l'ordre des joueurs
@@ -250,7 +222,7 @@ Public Class FormMultiJoueur
 
         ' Label score J1 (à gauche)
         LblScoreJ1 = New Label()
-        LblScoreJ1.Text = $"{joueursSelectionnes(0)} : {scoresJoueurs(joueursSelectionnes(0))} carrés"
+        LblScoreJ1.Text = $"{Joueur1} : {scoresJoueurs(Joueur1)} carrés"
         LblScoreJ1.TextAlign = ContentAlignment.MiddleLeft
         LblScoreJ1.Dock = DockStyle.Left
         LblScoreJ1.Width = 100
@@ -261,14 +233,14 @@ Public Class FormMultiJoueur
         LblTemps = New Label()
         LblTemps.BackColor = Color.Gray
         LblTemps.ForeColor = Color.LightCyan
-        LblTemps.Text = $"Temps : {tempsRestant} s, Joueur actif: " & joueursSelectionnes(indexJoueurActif)
+        LblTemps.Text = $"Temps : {tempsParManche} s, Joueur actif: " & If(indexJoueurActif = True, Joueur1, Joueur2)
         LblTemps.TextAlign = ContentAlignment.MiddleCenter
         LblTemps.Dock = DockStyle.Fill
         LblTemps.Font = New Font("Arial", 10, FontStyle.Bold)
 
         ' Label score J2 (à droite)
         LblScoreJ2 = New Label()
-        LblScoreJ2.Text = $"{joueursSelectionnes(1)} : {scoresJoueurs(joueursSelectionnes(1))} carrés"
+        LblScoreJ2.Text = $"{Joueur2} : {scoresJoueurs(Joueur2)} carrés"
         LblScoreJ2.TextAlign = ContentAlignment.MiddleRight
         LblScoreJ2.Dock = DockStyle.Right
         LblScoreJ2.Width = 100
@@ -348,14 +320,13 @@ Public Class FormMultiJoueur
 
         ' Afficher la carte avec la couleur du joueur actif
         clickedCard.Text = cardValue.ToString()
-        clickedCard.BackColor = playerColors(indexJoueurActif Mod playerColors.Count)
+        clickedCard.BackColor = playerColors(If(indexJoueurActif = True, 0, 1))
         cardsRevealed.Add(clickedCard)
 
         If currentCardValue = -1 Then
             currentCardValue = cardValue
         ElseIf currentCardValue <> cardValue Then
             ' Les cartes ne correspondent pas
-            timer.Stop()
             Dim retournerTimer As New Timer() With {.Interval = 1000}
 
             AddHandler retournerTimer.Tick, Sub(s, args)
@@ -367,15 +338,13 @@ Public Class FormMultiJoueur
                                                 currentCardValue = -1
                                                 PasserAuJoueurSuivant()
                                                 tempsRestant = tempsParManche
-                                                timer.Start()
-                                                CType(s, Timer).Stop()
-                                                CType(s, Timer).Dispose()
+
                                             End Sub
 
             retournerTimer.Start()
         ElseIf cardsRevealed.Count = 4 Then ' On vérifie maintenant 4 cartes au lieu de 2
             ' Les 4 cartes correspondent
-            Dim joueurActif As String = joueursSelectionnes(indexJoueurActif)
+            Dim joueurActif As String = If(indexJoueurActif = True, Joueur1, Joueur2)
             scoresJoueurs(joueurActif) += 1
 
             For Each card In cardsRevealed
@@ -401,21 +370,20 @@ Public Class FormMultiJoueur
 
     ' Méthode pour passer au joueur suivant
     Private Sub PasserAuJoueurSuivant()
-        indexJoueurActif = (indexJoueurActif + 1) Mod joueursSelectionnes.Count
-        JoueurEnJeu = "Joueur actif: " & joueursSelectionnes(indexJoueurActif)
+        indexJoueurActif = Not indexJoueurActif
+        JoueurEnJeu = "Joueur actif: " & If(indexJoueurActif = True, Joueur1, Joueur2)
         ' Changer la couleur du label pour indiquer le joueur actif
-        LblTemps.ForeColor = playerColors(indexJoueurActif Mod playerColors.Count)
+        LblTemps.ForeColor = playerColors(If(indexJoueurActif = True, 0, 1))
     End Sub
 
     ' Méthode appelée à chaque tick du timer principal
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles timer.Tick
         tempsRestant -= 1
 
-        LblScoreJ1.Text = $"{joueursSelectionnes(0)} : {scoresJoueurs(joueursSelectionnes(0))} carrés"
-        LblScoreJ2.Text = $"{joueursSelectionnes(1)} : {scoresJoueurs(joueursSelectionnes(1))} carrés"
+        LblScoreJ1.Text = $"{Joueur1} : {scoresJoueurs(Joueur1)} carrés"
+        LblScoreJ2.Text = $"{Joueur2} : {scoresJoueurs(Joueur2)} carrés"
 
-        LblTemps.Text = $"Temps : {tempsRestant} s, Joueur actif: " & joueursSelectionnes(indexJoueurActif)
-
+        LblTemps.Text = $"Temps : {tempsRestant} s, Joueur actif: " & If(indexJoueurActif = True, Joueur1, Joueur2)
 
         If tempsRestant <= 0 Then
             timer.Stop()
@@ -451,24 +419,6 @@ Public Class FormMultiJoueur
                                 $"Il y a une égalité entre: {String.Join(", ", gagnants)} avec {scoreMax} carrés trouvés!")
 
         MessageBox.Show(message, "Fin de la partie", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-        ' Mettre à jour les statistiques des joueurs
-        For Each joueur In joueursSelectionnes
-            Try
-                Dim joueurIndex = SauvegardeJoueur.Joueurs.FindIndex(Function(j) j.Pseudo = joueur)
-                If joueurIndex >= 0 Then
-                    Dim j = SauvegardeJoueur.Joueurs(joueurIndex)
-                    j.NbPartie += 1
-                    j.ScoreMax = Math.Max(j.ScoreMax, scoresJoueurs(joueur))
-                    SauvegardeJoueur.Joueurs(joueurIndex) = j
-                End If
-            Catch ex As Exception
-                MessageBox.Show("Erreur lors de la mise à jour des statistiques: " & ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
-        Next
-
-        SauvegardeJoueur.SauvegarderDansFichier()
-        ActiverDesactiverBoutons()
 
         ' Fermer la fenêtre des cartes
         If fenetreCartes IsNot Nothing Then
@@ -528,21 +478,37 @@ Public Class FormMultiJoueur
         nbManches = CInt(NumericUpDownManches.Value)
     End Sub
 
-    Private Sub NumericUpDown2_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDownTemps.ValueChanged
-        tempsParManche = CInt(NumericUpDownTemps.Value)
-    End Sub
-
     Private Sub ComboBoxDifficulte_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxDifficulte.SelectedIndexChanged
         difficulte = ComboBoxDifficulte.SelectedIndex
     End Sub
 
     Private playerColors As New List(Of Color) From {
     Color.LightBlue,
-    Color.LightPink,
-    Color.LightGreen,
-    Color.LightYellow,
-    Color.LightCoral,
-    Color.LightSeaGreen
+    Color.LightPink
 }
+
+    Private Sub cmbox_Joueur1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbox_Joueur1.SelectedIndexChanged
+        If cmbox_Joueur1.SelectedItem IsNot Nothing AndAlso cmbox_Joueur2.SelectedItem IsNot Nothing Then
+            If cmbox_Joueur1.SelectedItem.ToString() = cmbox_Joueur2.SelectedItem.ToString() Then
+                MsgBox("Vous ne pouvez pas choisir le même joueur deux fois")
+                cmbox_Joueur1.SelectedIndex = -1
+                Exit Sub
+            End If
+        End If
+
+        MettreAJourListeScores()
+    End Sub
+
+    Private Sub cmbox_Joueur2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbox_Joueur2.SelectedIndexChanged
+        If cmbox_Joueur2.SelectedItem IsNot Nothing AndAlso cmbox_Joueur1.SelectedItem IsNot Nothing Then
+            If cmbox_Joueur2.SelectedItem.ToString() = cmbox_Joueur1.SelectedItem.ToString() Then
+                MsgBox("Vous ne pouvez pas choisir le même joueur deux fois")
+                cmbox_Joueur2.SelectedIndex = -1
+                Exit Sub
+            End If
+        End If
+
+        MettreAJourListeScores()
+    End Sub
 
 End Class
