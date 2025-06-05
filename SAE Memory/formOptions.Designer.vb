@@ -30,7 +30,8 @@ Partial Class formOptions
         Me.lblDepot = New System.Windows.Forms.Label()
         Me.btnRetour = New System.Windows.Forms.Button()
         Me.grpDifficulte = New System.Windows.Forms.GroupBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.chkIndice = New System.Windows.Forms.CheckBox()
+        Me.btnEnr = New System.Windows.Forms.Button()
         Me.pnlAvance.SuspendLayout()
         Me.grpDifficulte.SuspendLayout()
         Me.SuspendLayout()
@@ -73,10 +74,10 @@ Partial Class formOptions
         '
         'btnAvance
         '
-        Me.btnAvance.Location = New System.Drawing.Point(61, 190)
+        Me.btnAvance.Location = New System.Drawing.Point(41, 234)
         Me.btnAvance.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnAvance.Name = "btnAvance"
-        Me.btnAvance.Size = New System.Drawing.Size(162, 23)
+        Me.btnAvance.Size = New System.Drawing.Size(194, 23)
         Me.btnAvance.TabIndex = 3
         Me.btnAvance.Text = "Rajouter vos propres cartes "
         Me.btnAvance.UseVisualStyleBackColor = True
@@ -84,7 +85,7 @@ Partial Class formOptions
         'pnlAvance
         '
         Me.pnlAvance.Controls.Add(Me.lblDepot)
-        Me.pnlAvance.Location = New System.Drawing.Point(61, 219)
+        Me.pnlAvance.Location = New System.Drawing.Point(41, 276)
         Me.pnlAvance.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.pnlAvance.Name = "pnlAvance"
         Me.pnlAvance.Size = New System.Drawing.Size(403, 129)
@@ -103,7 +104,7 @@ Partial Class formOptions
         '
         'btnRetour
         '
-        Me.btnRetour.Location = New System.Drawing.Point(343, 367)
+        Me.btnRetour.Location = New System.Drawing.Point(349, 26)
         Me.btnRetour.Margin = New System.Windows.Forms.Padding(4)
         Me.btnRetour.Name = "btnRetour"
         Me.btnRetour.Size = New System.Drawing.Size(121, 32)
@@ -116,7 +117,7 @@ Partial Class formOptions
         Me.grpDifficulte.Controls.Add(Me.rdoIntermediaire)
         Me.grpDifficulte.Controls.Add(Me.rdoDebutant)
         Me.grpDifficulte.Controls.Add(Me.rdoExpert)
-        Me.grpDifficulte.Location = New System.Drawing.Point(61, 30)
+        Me.grpDifficulte.Location = New System.Drawing.Point(41, 80)
         Me.grpDifficulte.Margin = New System.Windows.Forms.Padding(4)
         Me.grpDifficulte.Name = "grpDifficulte"
         Me.grpDifficulte.Padding = New System.Windows.Forms.Padding(4)
@@ -125,22 +126,32 @@ Partial Class formOptions
         Me.grpDifficulte.TabStop = False
         Me.grpDifficulte.Text = "Difficulte"
         '
-        'CheckBox1
+        'chkIndice
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(345, 98)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(119, 20)
-        Me.CheckBox1.TabIndex = 10
-        Me.CheckBox1.Text = "Activer la triche"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.chkIndice.AutoSize = True
+        Me.chkIndice.Location = New System.Drawing.Point(333, 148)
+        Me.chkIndice.Name = "chkIndice"
+        Me.chkIndice.Size = New System.Drawing.Size(137, 20)
+        Me.chkIndice.TabIndex = 10
+        Me.chkIndice.Text = "Activer les Indices"
+        Me.chkIndice.UseVisualStyleBackColor = True
+        '
+        'btnEnr
+        '
+        Me.btnEnr.Location = New System.Drawing.Point(39, 27)
+        Me.btnEnr.Name = "btnEnr"
+        Me.btnEnr.Size = New System.Drawing.Size(196, 31)
+        Me.btnEnr.TabIndex = 11
+        Me.btnEnr.Text = "Enregistrer les parametres"
+        Me.btnEnr.UseVisualStyleBackColor = True
         '
         'formOptions
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(497, 427)
-        Me.Controls.Add(Me.CheckBox1)
+        Me.Controls.Add(Me.btnEnr)
+        Me.Controls.Add(Me.chkIndice)
         Me.Controls.Add(Me.grpDifficulte)
         Me.Controls.Add(Me.btnRetour)
         Me.Controls.Add(Me.pnlAvance)
@@ -165,5 +176,6 @@ Partial Class formOptions
     Friend WithEvents lblDepot As Label
     Friend WithEvents btnRetour As Button
     Friend WithEvents grpDifficulte As GroupBox
-    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents chkIndice As CheckBox
+    Friend WithEvents btnEnr As Button
 End Class

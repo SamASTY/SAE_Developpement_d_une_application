@@ -14,7 +14,7 @@ Public Class FormMultiJoueur
     Private cardsFound As Integer = 0
     Private tempsRestant As Integer
     Private WithEvents timer As New Timer
-    Private difficulte As Integer = 1 ' 0=Facile, 1=Moyen, 2=Difficilee
+    Private difficulte As Integer = 1 ' 0=Facile, 1=Intermediaire, 2=Expert
 
     Private LblScoreJ1 As Label
     Private LblScoreJ2 As Label
@@ -41,7 +41,7 @@ Public Class FormMultiJoueur
 
     ' Méthode pour initialiser l'interface utilisateur
     Private Sub InitialiserInterface()
-        ComboBoxDifficulte.Items.AddRange({"Facile", "Moyen", "Difficile"})
+        ComboBoxDifficulte.Items.AddRange({"Facile", "Intermediaire", "Expert"})
         ComboBoxDifficulte.SelectedIndex = 1
     End Sub
 
@@ -225,7 +225,7 @@ Public Class FormMultiJoueur
         LblTemps = New Label()
         LblTemps.BackColor = Color.Gray
         LblTemps.ForeColor = Color.LightCyan
-        LblTemps.Text = $"Temps : {tempsParManche} s, Joueur actif: " & If(indexJoueurActif = True, Joueur1, Joueur2)
+        LblTemps.Text = $"Temps : {tempsParManche} s {vbCrLf} Joueur actif: " & If(indexJoueurActif = True, Joueur1, Joueur2)
         LblTemps.TextAlign = ContentAlignment.MiddleCenter
         LblTemps.Dock = DockStyle.Fill
         LblTemps.Font = New Font("Arial", 10, FontStyle.Bold)
@@ -376,7 +376,7 @@ Public Class FormMultiJoueur
         LblScoreJ1.Text = $"{Joueur1} : {scoresJoueurs(Joueur1)} carrés"
         LblScoreJ2.Text = $"{Joueur2} : {scoresJoueurs(Joueur2)} carrés"
 
-        LblTemps.Text = $"Temps : {tempsRestant} s, Joueur actif: " & If(indexJoueurActif = True, Joueur1, Joueur2)
+        LblTemps.Text = $"Temps : {tempsRestant} s {vbCrLf} Joueur actif: " & If(indexJoueurActif = True, Joueur1, Joueur2)
 
         If tempsRestant <= 0 Then
             timer.Stop()
@@ -499,14 +499,6 @@ Public Class FormMultiJoueur
         End If
 
         MettreAJourListeScores()
-    End Sub
-
-    Private Sub Lbloptions_Click(sender As Object, e As EventArgs) Handles Lbloptions.Click
-
-    End Sub
-
-    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles LblChoix.Click
-
     End Sub
 
     Private Sub BtnRegles_Click(sender As Object, e As EventArgs) Handles BtnRegles.Click

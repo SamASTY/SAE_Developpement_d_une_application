@@ -26,6 +26,7 @@
         lstNoms.Items.Clear()
         lstScores.Items.Clear()
         lstTemps.Items.Clear()
+        lstTmpTot.Items.Clear()
         lstNbParties.Items.Clear()
 
         Dim joueursTries = If(ordreCroissant,
@@ -37,6 +38,7 @@
             lstNoms.Items.Add(j.Pseudo)
             lstScores.Items.Add(j.ScoreMax)
             lstTemps.Items.Add(j.TempsMin & " sec")
+            lstTmpTot.Items.Add(j.TempsTotalJouer & " sec")
             lstNbParties.Items.Add(j.NbPartie)
         Next
     End Sub
@@ -67,8 +69,6 @@
         If joueur.HasValue Then
             lblMaxValeur.Text = joueur.Value.ScoreMax.ToString()
             lblMinValeur.Text = joueur.Value.TempsMin.ToString() & " sec"
-            lblNbParties.Text = joueur.Value.NbPartie.ToString()
-            lblTempsTotal.Text = joueur.Value.TempsTotalJouer.ToString() & " sec"
         End If
     End Sub
 
@@ -116,6 +116,7 @@
         Handles lstNoms.SelectedIndexChanged,
                 lstScores.SelectedIndexChanged,
                 lstTemps.SelectedIndexChanged,
+                lstTmpTot.SelectedIndexChanged,
                 lstNbParties.SelectedIndexChanged
 
         ' Si déjà en train de synchroniser ou aucune sélection, on sort
@@ -130,6 +131,7 @@
             SyncListBoxSelection(lstNoms, selectedIndex)
             SyncListBoxSelection(lstScores, selectedIndex)
             SyncListBoxSelection(lstTemps, selectedIndex)
+            SyncListBoxSelection(lstTmpTot, selectedIndex)
             SyncListBoxSelection(lstNbParties, selectedIndex)
 
             If sender Is lstNoms Then

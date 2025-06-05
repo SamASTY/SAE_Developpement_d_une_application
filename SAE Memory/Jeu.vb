@@ -15,6 +15,7 @@ Public Class FormJeu
     Dim NbreDeSet As Integer ' nombre de carrés à trouver
     Dim TotalCarte As Integer ' cartes totales à afficher
     Dim JeuEnPause As Boolean = False ' évite les clics quand les cartes se retournent
+    Dim IndiceUtilsier As Boolean = False
 
     ' Récupère le pseudo envoyé par l'écran d’accueil
     Public Sub RecupererJoueur(J As String)
@@ -36,23 +37,30 @@ Public Class FormJeu
         InitJeu()
         lblPseudo.Text = joueurNom
         Timer.Start()
+        If ModuleParametres.IndiceEtat() Then
+            pnlIndice.Show()
+            pnlScore.Hide()
+        Else
+            pnlIndice.Hide()
+            pnlScore.Show()
+        End If
     End Sub
 
     ' Applique les paramètres en fonction de la difficulté sélectionnée
     Private Sub AppliquerParametresSelonDifficulte()
         Select Case DifActuelle
-            Case "Debutant"
+            Case ModuleParametres.NiveauDifficulte.Debutant
                 TempsMax = TempsMaxDebutant
                 CarteParSet = 4
-                NbreDeSet = 5
-            Case "Intermediaire"
+                NbreDeSet = 3
+            Case ModuleParametres.NiveauDifficulte.Intermediaire
                 TempsMax = TempsMaxIntermediaire
-                CarteParSet = 4
-                NbreDeSet = 6
-            Case "Expert"
+                CarteParSet = 5
+                NbreDeSet = 4
+            Case ModuleParametres.NiveauDifficulte.Expert
                 TempsMax = TempsMaxExpert
-                CarteParSet = 4
-                NbreDeSet = 7
+                CarteParSet = 6
+                NbreDeSet = 5
         End Select
     End Sub
 
@@ -113,6 +121,8 @@ Public Class FormJeu
 
     ' Cache les cartes si erreur (mauvais carré)
     Private Sub ResetPlateauErreur()
+        compteurCarte = 0
+        CarteRetourne.Clear()
         For Each ctrl As Control In TableLayoutPlateau.Controls
             If TypeOf ctrl Is Label Then
                 Dim lbl As Label = CType(ctrl, Label)
@@ -190,12 +200,19 @@ Public Class FormJeu
         Dim nbCarres As Integer = CarteGagner.Count \ CarteParSet
         Dim tempsEcoule As Integer = cpt
 
-        SauvegardeJoueur.EnregistrerJoueur(joueurNom, nbCarres, tempsEcoule)
-        SauvegardeJoueur.SauvegarderDansFichier()
+        If IndiceUtilsier Then
+            MsgBox($"Bravo {joueurNom} ! Vous avez trouvé {nbCarres} carré(s) en {tempsEcoule} secondes.{vbCrLf}Cependant vous avez utilisé un indice, votre score ne sera pas enregistré")
+            Dim A As New FormAccueil()
+            Me.Close()
+        Else
+            SauvegardeJoueur.EnregistrerJoueur(joueurNom, nbCarres, tempsEcoule)
+            SauvegardeJoueur.SauvegarderDansFichier()
 
-        MsgBox($"Bravo {joueurNom} ! Vous avez trouvé {nbCarres} carré(s) en {tempsEcoule} secondes.")
-        Dim A As New FormAccueil()
-        Me.Close()
+            MsgBox($"Bravo {joueurNom} ! Vous avez trouvé {nbCarres} carré(s) en {tempsEcoule} secondes.")
+            Dim A As New FormAccueil()
+            Me.Close()
+        End If
+
     End Sub
 
     ' Vérifie si toutes les cartes ont été trouvées
@@ -272,4 +289,35 @@ Public Class FormJeu
             btnPause.Text = "Pause"
         End If
     End Sub
+
+    Private Async Sub btnIndice_Click(sender As Object, e As EventArgs) Handles btnIndice.Click
+        IndiceUtilsier = True
+
+        If JeuEnPause Then Exit Sub
+
+        JeuEnPause = True
+        Timer.Stop()
+
+        ResetPlateauErreur()
+
+        For Each carte As Label In TableLayoutPlateau.Controls.OfType(Of Label)()
+            If Not CarteGagner.Contains(carte) Then
+                Dim index As Integer = CInt(carte.Tag)
+                Dim nomFichier As String = $"{index}.jpeg"
+                Dim chemin As String = Path.Combine(cheminImages, nomFichier)
+
+                If File.Exists(chemin) Then
+                    carte.Image = RedimImg(Image.FromFile(chemin), carte)
+                End If
+            End If
+        Next
+
+        Await Task.Delay(1000)
+
+        ResetPlateauErreur()
+
+        Timer.Start()
+        JeuEnPause = False
+    End Sub
+
 End Class

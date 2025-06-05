@@ -8,12 +8,12 @@
     Public ReadOnly Difficulte() As String = {"Debutant", "Intermediaire", "Expert"}
 
     ' Difficulte par défaut
-    Public DifActuelle As String = Difficulte(NiveauDifficulte.Debutant)
+    Public DifActuelle As NiveauDifficulte = NiveauDifficulte.Debutant
 
     ' Temps en secondes
-    Public Const TempsMaxDebutant As Integer = 90
-    Public Const TempsMaxIntermediaire As Integer = 60
-    Public Const TempsMaxExpert As Integer = 30
+    Public Const TempsMaxDebutant As Integer = 20
+    Public Const TempsMaxIntermediaire As Integer = 40
+    Public Const TempsMaxExpert As Integer = 60
 
     ' Nombre de cartes par set (4 pour le moments)
     Public Const CarteParSetDebutant As Integer = 4
@@ -38,5 +38,14 @@
         End Select
     End Function
 
-    Dim Triche As Boolean = False
+    Dim Indice As Boolean = False
+
+    Public Sub CocheIndice(Etat As Boolean)
+        Indice = Etat
+    End Sub
+
+    Public Function IndiceEtat() As Boolean
+        Return Indice
+    End Function
+
 End Module
