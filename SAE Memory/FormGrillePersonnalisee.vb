@@ -4,7 +4,7 @@
         nudLignes.Value = 4
         ActualiserPrevisualisation()
         nudLignes.Minimum = 2
-        nudLignes.Maximum = 9
+        nudLignes.Maximum = 10
         ModuleParametres.CochePersonaliser()
     End Sub
 

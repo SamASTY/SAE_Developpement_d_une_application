@@ -1,3 +1,4 @@
+Imports System.Drawing.Drawing2D
 Imports System.IO
 Imports System.Text
 Imports SAE_Memory.ModuleParametres
@@ -21,13 +22,18 @@ Public Class FormJeu
     Dim JeuEnPause As Boolean = False ' évite les clics quand les cartes se retournent
     Dim IndiceUtilsier As Boolean = False
     Public ModePersonnalise As Boolean = False
+    Private cardSize As New Size(100, 120) ' Taille de base des cartes
 
-    ' Récupère le pseudo envoyé par l'écran d’accueil
+    ' Récupère le pseudo envoyé par l'écran d'accueil
     Public Sub RecupererJoueur(J As String)
         joueurNom = J
     End Sub
 
-    ' Bouton "Abandonner" -> retourne à l’accueil si confirmé
+    Private Sub FormJeu_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        NettoyerImages()
+    End Sub
+
+    ' Bouton "Abandonner" -> retourne à l'accueil si confirmé
     Private Sub ButtonAbandon_Click(sender As Object, e As EventArgs) Handles btnAbandon.Click
         Dim reponse = MsgBox("Voulez-vous revenir à l'accueil ?", vbYesNo)
         If reponse = vbYes Then
@@ -50,6 +56,7 @@ Public Class FormJeu
             pnlIndice.Hide()
             pnlScore.Show()
         End If
+        TableLayoutPlateau.Dock = DockStyle.Fill
 
     End Sub
 
@@ -76,53 +83,88 @@ Public Class FormJeu
 
     ' Démarre une nouvelle partie (plateau, timer, score, etc.)
     Private Sub InitJeu()
+        TableLayoutPlateau.AutoSize = False
+        TableLayoutPlateau.AutoSizeMode = AutoSizeMode.GrowAndShrink
         AppliquerParametresSelonDifficulte()
         lblTempsValeur.Text = TempsMax
         lblScoreValeur.Text = "0"
 
         ' Calcul des lignes/colonnes pour la grille
         TotalCarte = Colonnes * Lignes
-        AfficherContenuDossierImages()
         CreerPlateauLignesColonnes(Lignes, Colonnes)
     End Sub
 
     ' Génère la grille avec les cartes aléatoires
     Private Sub CreerPlateauLignesColonnes(lignes As Integer, colonnes As Integer)
-
+        TableLayoutPlateau.SuspendLayout()
         TableLayoutPlateau.Controls.Clear()
         TableLayoutPlateau.RowCount = lignes
         TableLayoutPlateau.ColumnCount = colonnes
         TableLayoutPlateau.RowStyles.Clear()
         TableLayoutPlateau.ColumnStyles.Clear()
 
-        For i = 0 To lignes - 1
-            TableLayoutPlateau.RowStyles.Add(New RowStyle(SizeType.Percent, 100 / lignes))
-        Next
-        For j = 0 To colonnes - 1
-            TableLayoutPlateau.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100 / colonnes))
-        Next
+        ' Charger l'image verso pour obtenir son ratio
+        Dim versoImage As Image = Nothing
+        Try
+            versoImage = Image.FromFile(cheminVerso)
+            Dim versoRatio As Single = versoImage.Width / versoImage.Height
 
-        Dim cartes As List(Of Integer) = GenererListe()
-        CarteRetourne = New List(Of Label)
-        CarteGagner = New List(Of Label)
+            ' Calculer la taille des cartes
+            Dim cardWidth As Integer = (TableLayoutPlateau.Width - TableLayoutPlateau.Margin.Horizontal) \ colonnes
+            Dim cardHeight As Integer = CInt(cardWidth / versoRatio)
 
-        For i As Integer = 0 To TotalCarte - 1
-            Dim lbl As New Label With {
-            .Dock = DockStyle.Fill,
-            .TextAlign = ContentAlignment.MiddleCenter,
-            .BorderStyle = BorderStyle.FixedSingle,
-            .Tag = cartes(i),
-            .BackColor = Color.White
-        }
-            AddHandler lbl.Click, AddressOf Carte_Click
-            TableLayoutPlateau.Controls.Add(lbl)
-        Next
+            ' Ajuster si la hauteur totale dépasse l'espace disponible
+            Dim totalHeight As Integer = cardHeight * lignes
+            If totalHeight > (Me.ClientSize.Height - 200) Then ' 200 pour les autres contrôles
+                cardHeight = (Me.ClientSize.Height - 200) \ lignes
+                cardWidth = CInt(cardHeight * versoRatio)
+            End If
 
-        Application.DoEvents()
-        For Each lbl As Label In TableLayoutPlateau.Controls.OfType(Of Label)()
-            lbl.Image = RedimImg(Image.FromFile(cheminVerso), lbl)
-        Next
+            cardSize = New Size(cardWidth, cardHeight)
+
+            ' Configurer les styles de ligne/colonne
+            For i = 0 To lignes - 1
+                TableLayoutPlateau.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F / lignes))
+            Next
+            For j = 0 To colonnes - 1
+                TableLayoutPlateau.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100.0F / colonnes))
+            Next
+
+            ' Créer les cartes
+            Dim cartes As List(Of Integer) = GenererListe()
+            CarteRetourne = New List(Of Label)
+            CarteGagner = New List(Of Label)
+
+            For i As Integer = 0 To TotalCarte - 1
+                Dim lbl As New Label With {
+                    .Dock = DockStyle.Fill,
+                    .TextAlign = ContentAlignment.MiddleCenter,
+                    .BorderStyle = BorderStyle.FixedSingle,
+                    .Tag = cartes(i),
+                    .BackColor = Color.White,
+                    .Margin = New Padding(2),
+                    .Size = cardSize
+                }
+                AddHandler lbl.Click, AddressOf Carte_Click
+                TableLayoutPlateau.Controls.Add(lbl)
+            Next
+
+            ' Ajuster la taille totale du TableLayoutPanel
+            TableLayoutPlateau.Size = New Size(cardWidth * colonnes, cardHeight * lignes)
+            PositionnerTableLayout()
+
+            ' Charger les images verso
+            For Each lbl As Label In TableLayoutPlateau.Controls.OfType(Of Label)()
+                lbl.Image = RedimensionnerImage(versoImage, cardSize)
+            Next
+        Catch ex As Exception
+            MessageBox.Show("Erreur lors du chargement des images: " & ex.Message)
+        Finally
+            If versoImage IsNot Nothing Then versoImage.Dispose()
+        End Try
+        TableLayoutPlateau.ResumeLayout()
     End Sub
+
 
     ' Cache les cartes si erreur (mauvais carré)
     Private Sub ResetPlateauErreur()
@@ -132,7 +174,7 @@ Public Class FormJeu
             If TypeOf ctrl Is Label Then
                 Dim lbl As Label = CType(ctrl, Label)
                 If Not CarteGagner.Contains(lbl) Then
-                    lbl.Image = RedimImg(Image.FromFile(cheminVerso), lbl)
+                    lbl.Image = RedimensionnerImage(Image.FromFile(cheminVerso), cardSize)
                 End If
             End If
         Next
@@ -177,15 +219,15 @@ Public Class FormJeu
             If Not (CarteGagner.Contains(label) Or CarteRetourne.Contains(label)) Then
                 Dim index As Integer = CInt(label.Tag)
                 Dim cheminsPossibles As New List(Of String) From {
-                Path.Combine(cheminImages, $"{index}.jpeg"),
-                Path.Combine(cheminImages, $"{index}gris.jpeg")
-            }
+                    Path.Combine(cheminImages, $"{index}.jpeg"),
+                    Path.Combine(cheminImages, $"{index}gris.jpeg")
+                }
 
                 ' Trouve la première image existante
                 Dim cheminImage As String = cheminsPossibles.FirstOrDefault(Function(c) File.Exists(c))
 
                 If cheminImage IsNot Nothing Then
-                    label.Image = RedimImg(Image.FromFile(cheminImage), label)
+                    label.Image = RedimensionnerImage(Image.FromFile(cheminImage), cardSize)
                 Else
                     Debug.WriteLine($"Aucune image trouvée pour la carte {index}")
                     label.BackColor = Color.LightGray
@@ -225,7 +267,6 @@ Public Class FormJeu
             Dim A As New FormAccueil()
             Me.Close()
         End If
-
     End Sub
 
     ' Vérifie si toutes les cartes ont été trouvées
@@ -241,7 +282,7 @@ Public Class FormJeu
         For Each carte As Label In CarteRetourne
             CarteGagner.Add(carte)
             carte.BackColor = Color.FromArgb(220, 220, 220) ' gris clair sans cacher l'image
-            carte.BorderStyle = BorderStyle.Fixed3D ' effet visuel pour dire : "c’est bon"
+            carte.BorderStyle = BorderStyle.Fixed3D ' effet visuel pour dire : "c'est bon"
             carte.Enabled = False
         Next
     End Sub
@@ -280,15 +321,20 @@ Public Class FormJeu
         End If
     End Sub
 
-    ' Redimensionne une image pour s'adapter à une case
-    Private Function RedimImg(img As Image, lbl As Label) As Image
-        Dim bmp As New Bitmap(lbl.Width, lbl.Height)
-        Using g As Graphics = Graphics.FromImage(bmp)
-            g.InterpolationMode = Drawing2D.InterpolationMode.HighQualityBicubic
-            g.DrawImage(img, New Rectangle(0, 0, lbl.Width, lbl.Height))
-        End Using
-        Return bmp
-    End Function
+    Private Sub RedimensionnerToutesLesCartes()
+        For Each lbl As Label In TableLayoutPlateau.Controls.OfType(Of Label)()
+            If lbl.Tag IsNot Nothing Then
+                Dim index As Integer = CInt(lbl.Tag)
+                Dim cheminImage As String = Path.Combine(cheminImages, $"{index}.jpeg")
+
+                If File.Exists(cheminImage) Then
+                    lbl.Image = RedimensionnerImage(Image.FromFile(cheminImage), cardSize)
+                Else
+                    lbl.Image = RedimensionnerImage(Image.FromFile(cheminVerso), cardSize)
+                End If
+            End If
+        Next
+    End Sub
 
     ' Pause / Reprise du jeu
     Private Sub btnPause_Click(sender As Object, e As EventArgs) Handles btnPause.Click
@@ -320,7 +366,7 @@ Public Class FormJeu
                 Dim chemin As String = Path.Combine(cheminImages, nomFichier)
 
                 If File.Exists(chemin) Then
-                    carte.Image = RedimImg(Image.FromFile(chemin), carte)
+                    carte.Image = Image.FromFile(chemin)
                 End If
             End If
         Next
@@ -333,31 +379,138 @@ Public Class FormJeu
         JeuEnPause = False
     End Sub
 
-    ' Fonction qui affiche le contenu du dossier Images
-    Public Sub AfficherContenuDossierImages()
+
+    ' Gestion du redimensionnement du formulaire
+    Private Sub FormJeu_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
+        If TableLayoutPlateau Is Nothing OrElse TableLayoutPlateau.Controls.Count = 0 Then Return
+
+        ' Empêcher un redimensionnement trop petit
+        Dim minWidth As Integer = 400
+        If Me.ClientSize.Width < minWidth Then
+            Me.Width = minWidth + (Me.Width - Me.ClientSize.Width)
+            Return
+        End If
+
+        ' Calculer la nouvelle taille des cartes
+        Dim versoImage As Image = Nothing
         Try
-            ' Vérifie si le dossier existe
-            If Directory.Exists(cheminImages) Then
-                ' Récupère tous les fichiers du dossier
-                Dim fichiers() As String = Directory.GetFiles(cheminImages)
-                Dim message As New StringBuilder()
+            versoImage = Image.FromFile(cheminVerso)
+            Dim versoRatio As Single = versoImage.Width / versoImage.Height
+            Dim colonnes As Integer = TableLayoutPlateau.ColumnCount
+            Dim lignes As Integer = TableLayoutPlateau.RowCount
 
-                message.AppendLine($"Contenu du dossier Images ({cheminImages}):")
-                message.AppendLine("----------------------------------")
+            ' Calculer la largeur disponible par carte
+            Dim cardWidth As Integer = (Me.ClientSize.Width - 40) \ colonnes
+            Dim cardHeight As Integer = CInt(cardWidth / versoRatio)
 
-                ' Ajoute chaque fichier au message
-                For Each fichier As String In fichiers
-                    message.AppendLine(Path.GetFileName(fichier))
-                Next
-
-                ' Affiche le résultat
-                MessageBox.Show(message.ToString(), "Contenu du dossier Images")
-            Else
-                MessageBox.Show($"Le dossier Images n'existe pas à l'emplacement : {cheminImages}", "Erreur")
+            ' Vérifier que la hauteur totale ne dépasse pas l'espace disponible
+            Dim maxHeight As Integer = (Me.ClientSize.Height - 150) \ lignes
+            If cardHeight > maxHeight Then
+                cardHeight = maxHeight
+                cardWidth = CInt(cardHeight * versoRatio)
             End If
+
+            cardSize = New Size(cardWidth, cardHeight)
+
+            ' Mettre à jour le TableLayoutPanel
+            For i = 0 To lignes - 1
+                TableLayoutPlateau.RowStyles(i).Height = cardHeight
+            Next
+            For j = 0 To colonnes - 1
+                TableLayoutPlateau.ColumnStyles(j).Width = cardWidth
+            Next
+
+            TableLayoutPlateau.Size = New Size(cardWidth * colonnes, cardHeight * lignes)
+            PositionnerTableLayout()
+
+            ' Redimensionner toutes les images
+            For Each lbl As Label In TableLayoutPlateau.Controls.OfType(Of Label)()
+                lbl.Size = cardSize
+                If lbl.Tag IsNot Nothing Then
+                    Dim index As Integer = CInt(lbl.Tag)
+                    Dim cheminImage As String = Path.Combine(cheminImages, $"{index}.jpeg")
+
+                    If File.Exists(cheminImage) Then
+                        Using img As Image = Image.FromFile(cheminImage)
+                            lbl.Image = RedimensionnerImage(img, cardSize)
+                        End Using
+                    Else
+                        lbl.Image = RedimensionnerImage(versoImage, cardSize)
+                    End If
+                End If
+            Next
         Catch ex As Exception
-            MessageBox.Show($"Erreur lors de la lecture du dossier : {ex.Message}", "Erreur")
+            MessageBox.Show("Erreur lors du redimensionnement: " & ex.Message)
+        Finally
+            If versoImage IsNot Nothing Then versoImage.Dispose()
         End Try
     End Sub
+
+    Private Function GetVersoRatio() As Single
+        Using img As Image = Image.FromFile(cheminVerso)
+            Return img.Width / img.Height
+        End Using
+    End Function
+
+    Private Function CalculerTailleCartes() As Size
+        ' Obtenir le ratio de l'image verso
+        Dim versoRatio As Single = GetVersoRatio()
+
+        ' Calculer la largeur disponible par colonne
+        Dim widthDispo As Integer = (TableLayoutPlateau.Width - (TableLayoutPlateau.ColumnCount * TableLayoutPlateau.Margin.Horizontal)) \ TableLayoutPlateau.ColumnCount
+        Dim heightDispo As Integer = (TableLayoutPlateau.Height - (TableLayoutPlateau.RowCount * TableLayoutPlateau.Margin.Vertical)) \ TableLayoutPlateau.RowCount
+
+        ' Calculer la hauteur en fonction du ratio
+        Dim cardHeight As Integer = heightDispo
+        Dim cardWidth As Integer = CInt(cardHeight * versoRatio)
+
+        ' Si la largeur calculée est trop grande, ajuster
+        If cardWidth > widthDispo Then
+            cardWidth = widthDispo
+            cardHeight = CInt(cardWidth / versoRatio)
+        End If
+
+        ' Garder une taille minimale
+        cardWidth = Math.Max(cardWidth, 80)
+        cardHeight = Math.Max(cardHeight, 60)
+
+        Return New Size(cardWidth, cardHeight)
+    End Function
+
+
+    Private Sub PositionnerTableLayout()
+        ' Centrer horizontalement
+        Dim posX As Integer = (Me.ClientSize.Width - TableLayoutPlateau.Width) \ 2
+        ' Positionner avec une marge en haut
+        Dim posY As Integer = 100 ' Ajustez selon votre interface
+        TableLayoutPlateau.Location = New Point(posX, posY)
+    End Sub
+
+    Private Sub NettoyerImages()
+        For Each lbl As Label In TableLayoutPlateau.Controls.OfType(Of Label)()
+            If lbl.Image IsNot Nothing Then
+                lbl.Image.Dispose()
+            End If
+        Next
+    End Sub
+
+    Private Function RedimensionnerImage(img As Image, targetSize As Size) As Image
+        Dim ratioX As Double = targetSize.Width / img.Width
+        Dim ratioY As Double = targetSize.Height / img.Height
+        Dim ratio As Double = Math.Min(ratioX, ratioY)
+
+        Dim newWidth As Integer = CInt(img.Width * ratio)
+        Dim newHeight As Integer = CInt(img.Height * ratio)
+
+        Dim bmp As New Bitmap(targetSize.Width, targetSize.Height)
+        Using g As Graphics = Graphics.FromImage(bmp)
+            g.Clear(Color.Transparent)
+            g.InterpolationMode = InterpolationMode.HighQualityBicubic
+            Dim x As Integer = (targetSize.Width - newWidth) \ 2
+            Dim y As Integer = (targetSize.Height - newHeight) \ 2
+            g.DrawImage(img, x, y, newWidth, newHeight)
+        End Using
+        Return bmp
+    End Function
 
 End Class

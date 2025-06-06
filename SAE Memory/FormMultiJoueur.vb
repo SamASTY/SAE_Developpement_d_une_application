@@ -1,5 +1,4 @@
-﻿Imports System.ComponentModel
-Imports System.Threading.Tasks
+﻿Imports System.IO
 
 Public Class FormMultiJoueur
     ' Variables pour le mode multijoueur
@@ -24,6 +23,9 @@ Public Class FormMultiJoueur
 
     Private Joueur1 As String
     Private Joueur2 As String
+
+    Private cheminImages As String = Path.Combine(Application.StartupPath, "Images")
+    Private cheminVerso As String = Path.Combine(cheminImages, "verso.jpeg")
 
     ' Variables pour stocker les références aux cartes et leurs valeurs
     Private cards As New List(Of Label)
@@ -91,9 +93,6 @@ Public Class FormMultiJoueur
             scoresJoueurs(Joueur1) = 0
             scoresJoueurs(Joueur2) = 0
 
-
-            ' If CheckBox1.Checked Then MelangerJoueurs() // pas convaincu de l'utilité ?!
-
             indexJoueurActif = True
             partieEnCours = True
 
@@ -108,20 +107,6 @@ Public Class FormMultiJoueur
         End If
 
 
-    End Sub
-
-    ' Méthode pour mélanger l'ordre des joueurs
-    Private Sub MelangerJoueurs()
-        Dim rnd As New Random()
-        Dim n As Integer = joueursSelectionnes.Count
-
-        While n > 1
-            n -= 1
-            Dim k As Integer = rnd.Next(n + 1)
-            Dim value As String = joueursSelectionnes(k)
-            joueursSelectionnes(k) = joueursSelectionnes(n)
-            joueursSelectionnes(n) = value
-        End While
     End Sub
 
     ' Méthode pour initialiser le plateau de jeu
@@ -171,17 +156,15 @@ Public Class FormMultiJoueur
             values(i) = temp
         Next
 
-        ' Créer les cartes
+        ' Créer les cartes avec des images
         For i As Integer = 0 To (lignes * colonnes) - 1
             Dim lbl As New Label()
             lbl.Width = 80
             lbl.Height = 100
-            lbl.BackColor = Color.SteelBlue
-            lbl.ForeColor = Color.White
-            lbl.BorderStyle = BorderStyle.Fixed3D
-            lbl.Font = New Font("Arial", 14, FontStyle.Bold)
-            lbl.TextAlign = ContentAlignment.MiddleCenter
+            lbl.BackColor = Color.White
+            lbl.BorderStyle = BorderStyle.FixedSingle
             lbl.Tag = i
+            lbl.Image = RedimImg(Image.FromFile(cheminVerso), lbl)
             AddHandler lbl.Click, AddressOf Card_Click
 
             cards.Add(lbl)
@@ -190,6 +173,31 @@ Public Class FormMultiJoueur
 
         currentCardValue = -1
     End Sub
+
+    Private Function RedimImg(img As Image, lbl As Label) As Image
+        ' Crée une nouvelle bitmap aux dimensions du label
+        Dim bmp As New Bitmap(lbl.Width, lbl.Height)
+
+        Using g As Graphics = Graphics.FromImage(bmp)
+            g.InterpolationMode = Drawing2D.InterpolationMode.HighQualityBicubic
+            ' Calcule le ratio pour conserver les proportions
+            Dim ratioX As Double = lbl.Width / img.Width
+            Dim ratioY As Double = lbl.Height / img.Height
+            Dim ratio As Double = Math.Min(ratioX, ratioY)
+
+            Dim newWidth As Integer = CInt(img.Width * ratio)
+            Dim newHeight As Integer = CInt(img.Height * ratio)
+
+            ' Positionne l'image au centre
+            Dim posX As Integer = (lbl.Width - newWidth) \ 2
+            Dim posY As Integer = (lbl.Height - newHeight) \ 2
+
+            ' Dessine l'image redimensionnée
+            g.DrawImage(img, posX, posY, newWidth, newHeight)
+        End Using
+
+        Return bmp
+    End Function
 
     ' Méthode pour afficher les cartes dans une nouvelle fenêtre
     Private Sub AfficherCartesDansNouvelleFenetre()
@@ -302,8 +310,14 @@ Public Class FormMultiJoueur
         Dim index As Integer = CInt(clickedCard.Tag)
         Dim cardValue As Integer = cardValues(index)
 
-        ' Afficher la carte avec la couleur du joueur actif
-        clickedCard.Text = cardValue.ToString()
+        ' Afficher l'image de la carte
+        Dim cheminImage As String = Path.Combine(cheminImages, $"{cardValue}.jpeg")
+        If File.Exists(cheminImage) Then
+            clickedCard.Image = RedimImg(Image.FromFile(cheminImage), clickedCard)
+        Else
+            clickedCard.Text = cardValue.ToString()
+        End If
+
         clickedCard.BackColor = playerColors(If(indexJoueurActif = True, 0, 1))
         cardsRevealed.Add(clickedCard)
 
@@ -315,24 +329,21 @@ Public Class FormMultiJoueur
             partieEnCours = True
             ' Les cartes ne correspondent pas
             For Each card In cardsRevealed
-                card.Text = ""
-                card.BackColor = Color.SteelBlue
+                card.Image = RedimImg(Image.FromFile(cheminVerso), card)
+                card.BackColor = Color.White
             Next
             cardsRevealed.Clear()
             currentCardValue = -1
             PasserAuJoueurSuivant()
             tempsRestant = tempsParManche
-
-
-        ElseIf cardsRevealed.Count = 4 Then ' On vérifie maintenant 4 cartes au lieu de 2
+        ElseIf cardsRevealed.Count = 4 Then
             ' Les 4 cartes correspondent
             Dim joueurActif As String = If(indexJoueurActif = True, Joueur1, Joueur2)
             scoresJoueurs(joueurActif) += 1
 
-
             For Each card In cardsRevealed
                 card.Enabled = False
-                card.BackColor = Color.LightGray ' Couleur pour les cartes trouvées
+                card.BackColor = Color.LightGray
             Next
 
             cardsRevealed.Clear()
@@ -343,12 +354,9 @@ Public Class FormMultiJoueur
             LblScoreJ1.Text = $"{Joueur1} : {scoresJoueurs(Joueur1)} carrés"
             LblScoreJ2.Text = $"{Joueur2} : {scoresJoueurs(Joueur2)} carrés"
 
-
-            ' Vérifier si toutes les paires ont été trouvées
-            If cardsFound = cardValues.Count \ 4 Then ' Divisé par 4 maintenant
+            If cardsFound = cardValues.Count \ 4 Then
                 FinDeLaPartie()
             Else
-                ' Continuer avec le même joueur s'il a trouvé une paire
                 tempsRestant = tempsParManche
             End If
         End If
@@ -402,8 +410,8 @@ Public Class FormMultiJoueur
         Dim egalite As Boolean = scoresJoueurs(Joueur1) = scoresJoueurs(Joueur2)
 
         Dim message As String = If(egalite = False,
-                                $"Le gagnant est {gagnant} avec {scoresJoueurs(gagnant)} carrés trouvés!",
-                                $"Il y a une égalité entre: " & Joueur1 & " et" & Joueur2 & " avec {scoresJoueurs(gagnant)} carrés trouvés!")
+                                    $"Le gagnant est {gagnant} avec {scoresJoueurs(gagnant)} carrés trouvés!",
+                                    $"Il y a une égalité entre: " & Joueur1 & " et" & Joueur2 & " avec {scoresJoueurs(gagnant)} carrés trouvés!")
 
         MessageBox.Show(message, "Fin de la partie", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
@@ -466,9 +474,9 @@ Public Class FormMultiJoueur
     End Sub
 
     Private playerColors As New List(Of Color) From {
-    Color.LightBlue,
-    Color.LightPink
-}
+        Color.LightBlue,
+        Color.LightPink
+    }
 
     Private Sub cmbox_Joueur1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbox_Joueur1.SelectedIndexChanged
         If cmbox_Joueur1.SelectedItem IsNot Nothing AndAlso cmbox_Joueur2.SelectedItem IsNot Nothing Then
@@ -499,33 +507,33 @@ Public Class FormMultiJoueur
     End Sub
     Private Sub AfficherReglesDuJeu()
         Dim regles As String = " RÈGLES DU JEU MULTIJOUEUR - MEMORY CARRÉS 🎮" & vbCrLf & vbCrLf &
-                              "OBJECTIF :" & vbCrLf &
-                              "Trouvez le maximum de carrés (groupes de 4 cartes identiques) en alternant avec votre adversaire." & vbCrLf & vbCrLf &
-                              "PRÉPARATION :" & vbCrLf &
-                              "• Sélectionnez 2 joueurs différents dans les listes déroulantes" & vbCrLf &
-                              "• Choisissez le niveau de difficulté :" & vbCrLf &
-                              "  - Facile : 3x4 cartes (12 cartes), 20 secondes" & vbCrLf &
-                              "  - Moyen : 4x5 cartes (20 cartes), 40 secondes" & vbCrLf &
-                              "  - Difficile : 5x6 cartes (30 cartes), 60 secondes" & vbCrLf & vbCrLf &
-                              "🎯 DÉROULEMENT :" & vbCrLf &
-                              "1. Le premier joueur commence et a un temps limité pour jouer" & vbCrLf &
-                              "2. Cliquez sur les cartes pour les révéler une par une" & vbCrLf &
-                              "3. Vous devez trouver 4 cartes identiques pour former un carré" & vbCrLf &
-                              "4. Si vous trouvez un carré complet, vous gagnez 1 point et continuez" & vbCrLf &
-                              "5. Si vous révélez une carte différente, toutes les cartes se retournent" & vbCrLf &
-                              "6. C'est alors au tour de l'adversaire" & vbCrLf & vbCrLf &
-                              "TEMPS :" & vbCrLf &
-                              "• Chaque joueur dispose d'un temps limité pour son tour" & vbCrLf &
-                              "• Si le temps s'écoule, les cartes se retournent automatiquement" & vbCrLf &
-                              "• C'est au tour du joueur suivant" & vbCrLf & vbCrLf &
-                              "🏆 VICTOIRE :" & vbCrLf &
-                              "• Le joueur qui trouve le plus de carrés gagne la partie" & vbCrLf &
-                              "• En cas d'égalité, c'est un match nul" & vbCrLf & vbCrLf &
-                              "💡 CONSEILS :" & vbCrLf &
-                              "• Mémorisez les positions des cartes révélées" & vbCrLf &
-                              "• Soyez stratégique dans vos choix" & vbCrLf &
-                              "• Utilisez bien votre temps imparti" & vbCrLf & vbCrLf &
-                              "Bonne chance et amusez-vous bien ! 🎉"
+                                  "OBJECTIF :" & vbCrLf &
+                                  "Trouvez le maximum de carrés (groupes de 4 cartes identiques) en alternant avec votre adversaire." & vbCrLf & vbCrLf &
+                                  "PRÉPARATION :" & vbCrLf &
+                                  "• Sélectionnez 2 joueurs différents dans les listes déroulantes" & vbCrLf &
+                                  "• Choisissez le niveau de difficulté :" & vbCrLf &
+                                  "  - Facile : 3x4 cartes (12 cartes), 20 secondes" & vbCrLf &
+                                  "  - Moyen : 4x5 cartes (20 cartes), 40 secondes" & vbCrLf &
+                                  "  - Difficile : 5x6 cartes (30 cartes), 60 secondes" & vbCrLf & vbCrLf &
+                                  "🎯 DÉROULEMENT :" & vbCrLf &
+                                  "1. Le premier joueur commence et a un temps limité pour jouer" & vbCrLf &
+                                  "2. Cliquez sur les cartes pour les révéler une par une" & vbCrLf &
+                                  "3. Vous devez trouver 4 cartes identiques pour former un carré" & vbCrLf &
+                                  "4. Si vous trouvez un carré complet, vous gagnez 1 point et continuez" & vbCrLf &
+                                  "5. Si vous révélez une carte différente, toutes les cartes se retournent" & vbCrLf &
+                                  "6. C'est alors au tour de l'adversaire" & vbCrLf & vbCrLf &
+                                  "TEMPS :" & vbCrLf &
+                                  "• Chaque joueur dispose d'un temps limité pour son tour" & vbCrLf &
+                                  "• Si le temps s'écoule, les cartes se retournent automatiquement" & vbCrLf &
+                                  "• C'est au tour du joueur suivant" & vbCrLf & vbCrLf &
+                                  "🏆 VICTOIRE :" & vbCrLf &
+                                  "• Le joueur qui trouve le plus de carrés gagne la partie" & vbCrLf &
+                                  "• En cas d'égalité, c'est un match nul" & vbCrLf & vbCrLf &
+                                  "💡 CONSEILS :" & vbCrLf &
+                                  "• Mémorisez les positions des cartes révélées" & vbCrLf &
+                                  "• Soyez stratégique dans vos choix" & vbCrLf &
+                                  "• Utilisez bien votre temps imparti" & vbCrLf & vbCrLf &
+                                  "Bonne chance et amusez-vous bien ! 🎉"
 
         ' Affichage dans une MessageBox avec défilement possible
         MessageBox.Show(regles, "Règles du jeu - Mode Multijoueur", MessageBoxButtons.OK, MessageBoxIcon.Information)

@@ -32,6 +32,7 @@ Partial Class FormMultiJoueur
         Me.ButtonRetour = New System.Windows.Forms.Button()
         Me.lblTitre = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.LblChoix = New System.Windows.Forms.Label()
         Me.LblJ2 = New System.Windows.Forms.Label()
         Me.lblJ1 = New System.Windows.Forms.Label()
         Me.cmbox_Joueur2 = New System.Windows.Forms.ComboBox()
@@ -39,8 +40,8 @@ Partial Class FormMultiJoueur
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.LblScore = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.LblChoix = New System.Windows.Forms.Label()
         Me.BtnRegles = New System.Windows.Forms.Button()
+        Me.PageSetupDialog1 = New System.Windows.Forms.PageSetupDialog()
         Me.PanelCartes.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -50,10 +51,10 @@ Partial Class FormMultiJoueur
         'ComboBoxDifficulte
         '
         Me.ComboBoxDifficulte.FormattingEnabled = True
-        Me.ComboBoxDifficulte.Location = New System.Drawing.Point(295, 28)
+        Me.ComboBoxDifficulte.Location = New System.Drawing.Point(262, 22)
         Me.ComboBoxDifficulte.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ComboBoxDifficulte.Name = "ComboBoxDifficulte"
-        Me.ComboBoxDifficulte.Size = New System.Drawing.Size(121, 28)
+        Me.ComboBoxDifficulte.Size = New System.Drawing.Size(108, 24)
         Me.ComboBoxDifficulte.TabIndex = 6
         '
         'PanelCartes
@@ -62,18 +63,18 @@ Partial Class FormMultiJoueur
         Me.PanelCartes.Controls.Add(Me.Label1)
         Me.PanelCartes.Controls.Add(Me.Lbloptions)
         Me.PanelCartes.Controls.Add(Me.ComboBoxDifficulte)
-        Me.PanelCartes.Location = New System.Drawing.Point(12, 286)
+        Me.PanelCartes.Location = New System.Drawing.Point(11, 229)
         Me.PanelCartes.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PanelCartes.Name = "PanelCartes"
-        Me.PanelCartes.Size = New System.Drawing.Size(551, 75)
+        Me.PanelCartes.Size = New System.Drawing.Size(490, 60)
         Me.PanelCartes.TabIndex = 8
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(133, 31)
+        Me.Label1.Location = New System.Drawing.Point(118, 25)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(149, 20)
+        Me.Label1.Size = New System.Drawing.Size(124, 16)
         Me.Label1.TabIndex = 10
         Me.Label1.Text = "Choix de la difficulté"
         '
@@ -81,48 +82,48 @@ Partial Class FormMultiJoueur
         '
         Me.Lbloptions.AutoSize = True
         Me.Lbloptions.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Lbloptions.Location = New System.Drawing.Point(3, 11)
+        Me.Lbloptions.Location = New System.Drawing.Point(3, 9)
         Me.Lbloptions.Name = "Lbloptions"
-        Me.Lbloptions.Size = New System.Drawing.Size(104, 29)
+        Me.Lbloptions.Size = New System.Drawing.Size(87, 25)
         Me.Lbloptions.TabIndex = 0
         Me.Lbloptions.Text = "Options"
         '
         'lstScores
         '
         Me.lstScores.FormattingEnabled = True
-        Me.lstScores.ItemHeight = 20
-        Me.lstScores.Location = New System.Drawing.Point(36, 65)
+        Me.lstScores.ItemHeight = 16
+        Me.lstScores.Location = New System.Drawing.Point(32, 52)
         Me.lstScores.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lstScores.Name = "lstScores"
-        Me.lstScores.Size = New System.Drawing.Size(134, 84)
+        Me.lstScores.Size = New System.Drawing.Size(120, 68)
         Me.lstScores.TabIndex = 11
         '
         'ButtonCommencer
         '
-        Me.ButtonCommencer.Location = New System.Drawing.Point(14, 15)
+        Me.ButtonCommencer.Location = New System.Drawing.Point(12, 12)
         Me.ButtonCommencer.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ButtonCommencer.Name = "ButtonCommencer"
-        Me.ButtonCommencer.Size = New System.Drawing.Size(111, 39)
+        Me.ButtonCommencer.Size = New System.Drawing.Size(99, 31)
         Me.ButtonCommencer.TabIndex = 12
         Me.ButtonCommencer.Text = "Commencer"
         Me.ButtonCommencer.UseVisualStyleBackColor = True
         '
         'ButtonAbandonner
         '
-        Me.ButtonAbandonner.Location = New System.Drawing.Point(207, 16)
+        Me.ButtonAbandonner.Location = New System.Drawing.Point(184, 13)
         Me.ButtonAbandonner.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ButtonAbandonner.Name = "ButtonAbandonner"
-        Me.ButtonAbandonner.Size = New System.Drawing.Size(107, 39)
+        Me.ButtonAbandonner.Size = New System.Drawing.Size(95, 31)
         Me.ButtonAbandonner.TabIndex = 13
         Me.ButtonAbandonner.Text = "Abandonner"
         Me.ButtonAbandonner.UseVisualStyleBackColor = True
         '
         'ButtonRetour
         '
-        Me.ButtonRetour.Location = New System.Drawing.Point(411, 16)
+        Me.ButtonRetour.Location = New System.Drawing.Point(365, 13)
         Me.ButtonRetour.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ButtonRetour.Name = "ButtonRetour"
-        Me.ButtonRetour.Size = New System.Drawing.Size(122, 40)
+        Me.ButtonRetour.Size = New System.Drawing.Size(108, 32)
         Me.ButtonRetour.TabIndex = 14
         Me.ButtonRetour.Text = "Retour"
         Me.ButtonRetour.UseVisualStyleBackColor = True
@@ -131,9 +132,9 @@ Partial Class FormMultiJoueur
         '
         Me.lblTitre.AutoSize = True
         Me.lblTitre.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitre.Location = New System.Drawing.Point(5, 9)
+        Me.lblTitre.Location = New System.Drawing.Point(4, 7)
         Me.lblTitre.Name = "lblTitre"
-        Me.lblTitre.Size = New System.Drawing.Size(411, 37)
+        Me.lblTitre.Size = New System.Drawing.Size(355, 31)
         Me.lblTitre.TabIndex = 19
         Me.lblTitre.Text = "MEMORY MULTIJOUEUR"
         '
@@ -145,27 +146,37 @@ Partial Class FormMultiJoueur
         Me.Panel1.Controls.Add(Me.lblJ1)
         Me.Panel1.Controls.Add(Me.cmbox_Joueur2)
         Me.Panel1.Controls.Add(Me.cmbox_Joueur1)
-        Me.Panel1.Location = New System.Drawing.Point(14, 68)
+        Me.Panel1.Location = New System.Drawing.Point(12, 54)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(313, 201)
+        Me.Panel1.Size = New System.Drawing.Size(278, 161)
         Me.Panel1.TabIndex = 28
+        '
+        'LblChoix
+        '
+        Me.LblChoix.AutoSize = True
+        Me.LblChoix.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblChoix.Location = New System.Drawing.Point(3, 0)
+        Me.LblChoix.Name = "LblChoix"
+        Me.LblChoix.Size = New System.Drawing.Size(186, 25)
+        Me.LblChoix.TabIndex = 32
+        Me.LblChoix.Text = "Choix des joueurs"
         '
         'LblJ2
         '
         Me.LblJ2.AutoSize = True
-        Me.LblJ2.Location = New System.Drawing.Point(52, 126)
+        Me.LblJ2.Location = New System.Drawing.Point(46, 101)
         Me.LblJ2.Name = "LblJ2"
-        Me.LblJ2.Size = New System.Drawing.Size(79, 20)
+        Me.LblJ2.Size = New System.Drawing.Size(64, 16)
         Me.LblJ2.TabIndex = 31
         Me.LblJ2.Text = "Joueur 2 :"
         '
         'lblJ1
         '
         Me.lblJ1.AutoSize = True
-        Me.lblJ1.Location = New System.Drawing.Point(52, 50)
+        Me.lblJ1.Location = New System.Drawing.Point(46, 40)
         Me.lblJ1.Name = "lblJ1"
-        Me.lblJ1.Size = New System.Drawing.Size(79, 20)
+        Me.lblJ1.Size = New System.Drawing.Size(64, 16)
         Me.lblJ1.TabIndex = 30
         Me.lblJ1.Text = "Joueur 1 :"
         '
@@ -173,20 +184,18 @@ Partial Class FormMultiJoueur
         '
         Me.cmbox_Joueur2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbox_Joueur2.FormattingEnabled = True
-        Me.cmbox_Joueur2.Location = New System.Drawing.Point(144, 124)
-        Me.cmbox_Joueur2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cmbox_Joueur2.Location = New System.Drawing.Point(128, 99)
         Me.cmbox_Joueur2.Name = "cmbox_Joueur2"
-        Me.cmbox_Joueur2.Size = New System.Drawing.Size(136, 28)
+        Me.cmbox_Joueur2.Size = New System.Drawing.Size(121, 24)
         Me.cmbox_Joueur2.TabIndex = 29
         '
         'cmbox_Joueur1
         '
         Me.cmbox_Joueur1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbox_Joueur1.FormattingEnabled = True
-        Me.cmbox_Joueur1.Location = New System.Drawing.Point(144, 46)
-        Me.cmbox_Joueur1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cmbox_Joueur1.Location = New System.Drawing.Point(128, 37)
         Me.cmbox_Joueur1.Name = "cmbox_Joueur1"
-        Me.cmbox_Joueur1.Size = New System.Drawing.Size(136, 28)
+        Me.cmbox_Joueur1.Size = New System.Drawing.Size(121, 24)
         Me.cmbox_Joueur1.TabIndex = 28
         '
         'Panel2
@@ -194,19 +203,19 @@ Partial Class FormMultiJoueur
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Panel2.Controls.Add(Me.LblScore)
         Me.Panel2.Controls.Add(Me.lstScores)
-        Me.Panel2.Location = New System.Drawing.Point(351, 68)
+        Me.Panel2.Location = New System.Drawing.Point(312, 54)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(213, 201)
+        Me.Panel2.Size = New System.Drawing.Size(189, 161)
         Me.Panel2.TabIndex = 29
         '
         'LblScore
         '
         Me.LblScore.AutoSize = True
         Me.LblScore.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblScore.Location = New System.Drawing.Point(18, 16)
+        Me.LblScore.Location = New System.Drawing.Point(16, 13)
         Me.LblScore.Name = "LblScore"
-        Me.LblScore.Size = New System.Drawing.Size(176, 29)
+        Me.LblScore.Size = New System.Drawing.Size(149, 25)
         Me.LblScore.TabIndex = 0
         Me.LblScore.Text = "Score et Stats"
         '
@@ -216,38 +225,29 @@ Partial Class FormMultiJoueur
         Me.Panel4.Controls.Add(Me.ButtonCommencer)
         Me.Panel4.Controls.Add(Me.ButtonAbandonner)
         Me.Panel4.Controls.Add(Me.ButtonRetour)
-        Me.Panel4.Location = New System.Drawing.Point(12, 375)
+        Me.Panel4.Location = New System.Drawing.Point(11, 300)
         Me.Panel4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(551, 81)
+        Me.Panel4.Size = New System.Drawing.Size(490, 65)
         Me.Panel4.TabIndex = 31
-        '
-        'LblChoix
-        '
-        Me.LblChoix.AutoSize = True
-        Me.LblChoix.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblChoix.Location = New System.Drawing.Point(3, 0)
-        Me.LblChoix.Name = "LblChoix"
-        Me.LblChoix.Size = New System.Drawing.Size(223, 29)
-        Me.LblChoix.TabIndex = 32
-        Me.LblChoix.Text = "Choix des joueurs"
         '
         'BtnRegles
         '
         Me.BtnRegles.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.BtnRegles.Location = New System.Drawing.Point(438, 12)
+        Me.BtnRegles.Location = New System.Drawing.Point(389, 10)
+        Me.BtnRegles.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.BtnRegles.Name = "BtnRegles"
-        Me.BtnRegles.Size = New System.Drawing.Size(125, 40)
+        Me.BtnRegles.Size = New System.Drawing.Size(111, 32)
         Me.BtnRegles.TabIndex = 32
         Me.BtnRegles.Text = "Regle du jeu"
         Me.BtnRegles.UseVisualStyleBackColor = False
         '
         'FormMultiJoueur
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LemonChiffon
-        Me.ClientSize = New System.Drawing.Size(576, 502)
+        Me.ClientSize = New System.Drawing.Size(512, 402)
         Me.Controls.Add(Me.BtnRegles)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel2)
@@ -287,4 +287,5 @@ Partial Class FormMultiJoueur
     Friend WithEvents lblJ1 As Label
     Friend WithEvents LblChoix As Label
     Friend WithEvents BtnRegles As Button
+    Friend WithEvents PageSetupDialog1 As PageSetupDialog
 End Class
