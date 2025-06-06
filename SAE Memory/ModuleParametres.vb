@@ -1,4 +1,6 @@
-﻿Module ModuleParametres
+﻿Imports System.IO
+
+Module ModuleParametres
     Public Enum NiveauDifficulte
         Debutant = 0
         Intermediaire = 1
@@ -24,7 +26,30 @@
     Public Const NbreDeSetDebutant As Integer = 4 ' corrige ici pour que ça soit 4 lignes (exemple)
     Public Const NbreDeSetIntermediaire As Integer = 5
     Public Const NbreDeSetExpert As Integer = 6
+    ' Ajout dans ModuleParametres
+    Public LignesPersonnalisees As Integer = 4
+    Public ColonnesPersonnalisees As Integer = 5
+    Public CartesParCarrePersonnalisees As Integer = 4
+    Public TempsMaxPersonnalise As Integer = 60
 
+    Public Sub SauvegarderGrillePersonnalisee()
+        Dim cheminConfig As String = Path.Combine(Application.StartupPath, "config_grille.txt")
+        Dim ligne As String = $"{LignesPersonnalisees};{ColonnesPersonnalisees};{CartesParCarrePersonnalisees};{TempsMaxPersonnalise}"
+        File.WriteAllText(cheminConfig, ligne)
+    End Sub
+
+    Public Sub ChargerGrillePersonnalisee()
+        Dim cheminConfig As String = Path.Combine(Application.StartupPath, "config_grille.txt")
+        If File.Exists(cheminConfig) Then
+            Dim ligne = File.ReadAllText(cheminConfig).Split(";"c)
+            If ligne.Length = 4 Then
+                LignesPersonnalisees = CInt(ligne(0))
+                ColonnesPersonnalisees = CInt(ligne(1))
+                CartesParCarrePersonnalisees = CInt(ligne(2))
+                TempsMaxPersonnalise = CInt(ligne(3))
+            End If
+        End If
+    End Sub
     Public Function NombrePairesParDifficulte(niveau As NiveauDifficulte) As Integer
         Select Case niveau
             Case NiveauDifficulte.Debutant

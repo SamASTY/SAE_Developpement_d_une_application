@@ -75,4 +75,20 @@
         ConfigurerRetourAccueil(formMulti)
         formMulti.Show()
     End Sub
+
+    Private Sub lblMemory_Click(sender As Object, e As EventArgs) Handles lblMemory.Click
+
+    End Sub
+    ' Ajout dans FormAccueil
+    Private Sub btnGrillePersonnalisee_Click(sender As Object, e As EventArgs) Handles btnGrillePersonnalisee.Click
+        If cmbPrenom.Text.Length < 3 Then
+            MsgBox("Veuillez entrer un nom d'au moins 3 caractères.", vbExclamation, "Erreur")
+            Exit Sub
+        End If
+        SauvegardeJoueur.P = cmbPrenom.Text
+        Dim formGrille As New FormGrillePersonnalisee()
+        Me.Hide()
+        ConfigurerRetourAccueil(formGrille)
+        formGrille.Show()
+    End Sub
 End Class

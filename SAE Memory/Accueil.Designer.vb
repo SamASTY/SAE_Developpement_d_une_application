@@ -30,6 +30,7 @@ Partial Class FormAccueil
         Me.lblMemory = New System.Windows.Forms.Label()
         Me.btnOptions = New System.Windows.Forms.Button()
         Me.BtnMultijoueur = New System.Windows.Forms.Button()
+        Me.btnGrillePersonnalisee = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'cmbPrenom
@@ -113,12 +114,22 @@ Partial Class FormAccueil
         Me.BtnMultijoueur.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.BtnMultijoueur.UseVisualStyleBackColor = True
         '
+        'btnGrillePersonnalisee
+        '
+        Me.btnGrillePersonnalisee.Location = New System.Drawing.Point(195, 212)
+        Me.btnGrillePersonnalisee.Name = "btnGrillePersonnalisee"
+        Me.btnGrillePersonnalisee.Size = New System.Drawing.Size(137, 41)
+        Me.btnGrillePersonnalisee.TabIndex = 8
+        Me.btnGrillePersonnalisee.Text = "Personaliser"
+        Me.btnGrillePersonnalisee.UseVisualStyleBackColor = True
+        '
         'FormAccueil
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightYellow
         Me.ClientSize = New System.Drawing.Size(506, 282)
+        Me.Controls.Add(Me.btnGrillePersonnalisee)
         Me.Controls.Add(Me.BtnMultijoueur)
         Me.Controls.Add(Me.btnOptions)
         Me.Controls.Add(Me.lblMemory)
@@ -143,4 +154,5 @@ Partial Class FormAccueil
     Friend WithEvents lblMemory As Label
     Friend WithEvents btnOptions As Button
     Friend WithEvents BtnMultijoueur As Button
+    Friend WithEvents btnGrillePersonnalisee As Button
 End Class

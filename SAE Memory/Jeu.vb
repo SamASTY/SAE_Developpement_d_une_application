@@ -16,6 +16,7 @@ Public Class FormJeu
     Dim TotalCarte As Integer ' cartes totales à afficher
     Dim JeuEnPause As Boolean = False ' évite les clics quand les cartes se retournent
     Dim IndiceUtilsier As Boolean = False
+    Public ModePersonnalise As Boolean = False
 
     ' Récupère le pseudo envoyé par l'écran d’accueil
     Public Sub RecupererJoueur(J As String)
@@ -48,20 +49,26 @@ Public Class FormJeu
 
     ' Applique les paramètres en fonction de la difficulté sélectionnée
     Private Sub AppliquerParametresSelonDifficulte()
-        Select Case DifActuelle
-            Case ModuleParametres.NiveauDifficulte.Debutant
-                TempsMax = TempsMaxDebutant
-                CarteParSet = 4
-                NbreDeSet = 3
-            Case ModuleParametres.NiveauDifficulte.Intermediaire
-                TempsMax = TempsMaxIntermediaire
-                CarteParSet = 5
-                NbreDeSet = 4
-            Case ModuleParametres.NiveauDifficulte.Expert
-                TempsMax = TempsMaxExpert
-                CarteParSet = 6
-                NbreDeSet = 5
-        End Select
+        If ModePersonnalise Then
+            TempsMax = ModuleParametres.TempsMaxPersonnalise
+            CarteParSet = ModuleParametres.CartesParCarrePersonnalisees
+            NbreDeSet = (ModuleParametres.LignesPersonnalisees * ModuleParametres.ColonnesPersonnalisees) \ CarteParSet
+        Else
+            Select Case DifActuelle
+                Case NiveauDifficulte.Debutant
+                    TempsMax = TempsMaxDebutant
+                    CarteParSet = CarteParSetDebutant
+                    NbreDeSet = NbreDeSetDebutant
+                Case NiveauDifficulte.Intermediaire
+                    TempsMax = TempsMaxIntermediaire
+                    CarteParSet = CarteParSetIntermediaire
+                    NbreDeSet = NbreDeSetIntermediaire
+                Case NiveauDifficulte.Expert
+                    TempsMax = TempsMaxExpert
+                    CarteParSet = CarteParSetExpert
+                    NbreDeSet = NbreDeSetExpert
+            End Select
+        End If
     End Sub
 
     ' Démarre une nouvelle partie (plateau, timer, score, etc.)
@@ -80,13 +87,16 @@ Public Class FormJeu
 
     ' Génère la grille avec les cartes aléatoires
     Private Sub CreerPlateauLignesColonnes(lignes As Integer, colonnes As Integer)
+        If ModePersonnalise Then
+            lignes = ModuleParametres.LignesPersonnalisees
+            colonnes = ModuleParametres.ColonnesPersonnalisees
+        End If
         TableLayoutPlateau.Controls.Clear()
         TableLayoutPlateau.RowCount = lignes
         TableLayoutPlateau.ColumnCount = colonnes
         TableLayoutPlateau.RowStyles.Clear()
         TableLayoutPlateau.ColumnStyles.Clear()
 
-        ' Répartition égale des lignes/colonnes
         For i = 0 To lignes - 1
             TableLayoutPlateau.RowStyles.Add(New RowStyle(SizeType.Percent, 100 / lignes))
         Next
@@ -98,22 +108,19 @@ Public Class FormJeu
         CarteRetourne = New List(Of Label)
         CarteGagner = New List(Of Label)
 
-        ' Crée chaque case (Label) du plateau
         For i As Integer = 0 To TotalCarte - 1
             Dim lbl As New Label With {
-                .Dock = DockStyle.Fill,
-                .TextAlign = ContentAlignment.MiddleCenter,
-                .BorderStyle = BorderStyle.FixedSingle,
-                .Tag = cartes(i), ' identifiant de la carte
-                .BackColor = Color.White
-            }
-
+            .Dock = DockStyle.Fill,
+            .TextAlign = ContentAlignment.MiddleCenter,
+            .BorderStyle = BorderStyle.FixedSingle,
+            .Tag = cartes(i),
+            .BackColor = Color.White
+        }
             AddHandler lbl.Click, AddressOf Carte_Click
             TableLayoutPlateau.Controls.Add(lbl)
         Next
 
-        ' Affiche le verso de toutes les cartes
-        Application.DoEvents() ' petit coup de pouce pour que l'interface se mette à jour
+        Application.DoEvents()
         For Each lbl As Label In TableLayoutPlateau.Controls.OfType(Of Label)()
             lbl.Image = RedimImg(Image.FromFile(cheminVerso), lbl)
         Next
@@ -320,4 +327,7 @@ Public Class FormJeu
         JeuEnPause = False
     End Sub
 
+    Private Sub TableLayoutPlateau_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPlateau.Paint
+
+    End Sub
 End Class
