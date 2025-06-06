@@ -1,18 +1,22 @@
 Imports System.IO
+Imports System.Text
 Imports SAE_Memory.ModuleParametres
 
 Public Class FormJeu
     ' Variables globales
+    Dim Lignes As Integer = 1
+    Const Colonnes As Integer = 4
     Dim joueurNom As String
     Dim cpt As Integer = 0 ' compteur de secondes
-    Dim TempsMax As Integer ' durée limite selon difficulté
+    Const TempsMax As Integer = 60
     Dim CarteRetourne As List(Of Label) ' cartes cliquées en cours
     Dim compteurCarte As Integer = 0 ' compte le nombre de clics en cours
     Dim CarteGagner As List(Of Label) ' cartes validées
     Public cheminImages As String = Path.Combine(Application.StartupPath, "Images")
     Public cheminVerso As String = Path.Combine(cheminImages, "verso.jpeg")
-    Dim CarteParSet As Integer ' nb de cartes par carré (souvent 4)
-    Dim NbreDeSet As Integer ' nombre de carrés à trouver
+    Dim CarteParSet As Integer
+    Dim NbreDeSet As Integer
+    Dim NombreTypesCartesDefault As Integer = 10
     Dim TotalCarte As Integer ' cartes totales à afficher
     Dim JeuEnPause As Boolean = False ' évite les clics quand les cartes se retournent
     Dim IndiceUtilsier As Boolean = False
@@ -34,9 +38,10 @@ Public Class FormJeu
     ' Chargement du formulaire de jeu
     Private Sub Jeu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Debug.WriteLine("Chargement du formulaire score — joueur actuel : " & SauvegardeJoueur.P)
-        Timer.Interval = 1000 ' tick chaque seconde
+        Timer.Interval = 1000
         InitJeu()
         lblPseudo.Text = joueurNom
+        ModePersonnalise = ModuleParametres.PersonaliserEtat()
         Timer.Start()
         If ModuleParametres.IndiceEtat() Then
             pnlIndice.Show()
@@ -45,52 +50,45 @@ Public Class FormJeu
             pnlIndice.Hide()
             pnlScore.Show()
         End If
+
     End Sub
 
     ' Applique les paramètres en fonction de la difficulté sélectionnée
     Private Sub AppliquerParametresSelonDifficulte()
         If ModePersonnalise Then
-            TempsMax = ModuleParametres.TempsMaxPersonnalise
-            CarteParSet = ModuleParametres.CartesParCarrePersonnalisees
-            NbreDeSet = (ModuleParametres.LignesPersonnalisees * ModuleParametres.ColonnesPersonnalisees) \ CarteParSet
+            Lignes = ModuleParametres.LignesPersonnalisees
         Else
             Select Case DifActuelle
                 Case NiveauDifficulte.Debutant
-                    TempsMax = TempsMaxDebutant
-                    CarteParSet = CarteParSetDebutant
-                    NbreDeSet = NbreDeSetDebutant
+                    Lignes = 3
                 Case NiveauDifficulte.Intermediaire
-                    TempsMax = TempsMaxIntermediaire
-                    CarteParSet = CarteParSetIntermediaire
-                    NbreDeSet = NbreDeSetIntermediaire
+                    Lignes = 4
                 Case NiveauDifficulte.Expert
-                    TempsMax = TempsMaxExpert
-                    CarteParSet = CarteParSetExpert
-                    NbreDeSet = NbreDeSetExpert
+                    Lignes = 5
             End Select
         End If
+
+        ' Chaque set correspond à une ligne
+        NbreDeSet = Lignes
+        ' Chaque carte doit être répétée Colonnes fois (4)
+        CarteParSet = Colonnes
     End Sub
 
     ' Démarre une nouvelle partie (plateau, timer, score, etc.)
     Private Sub InitJeu()
         AppliquerParametresSelonDifficulte()
-        TotalCarte = CarteParSet * NbreDeSet
         lblTempsValeur.Text = TempsMax
         lblScoreValeur.Text = "0"
 
         ' Calcul des lignes/colonnes pour la grille
-        Dim colonnes As Integer = CarteParSet
-        Dim lignes As Integer = NbreDeSet
-
-        CreerPlateauLignesColonnes(lignes, colonnes)
+        TotalCarte = Colonnes * Lignes
+        AfficherContenuDossierImages()
+        CreerPlateauLignesColonnes(Lignes, Colonnes)
     End Sub
 
     ' Génère la grille avec les cartes aléatoires
     Private Sub CreerPlateauLignesColonnes(lignes As Integer, colonnes As Integer)
-        If ModePersonnalise Then
-            lignes = ModuleParametres.LignesPersonnalisees
-            colonnes = ModuleParametres.ColonnesPersonnalisees
-        End If
+
         TableLayoutPlateau.Controls.Clear()
         TableLayoutPlateau.RowCount = lignes
         TableLayoutPlateau.ColumnCount = colonnes
@@ -104,7 +102,7 @@ Public Class FormJeu
             TableLayoutPlateau.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100 / colonnes))
         Next
 
-        Dim cartes As List(Of Integer) = GenererListe4X5()
+        Dim cartes As List(Of Integer) = GenererListe()
         CarteRetourne = New List(Of Label)
         CarteGagner = New List(Of Label)
 
@@ -141,17 +139,21 @@ Public Class FormJeu
     End Sub
 
     ' Prépare la liste des cartes mélangées
-    Private Function GenererListe4X5() As List(Of Integer)
+    Private Function GenererListe() As List(Of Integer)
         Dim Paquet As New List(Of Integer)
+        Dim repetitionsParCarte As Integer = Colonnes ' Toujours 4 répétitions par type de carte
 
-        ' Crée chaque carré (4 cartes identiques)
-        For valeur As Integer = 1 To NbreDeSet
-            For i As Integer = 1 To CarteParSet
+        ' Pour chaque type de carte nécessaire (nombre de types = nombre de lignes)
+        For valeur As Integer = 1 To Lignes
+            ' Ajoute 4 exemplaires de chaque carte
+            For i As Integer = 1 To repetitionsParCarte
                 Paquet.Add(valeur)
             Next
         Next
 
         MelangePaquet(Paquet)
+        Debug.WriteLine($"Cartes générées ({Lignes} types × {Colonnes} exemplaires): " & String.Join(", ", Paquet))
+
         Return Paquet
     End Function
 
@@ -174,26 +176,30 @@ Public Class FormJeu
         If JeuEnPause = False Then
             If Not (CarteGagner.Contains(label) Or CarteRetourne.Contains(label)) Then
                 Dim index As Integer = CInt(label.Tag)
-                Dim nomFichier As String = $"{index}.jpeg"
-                Dim chemin As String = Path.Combine(cheminImages, nomFichier)
+                Dim cheminsPossibles As New List(Of String) From {
+                Path.Combine(cheminImages, $"{index}.jpeg"),
+                Path.Combine(cheminImages, $"{index}gris.jpeg")
+            }
 
-                ' Affiche l’image si elle existe, sinon un "?"
-                If File.Exists(chemin) Then
-                    label.Image = RedimImg(Image.FromFile(chemin), label)
+                ' Trouve la première image existante
+                Dim cheminImage As String = cheminsPossibles.FirstOrDefault(Function(c) File.Exists(c))
+
+                If cheminImage IsNot Nothing Then
+                    label.Image = RedimImg(Image.FromFile(cheminImage), label)
                 Else
-                    Debug.WriteLine($"Image manquante : {chemin}")
+                    Debug.WriteLine($"Aucune image trouvée pour la carte {index}")
                     label.BackColor = Color.LightGray
-                    label.Text = "?"
+                    label.Text = index.ToString() ' Affiche le numéro si l'image est manquante
                 End If
 
                 compteurCarte += 1
                 CarteRetourne.Add(label)
 
                 If CartePareil() Then
-                    Carree() ' bingo, on a un carré !
+                    Carree()
                 Else
                     JeuEnPause = True
-                    Await Task.Delay(500) ' petite pause avant de masquer
+                    Await Task.Delay(500)
                     ResetPlateauErreur()
                     JeuEnPause = False
                     CarteRetourne.Clear()
@@ -327,7 +333,31 @@ Public Class FormJeu
         JeuEnPause = False
     End Sub
 
-    Private Sub TableLayoutPlateau_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPlateau.Paint
+    ' Fonction qui affiche le contenu du dossier Images
+    Public Sub AfficherContenuDossierImages()
+        Try
+            ' Vérifie si le dossier existe
+            If Directory.Exists(cheminImages) Then
+                ' Récupère tous les fichiers du dossier
+                Dim fichiers() As String = Directory.GetFiles(cheminImages)
+                Dim message As New StringBuilder()
 
+                message.AppendLine($"Contenu du dossier Images ({cheminImages}):")
+                message.AppendLine("----------------------------------")
+
+                ' Ajoute chaque fichier au message
+                For Each fichier As String In fichiers
+                    message.AppendLine(Path.GetFileName(fichier))
+                Next
+
+                ' Affiche le résultat
+                MessageBox.Show(message.ToString(), "Contenu du dossier Images")
+            Else
+                MessageBox.Show($"Le dossier Images n'existe pas à l'emplacement : {cheminImages}", "Erreur")
+            End If
+        Catch ex As Exception
+            MessageBox.Show($"Erreur lors de la lecture du dossier : {ex.Message}", "Erreur")
+        End Try
     End Sub
+
 End Class

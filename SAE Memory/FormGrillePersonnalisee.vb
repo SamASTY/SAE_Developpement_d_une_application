@@ -1,14 +1,14 @@
 ﻿Public Class FormGrillePersonnalisee
     Private Sub FormGrillePersonnalisee_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Charger les paramètres actuels
-        nudLignes.Value = ModuleParametres.LignesPersonnalisees
-        nudColonnes.Value = ModuleParametres.ColonnesPersonnalisees
-        nudCartesParCarre.Value = ModuleParametres.CartesParCarrePersonnalisees
-        nudTempsMax.Value = ModuleParametres.TempsMaxPersonnalise
+        nudLignes.Value = 4
         ActualiserPrevisualisation()
+        nudLignes.Minimum = 2
+        nudLignes.Maximum = 9
+        ModuleParametres.CochePersonaliser()
     End Sub
 
-    Private Sub nudLignes_ValueChanged(sender As Object, e As EventArgs) Handles nudLignes.ValueChanged, nudColonnes.ValueChanged, nudCartesParCarre.ValueChanged
+    Private Sub nudLignes_ValueChanged(sender As Object, e As EventArgs) Handles nudLignes.ValueChanged
         ActualiserPrevisualisation()
     End Sub
 
@@ -18,7 +18,7 @@
         TableLayoutPrevisualisation.ColumnStyles.Clear()
 
         Dim lignes As Integer = CInt(nudLignes.Value)
-        Dim colonnes As Integer = CInt(nudColonnes.Value)
+        Dim colonnes As Integer = lignes * 4
 
         TableLayoutPrevisualisation.RowCount = lignes
         TableLayoutPrevisualisation.ColumnCount = colonnes
@@ -41,27 +41,17 @@
         Next
     End Sub
 
-    Private Sub btnEnregistrer_Click(sender As Object, e As EventArgs) Handles btnEnregistrer.Click
+    Private Sub Enregistrer()
         Dim lignes As Integer = CInt(nudLignes.Value)
-        Dim colonnes As Integer = CInt(nudColonnes.Value)
-        Dim cartesParCarre As Integer = CInt(nudCartesParCarre.Value)
+        Dim colonnes As Integer = lignes * 4
         Dim totalCartes As Integer = lignes * colonnes
 
-        If totalCartes Mod cartesParCarre <> 0 Then
-            MsgBox("Le nombre total de cartes doit être divisible par le nombre de cartes par carré.", vbExclamation, "Erreur")
-            Exit Sub
-        End If
-
         ModuleParametres.LignesPersonnalisees = lignes
-        ModuleParametres.ColonnesPersonnalisees = colonnes
-        ModuleParametres.CartesParCarrePersonnalisees = cartesParCarre
-        ModuleParametres.TempsMaxPersonnalise = CInt(nudTempsMax.Value)
-        ModuleParametres.SauvegarderGrillePersonnalisee()
         MsgBox("Configuration enregistrée avec succès.", MsgBoxStyle.Information, "Confirmation")
     End Sub
 
     Private Sub btnLancer_Click(sender As Object, e As EventArgs) Handles btnLancer.Click
-        btnEnregistrer.PerformClick()
+        Enregistrer()
         Dim formJeu As New FormJeu()
         formJeu.RecupererJoueur(SauvegardeJoueur.P)
         formJeu.ModePersonnalise = True
@@ -70,10 +60,8 @@
     End Sub
 
     Private Sub btnRetour_Click(sender As Object, e As EventArgs) Handles btnRetour.Click
+        ModuleParametres.CochePersonaliser()
         Me.Close()
     End Sub
 
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
-
-    End Sub
 End Class

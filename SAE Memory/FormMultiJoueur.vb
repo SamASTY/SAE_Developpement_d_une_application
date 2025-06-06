@@ -8,7 +8,7 @@ Public Class FormMultiJoueur
     Private scoresJoueurs As New Dictionary(Of String, Integer)
     Private indexJoueurActif As Boolean ' true = J1, false = J2
     Private nbManches As Integer = 3
-    Private tempsParManche As Integer
+    Private tempsParManche As Integer = ModuleParametres.TempsPartie
     Private partieEnCours As Boolean = False
     Private cardsRevealed As New List(Of Label)
     Private cardsFound As Integer = 0
@@ -86,13 +86,6 @@ Public Class FormMultiJoueur
             Joueur1 = cmbox_Joueur1.SelectedItem.ToString
             Joueur2 = cmbox_Joueur2.SelectedItem.ToString
 
-            If difficulte = 0 Then
-                tempsParManche = 20
-            ElseIf difficulte = 1 Then
-                tempsParManche = 40
-            Else
-                tempsParManche = 60
-            End If
             difficulte = ComboBoxDifficulte.SelectedIndex
 
             scoresJoueurs(Joueur1) = 0
@@ -503,7 +496,6 @@ Public Class FormMultiJoueur
 
     Private Sub BtnRegles_Click(sender As Object, e As EventArgs) Handles BtnRegles.Click
         AfficherReglesDuJeu()
-
     End Sub
     Private Sub AfficherReglesDuJeu()
         Dim regles As String = " RÈGLES DU JEU MULTIJOUEUR - MEMORY CARRÉS 🎮" & vbCrLf & vbCrLf &

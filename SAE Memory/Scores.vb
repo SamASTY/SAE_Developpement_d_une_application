@@ -51,7 +51,8 @@
         End If
     End Sub
 
-    Private Sub ComboBoxJoueurValeur_SelectedIndexChanged(sender As Object, e As EventArgs)
+    Private Sub ComboBoxJoueurValeur_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbJoueurValeur.SelectedIndexChanged
+
         If cmbJoueurValeur.SelectedIndex >= 0 Then
             Dim pseudo As String = cmbJoueurValeur.SelectedItem.ToString()
             AfficherDetailsJoueur(pseudo)
@@ -113,7 +114,11 @@
 
     ' Gère la sélection dans n'importe quelle ListBox
     Private Sub AnyListBox_SelectedIndexChanged(sender As Object, e As EventArgs) _
-        Handles lstNoms.SelectedIndexChanged
+    Handles lstNoms.SelectedIndexChanged,
+            lstScores.SelectedIndexChanged,
+            lstTemps.SelectedIndexChanged,
+            lstTmpTot.SelectedIndexChanged,
+            lstNbParties.SelectedIndexChanged
 
         ' Si déjà en train de synchroniser ou aucune sélection, on sort
         If syncingSelection OrElse DirectCast(sender, ListBox).SelectedIndex = -1 Then Return
