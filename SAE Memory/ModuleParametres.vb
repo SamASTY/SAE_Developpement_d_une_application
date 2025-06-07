@@ -9,6 +9,7 @@ Module ModuleParametres
 
     Public ReadOnly Difficulte() As String = {"Debutant", "Intermediaire", "Expert"}
 
+    Public dossierImages As String = "images"
 
     Public DifActuelle As NiveauDifficulte = NiveauDifficulte.Debutant
 
