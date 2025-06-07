@@ -13,8 +13,6 @@ Public Class FormJeu
     Dim CarteRetourne As List(Of Label) ' cartes cliquées en cours
     Dim compteurCarte As Integer = 0 ' compte le nombre de clics en cours
     Dim CarteGagner As List(Of Label) ' cartes validées
-    Public cheminImages As String = Path.Combine(Application.StartupPath, "Images")
-    Public cheminVerso As String = Path.Combine(cheminImages, "verso.jpeg")
     Dim CarteParSet As Integer
     Dim NbreDeSet As Integer
     Dim NombreTypesCartesDefault As Integer = 10
@@ -106,7 +104,7 @@ Public Class FormJeu
         ' Charger l'image verso pour obtenir son ratio
         Dim versoImage As Image = Nothing
         Try
-            versoImage = Image.FromFile(cheminVerso)
+            versoImage = Image.FromFile(ModuleParametres.cheminVerso)
             Dim versoRatio As Single = versoImage.Width / versoImage.Height
 
             ' Calculer la taille des cartes
@@ -174,7 +172,7 @@ Public Class FormJeu
             If TypeOf ctrl Is Label Then
                 Dim lbl As Label = CType(ctrl, Label)
                 If Not CarteGagner.Contains(lbl) Then
-                    lbl.Image = RedimensionnerImage(Image.FromFile(cheminVerso), cardSize)
+                    lbl.Image = RedimensionnerImage(Image.FromFile(ModuleParametres.cheminVerso), cardSize)
                 End If
             End If
         Next
@@ -219,8 +217,8 @@ Public Class FormJeu
             If Not (CarteGagner.Contains(label) Or CarteRetourne.Contains(label)) Then
                 Dim index As Integer = CInt(label.Tag)
                 Dim cheminsPossibles As New List(Of String) From {
-                    Path.Combine(cheminImages, $"{index}.jpeg"),
-                    Path.Combine(cheminImages, $"{index}gris.jpeg")
+                    Path.Combine(ModuleParametres.cheminImages, $"{index}.jpeg"),
+                    Path.Combine(ModuleParametres.cheminImages, $"{index}gris.jpeg")
                 }
 
                 ' Trouve la première image existante
@@ -325,12 +323,12 @@ Public Class FormJeu
         For Each lbl As Label In TableLayoutPlateau.Controls.OfType(Of Label)()
             If lbl.Tag IsNot Nothing Then
                 Dim index As Integer = CInt(lbl.Tag)
-                Dim cheminImage As String = Path.Combine(cheminImages, $"{index}.jpeg")
+                Dim cheminImage As String = Path.Combine(ModuleParametres.cheminImages, $"{index}.jpeg")
 
                 If File.Exists(cheminImage) Then
                     lbl.Image = RedimensionnerImage(Image.FromFile(cheminImage), cardSize)
                 Else
-                    lbl.Image = RedimensionnerImage(Image.FromFile(cheminVerso), cardSize)
+                    lbl.Image = RedimensionnerImage(Image.FromFile(ModuleParametres.cheminVerso), cardSize)
                 End If
             End If
         Next
@@ -363,7 +361,7 @@ Public Class FormJeu
             If Not CarteGagner.Contains(carte) Then
                 Dim index As Integer = CInt(carte.Tag)
                 Dim nomFichier As String = $"{index}.jpeg"
-                Dim chemin As String = Path.Combine(cheminImages, nomFichier)
+                Dim chemin As String = Path.Combine(ModuleParametres.cheminImages, nomFichier)
 
                 If File.Exists(chemin) Then
                     carte.Image = Image.FromFile(chemin)
@@ -394,7 +392,7 @@ Public Class FormJeu
         ' Calculer la nouvelle taille des cartes
         Dim versoImage As Image = Nothing
         Try
-            versoImage = Image.FromFile(cheminVerso)
+            versoImage = Image.FromFile(ModuleParametres.cheminVerso)
             Dim versoRatio As Single = versoImage.Width / versoImage.Height
             Dim colonnes As Integer = TableLayoutPlateau.ColumnCount
             Dim lignes As Integer = TableLayoutPlateau.RowCount
@@ -428,7 +426,7 @@ Public Class FormJeu
                 lbl.Size = cardSize
                 If lbl.Tag IsNot Nothing Then
                     Dim index As Integer = CInt(lbl.Tag)
-                    Dim cheminImage As String = Path.Combine(cheminImages, $"{index}.jpeg")
+                    Dim cheminImage As String = Path.Combine(ModuleParametres.cheminImages, $"{index}.jpeg")
 
                     If File.Exists(cheminImage) Then
                         Using img As Image = Image.FromFile(cheminImage)
@@ -447,7 +445,7 @@ Public Class FormJeu
     End Sub
 
     Private Function GetVersoRatio() As Single
-        Using img As Image = Image.FromFile(cheminVerso)
+        Using img As Image = Image.FromFile(ModuleParametres.cheminVerso)
             Return img.Width / img.Height
         End Using
     End Function

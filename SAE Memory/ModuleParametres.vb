@@ -11,6 +11,18 @@ Module ModuleParametres
 
     Public dossierImages As String = "images"
 
+    Public ReadOnly Property cheminImages As String
+        Get
+            Return Path.Combine(Application.StartupPath, dossierImages)
+        End Get
+    End Property
+
+    Public ReadOnly Property cheminVerso As String
+        Get
+            Return Path.Combine(cheminImages, "verso.jpeg")
+        End Get
+    End Property
+
     Public DifActuelle As NiveauDifficulte = NiveauDifficulte.Debutant
 
     Public Const TempsPartie As Integer = 60

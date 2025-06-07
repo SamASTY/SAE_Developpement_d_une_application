@@ -105,7 +105,7 @@ Public Class formOptions
         For Each file In files
             Dim fileName As String = Path.GetFileName(file)
 
-            If regex.IsMatch(fileName) Then
+            If regex.IsMatch(fileName) OrElse String.Equals(fileName, "verso.jpeg", StringComparison.OrdinalIgnoreCase) Then
                 Dim destPath As String = Path.Combine(dossierCustom, fileName)
 
                 Try
@@ -115,7 +115,7 @@ Public Class formOptions
                     MessageBox.Show("Erreur lors de la copie : " & ex.Message)
                 End Try
             Else
-                MessageBox.Show("Nom de fichier invalide (attendu : chiffre.jpeg) → " & fileName, "Fichier ignoré", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                MessageBox.Show("Nom de fichier invalide (attendu : chiffre.jpeg ou verso.jpeg) → " & fileName, "Fichier ignoré", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
         Next
     End Sub
