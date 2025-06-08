@@ -21,6 +21,7 @@ Public Class FormJeu
     Dim IndiceUtilsier As Boolean = False
     Public ModePersonnalise As Boolean = False
     Private cardSize As New Size(100, 120) ' Taille de base des cartes
+    Private etatCartes As New Dictionary(Of Label, Boolean)
 
     ' Récupère le pseudo envoyé par l'écran d'accueil
     Public Sub RecupererJoueur(J As String)
@@ -145,6 +146,7 @@ Public Class FormJeu
                 }
                 AddHandler lbl.Click, AddressOf Carte_Click
                 TableLayoutPlateau.Controls.Add(lbl)
+                etatCartes(lbl) = False ' etat verso
             Next
 
             ' Ajuster la taille totale du TableLayoutPanel
@@ -231,7 +233,7 @@ Public Class FormJeu
                     label.BackColor = Color.LightGray
                     label.Text = index.ToString() ' Affiche le numéro si l'image est manquante
                 End If
-
+                etatCartes(label) = True ' carte trouve
                 compteurCarte += 1
                 CarteRetourne.Add(label)
 
@@ -424,17 +426,25 @@ Public Class FormJeu
             ' Redimensionner toutes les images
             For Each lbl As Label In TableLayoutPlateau.Controls.OfType(Of Label)()
                 lbl.Size = cardSize
+
                 If lbl.Tag IsNot Nothing Then
                     Dim index As Integer = CInt(lbl.Tag)
-                    Dim cheminImage As String = Path.Combine(ModuleParametres.cheminImages, $"{index}.jpeg")
 
-                    If File.Exists(cheminImage) Then
-                        Using img As Image = Image.FromFile(cheminImage)
-                            lbl.Image = RedimensionnerImage(img, cardSize)
-                        End Using
+                    ' Choisir l’image selon l’état
+                    Dim imageAUtiliser As Image
+                    If etatCartes.ContainsKey(lbl) AndAlso etatCartes(lbl) = True Then                        ' Face visible
+                        Dim cheminImage As String = Path.Combine(ModuleParametres.cheminImages, $"{index}.jpeg")
+                        If File.Exists(cheminImage) Then
+                            imageAUtiliser = Image.FromFile(cheminImage)
+                        Else
+                            imageAUtiliser = CType(versoImage.Clone(), Image)
+                        End If
                     Else
-                        lbl.Image = RedimensionnerImage(versoImage, cardSize)
+                        ' Carte cachée (verso)
+                        imageAUtiliser = CType(versoImage.Clone(), Image)
                     End If
+
+                    lbl.Image = RedimensionnerImage(imageAUtiliser, cardSize)
                 End If
             Next
         Catch ex As Exception

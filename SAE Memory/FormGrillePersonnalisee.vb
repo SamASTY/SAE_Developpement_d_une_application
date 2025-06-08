@@ -1,4 +1,7 @@
-﻿Public Class FormGrillePersonnalisee
+﻿Imports System.IO
+
+Public Class FormGrillePersonnalisee
+    Const colonnes As Integer = 4
     Private Sub FormGrillePersonnalisee_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Charger les paramètres actuels
         nudLignes.Value = 4
@@ -18,7 +21,6 @@
         TableLayoutPrevisualisation.ColumnStyles.Clear()
 
         Dim lignes As Integer = CInt(nudLignes.Value)
-        Dim colonnes As Integer = lignes * 4
 
         TableLayoutPrevisualisation.RowCount = lignes
         TableLayoutPrevisualisation.ColumnCount = colonnes
@@ -41,17 +43,28 @@
         Next
     End Sub
 
-    Private Sub Enregistrer()
-        Dim lignes As Integer = CInt(nudLignes.Value)
-        Dim colonnes As Integer = lignes * 4
-        Dim totalCartes As Integer = lignes * colonnes
+    Private Function Enregistrer() As Boolean
+        Dim nbLignes As Integer = CInt(nudLignes.Value)
+        Dim totalCartes As Integer = nbLignes * colonnes
 
-        ModuleParametres.LignesPersonnalisees = lignes
-        MsgBox("Configuration enregistrée avec succès.", MsgBoxStyle.Information, "Confirmation")
-    End Sub
+        Dim groupesImagesNecessaires As Integer = totalCartes / 4
+        Dim imagesDisponibles As Integer = CompterImagesDisponibles()
+        Dim versoOK As Boolean = File.Exists(ModuleParametres.cheminVerso)
+
+        If imagesDisponibles < groupesImagesNecessaires OrElse Not versoOK Then
+            MessageBox.Show($"Erreur : {groupesImagesNecessaires} images différentes requises." & Environment.NewLine &
+                            $"Images disponibles : {imagesDisponibles}, Verso présent : {versoOK}",
+                            "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        End If
+
+        ModuleParametres.LignesPersonnalisees = nbLignes
+        MessageBox.Show("Configuration enregistrée avec succès.", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Return True
+    End Function
 
     Private Sub btnLancer_Click(sender As Object, e As EventArgs) Handles btnLancer.Click
-        Enregistrer()
+        If Not Enregistrer() Then Exit Sub
         Dim formJeu As New FormJeu()
         formJeu.RecupererJoueur(SauvegardeJoueur.P)
         formJeu.ModePersonnalise = True

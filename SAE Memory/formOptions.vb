@@ -148,13 +148,13 @@ Public Class formOptions
     End Sub
 
     Private Sub chkCustom_CheckedChanged(sender As Object, e As EventArgs) Handles chkCustom.CheckedChanged
-        Dim dossierCustom As String = "custom/images"
+        Dim dossierCustom As String = Path.Combine(Application.StartupPath, "Custom")
 
         If chkCustom.Checked Then
-            If IO.Directory.Exists(dossierCustom) AndAlso IO.Directory.GetFiles(dossierCustom, "*.png").Length > 0 Then
+            If IO.Directory.Exists(dossierCustom) AndAlso IO.Directory.GetFiles(dossierCustom, "*.jpeg").Length > 0 Then
                 ModuleParametres.dossierImages = dossierCustom
             Else
-                MessageBox.Show("Le dossier 'custom/images' est vide ou n'existe pas.")
+                MessageBox.Show("Le dossier 'Custom' est vide ou n'existe pas.")
                 chkCustom.Checked = False
                 ModuleParametres.dossierImages = "images"
             End If

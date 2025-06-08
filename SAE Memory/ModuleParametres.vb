@@ -49,6 +49,14 @@ Module ModuleParametres
     Public Sub CochePersonaliser()
         Personaliser = Not Personaliser
     End Sub
+    Public Function CompterImagesDisponibles() As Integer
+        Return Directory.GetFiles(cheminImages, "*.jpeg").
+           Count(Function(f)
+                     Dim nomFichier As String = Path.GetFileNameWithoutExtension(f).ToLower()
+                     ' Vérifie que le nom est uniquement un nombre entier
+                     Return Integer.TryParse(nomFichier, Nothing)
+                 End Function)
+    End Function
 
 
 

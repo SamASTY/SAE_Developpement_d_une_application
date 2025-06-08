@@ -18,6 +18,7 @@
     End Sub
 
     Private Sub btnJeu_Click(sender As Object, e As EventArgs) Handles btnJeu.Click
+
         SauvegardeJoueur.ChargerDepuisFichier()
         SauvegardeJoueur.P = cmbPrenom.Text
         Dim formJeu As New FormJeu()
