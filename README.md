@@ -1,8 +1,40 @@
-# Projet académique – Jeu Memory en Visuel Basic
-2025 - Projet de première année de BUT informatique en Visual Basic.
-#### Objectif : faire un jeu de memory jouable en solo, en duo, avec differentes options comme des difficultés différentes.
-## Prérequis
-Utiliser VS Community et avoir d'installer Visual Basic et Windows Forms (.NET Framework)
-## Remarque
-Ce projet comporte des incoherences dans les règles et des bugs dans l'import de carte personnel.
-Ce jeu n'est pas adaptable à tous les ecrans, il comporte des erreurs de responsivité.
+# 🧠 Projet académique – Jeu Memory en Visual Basic  
+🗓️ 2025 - Projet de première année de BUT Informatique
+
+---
+
+## 🎯 Objectif
+
+Développer un **jeu de Memory** en **Visual Basic** avec interface graphique (Windows Forms), proposant :
+
+- 🎮 Un mode **solo** ou **duo**
+- ⚙️ Plusieurs **niveaux de difficulté**
+- 🃏 Une option pour importer des **cartes personnalisées**
+
+Le jeu vise à mettre en œuvre des compétences en **programmation événementielle**, en **gestion de l’interface utilisateur**, et en **structures de données simples**.
+
+---
+
+## 🛠️ Prérequis
+
+Avant de pouvoir lancer et tester le jeu, vous devez disposer de :
+
+- 💻 **Visual Studio Community** (version récente recommandée)
+- 🔧 Extension **Visual Basic** installée
+- 🪟 Projet basé sur **Windows Forms (.NET Framework)**
+
+---
+
+## ⚠️ Remarques
+
+- ❌ Ce projet comporte certaines **incohérences dans les règles** de jeu.
+- 🐞 Il peut présenter des **bugs lors de l'import de cartes personnalisées**.
+- 📐 L’interface **n’est pas responsive** : le jeu n’est pas pleinement **adapté à tous les écrans**.
+
+---
+
+## ▶️ Lancement
+
+1. Ouvrir le fichier `.sln` dans Visual Studio.
+2. Vérifier que le projet utilise bien **Windows Forms Application (.NET Framework)**.
+3. Cliquer sur **Start** ou appuyer sur `F5` pour lancer le jeu.
